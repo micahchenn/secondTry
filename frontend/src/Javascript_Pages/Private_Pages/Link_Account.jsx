@@ -3,16 +3,16 @@ import api from '../../api';
 import '../../Styling_Pages/Private_Pages/Link_Account.css'; // Import the CSS file
 
 class Link_Account extends React.Component {
-  linkAccount = async () => {
-    try {
-      const response = await api.post('/link-account', {
-        // Add any data you need to send here
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error('Failed to link account:', error);
+    linkAccount = async () => {
+        try {
+            const userId = localStorage.getItem('userId'); // replace this with how you're getting the user ID
+            const data = { client_user_id: userId };
+            const response = await api.post('plaid/create_plaid_user/', data);
+            console.log(response.data);
+        } catch (error) {
+            console.error('Failed to link account:', error);
+        }
     }
-  }
 
   render() {
     return (
