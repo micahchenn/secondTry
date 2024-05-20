@@ -14,9 +14,9 @@
  * (We created a translate a error at the bottom of the file to handle different error cases for HTTP response status codes.)
  */
 import { useState } from "react";
-import api from "../api";
+import api from "../../api";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../Constants";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../Constants";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -31,7 +31,7 @@ function Login() {
             const res = await api.post("authenticate/user-login/", { username, password }); //res sends a post to the server to login
             localStorage.setItem(ACCESS_TOKEN, res.data.access); //if it is successful, the access and refresh token is stored in local storage
             localStorage.setItem(REFRESH_TOKEN, res.data.refresh); 
-            navigate("/link-account");
+            navigate("/my-dashboard");
         } catch (error) {
             setError(translateError(error));
         } finally {

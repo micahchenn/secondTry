@@ -9,9 +9,12 @@ import '../Styling_Pages/App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Protected_Route from '../Components/Protected_Route'; // Make sure to adjust the path to where your Protected_Route component is located
-import Login from './Login_Page'; // Make sure to adjust the path to where your Login component is located
-import Signup from './Signup_Page';
+import Login from './Public_Pages/Login_Page'; // Make sure to adjust the path to where your Login component is located
+import Signup from './Public_Pages/Signup_Page';
 import Link_Account from './Private_Pages/Link_Account';
+import Welcome_Page from './Public_Pages/Welcome_Page';
+import Dashboard from './Private_Pages/Dashboard';
+
 
 
 
@@ -19,8 +22,16 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/welcome" element={<Welcome_Page />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
+        <Route path="/my-dashboard" element={
+          <Protected_Route>
+            <Dashboard />
+          </Protected_Route>
+        } />
+
         <Route path="/link-account" element={
           <Protected_Route>
             <Link_Account />

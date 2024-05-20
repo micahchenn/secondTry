@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../../api';
+import '../../Styling_Pages/Private_Pages/Link_Account.css'; // Import the CSS file
 
 class Link_Account extends React.Component {
   linkAccount = async () => {
@@ -15,9 +16,9 @@ class Link_Account extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Link Account</h1>
-        <button onClick={this.linkAccount}>Link Account</button>
+      <div className="link-account">
+        <h1>Link Accountasd</h1>
+        <button className="link-account-button" onClick={this.linkAccount}>Link Account</button>
       </div>
     );
   }
