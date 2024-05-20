@@ -15,7 +15,6 @@ function Logout(){
 function RegisterAndLogout(){
   localStorage.clear()
   return <Register />
-
 }
 
 
