@@ -31,7 +31,7 @@ function Login() {
             const res = await api.post("authenticate/user-login/", { username, password }); //res sends a post to the server to login
             localStorage.setItem(ACCESS_TOKEN, res.data.access); //if it is successful, the access and refresh token is stored in local storage
             localStorage.setItem(REFRESH_TOKEN, res.data.refresh); 
-            navigate("/");
+            navigate("/link-account");
         } catch (error) {
             setError(translateError(error));
         } finally {
