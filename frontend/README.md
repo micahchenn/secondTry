@@ -26,10 +26,7 @@ This project uses several dependencies:
 - `jwt-decode`: A small browser library that helps decoding JSON Web Tokens (JWTs) to extract and use the encoded data.
 - `dotenv`: A zero-dependency module that loads environment variables from a `.env` file into `process.env`. It's used to handle project configuration.
 
-To install these dependencies, run the following command:
-
-```bash
-npm install axios react-router-dom jwt-decode dotenv
+To install these dependencies, run the following command: npm install axios react-router-dom jwt-decode dotenv
 
 ## Acknowledgements
 
