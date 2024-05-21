@@ -1,5 +1,11 @@
-/// This file sets up a pre-configured instance of axios for making HTTP requests to the server.
-// It also sets up an interceptor that adds an Authorization header to each request if an access token is present in local storage.
+/**
+* @file api.js
+* @author Micah Chen
+* @description This module exports a pre-configured instance of axios for making HTTP requests to the server.
+* It includes an interceptor that automatically adds an Authorization header to each request, using an access token from local storage if available.
+* This ensures that all requests are authenticated if the user is logged in.
+*/
+
 
 import axios from 'axios';
 import { ACCESS_TOKEN } from './Constants';
@@ -12,7 +18,7 @@ api.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem(ACCESS_TOKEN);
         if (token) {
-            config.headers.Authorization = `Bearer ${token}`; // jwt token
+            config.headers.Authorization = `Bearer ${token}`; // jwt token added `Bearer ` to the token for syntax
         }
         return config;
     },
