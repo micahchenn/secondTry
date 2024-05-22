@@ -4,7 +4,8 @@
 
 - [Overview](#overview)
 - [Module and Code Structure Overview](#module-and-code-structure-overview)
-- [URL Routing][#url-routing]
+- [URL Routing](#url-routing)
+- [Plaid Connection](#plaid-connection)
 - [Installation](#installation)
 - [Acknowledgements](#acknowledgements)
 - [Contributors](#contributors)
@@ -23,7 +24,11 @@ Our frontend application is secured with JWT tokens, which are managed using int
 
 - `.env`: This file stores environment variables, including the URL for the backend server connection. When deploying, remember to change the `.env` file to point to the actual backend server URL.
 
-- `index.js`: This is the entry point of our application. It contains the root div where our main `App.js` component is rendered.
+- `index.html` : This is the main HTML file that is loaded when a user visits your site. It includes a script tag that loads the `index.js` file, and it also includes the Plaid Link script (https://cdn.plaid.com/link/v2/stable/link-initialize.js). The Plaid Link script is necessary for using Plaid's Link product, which provides a secure, elegant authentication flow for users to connect their bank accounts to your application. 
+
+- `index.js`: This is the entry point of our application. It contains the root div where our main `App.js` component is rendered. 
+
+- `Protected Route`: This mechanism checks if a user is logged in when they attempt to access a protected route. If logged in, they receive a pair of tokens - an access token (short-lived) and a refresh token (longer lifespan). When navigating to a page that requires authentication, we verify the access token. If it's expired, we use the refresh token to generate a new access token. If the refresh token is also expired, the user is prompted to log in again.
 
 - `src`: This is the main directory where the majority of our code resides. It contains the following subdirectories and files:
 
@@ -35,6 +40,23 @@ Our frontend application is secured with JWT tokens, which are managed using int
 
 
 ## URL Routing
+
+
+
+## Plaid Connection
+
+Our application integrates with Plaid to securely connect with users' bank accounts. The process is as follows:
+
+1. We initiate the linking process by sending a POST request to our server to create a Plaid link token.
+2. This link token is used to open the Plaid Link module.
+3. If the user successfully links their account, the Plaid Link module returns a public token.
+4. We send this public token to our server to exchange it for an access token.
+5. We use this access token to send requests to the Plaid API to retrieve the user's account data.
+6. If the request is successful, we update the `accountData` state with the response data.
+
+This process is implemented in the `Link_Account` component of our application.
+ 
+
 
 ## Installation
 
