@@ -36,8 +36,8 @@ const Link_Account = () => {
                 onSuccess: async (publicToken) => { // If the user successfully links their account, the Plaid Link module will return a public token
                     const response = await api.post('/plaid/get-access-token/', { publicToken });  // The public token is sent to the server to exchange it for an access token (then securely stored in server side)
                     const accessToken = response.data.access_token; // with the access token you can send requests to the Plaid API to get the user's account data
-                    const userDataResponse = await api.post('/plaid/get-user-data/', { access_token: accessToken });
-                    setAccountData(userDataResponse.data); 
+                    //const userDataResponse = await api.post('/plaid/get-user-data/', { access_token: accessToken });
+                    //setAccountData(userDataResponse.data); 
                 },
             });
             handler.open(); // The Plaid Link module is opened 
@@ -46,10 +46,23 @@ const Link_Account = () => {
         }
     }
 
+    const [responseData, setResponseData] = useState(null);
+
+    const sendTestRequest = async () => {
+        try {
+            const response = await api.get('plaid/test-endpoint/');
+            setResponseData(JSON.stringify(response.data, null, 2));
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <div className="link-account">
             <h1>Link Accountasd</h1>
             <button className="link-account-button" onClick={linkAccount}>Link Account</button>
+            <button className="test-request-button" onClick={sendTestRequest}>Send Test Request</button>
+            {responseData && <pre>{responseData}</pre>}
             {error && <p className="error-message">{error}</p>}
             {accountData && (
                 <table>
@@ -63,18 +76,12 @@ const Link_Account = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>{accountData.item.institution_id}</td>
-                            <td>{accountData.item.item_id}</td>
-                            <td>{accountData.item.available_products.join(', ')}</td>
-                            <td>{accountData.item.billed_products.join(', ')}</td>
-                            {/* Add more cells as needed */}
-                        </tr>
+                        {/* ...existing code... */}
                     </tbody>
                 </table>
             )}
         </div>
     );
-}
+};
 
 export default Link_Account;
