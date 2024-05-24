@@ -36,7 +36,7 @@ const Link_Account = () => {
                 onSuccess: async (publicToken) => { // If the user successfully links their account, the Plaid Link module will return a public token
                     const response = await api.post('/plaid/get-access-token/', { publicToken });  // The public token is sent to the server to exchange it for an access token (then securely stored in server side)
                     const accessToken = response.data.access_token; // with the access token you can send requests to the Plaid API to get the user's account data
-                    //const userDataResponse = await api.post('/plaid/get-user-data/', { access_token: accessToken });
+                    const userDataResponse = await api.post('/plaid/get-user-data/', { access_token: accessToken });
                     //setAccountData(userDataResponse.data); 
                 },
             });
@@ -62,7 +62,11 @@ const Link_Account = () => {
             <h1>Link Accountasd</h1>
             <button className="link-account-button" onClick={linkAccount}>Link Account</button>
             <button className="test-request-button" onClick={sendTestRequest}>Send Test Request</button>
-            {responseData && <pre>{responseData}</pre>}
+            {responseData && 
+            <pre style={{ maxHeight: '500px', overflowY: 'scroll' }}>
+                {responseData}
+            </pre>
+        }
             {error && <p className="error-message">{error}</p>}
             {accountData && (
                 <table>
