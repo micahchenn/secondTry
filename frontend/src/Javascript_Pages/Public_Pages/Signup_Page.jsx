@@ -2,6 +2,7 @@
  * @file Signup_Page.jsx
  * @author Micah Chen
  * @date Last Modified: 5/20/2024
+ * @returns JSX.Element
  *
  * Description: This file contains the implementation of the signup page. The signup functionality is achieved by sending a POST request
  * to the server with the user's username, email, and password. This request is facilitated by an Axios instance, which is defined

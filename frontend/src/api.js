@@ -6,7 +6,6 @@
 * This ensures that all requests are authenticated if the user is logged in.
 */
 
-
 import axios from 'axios';
 import { ACCESS_TOKEN } from './Constants';
 

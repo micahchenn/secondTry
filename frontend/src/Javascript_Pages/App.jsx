@@ -14,6 +14,7 @@ import Signup from './Public_Pages/Signup_Page';
 import Link_Account from './Private_Pages/Link_Account';
 import Welcome_Page from './Public_Pages/Welcome_Page';
 import Dashboard from './Private_Pages/Dashboard';
+import Investments_Summary from './Private_Pages/Investments_Summary';
 
 
 
@@ -37,6 +38,13 @@ function App() {
             <Link_Account />
           </Protected_Route>
         } />
+
+        <Route path="/investments-summary" element={
+          <Protected_Route>
+            <Investments_Summary />
+          </Protected_Route>
+        } />
+
         <Route path="/" element={
           <Protected_Route>
             <div className="App">
