@@ -1,18 +1,24 @@
 /* Welcome_Page.css */
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  
 
 
 .welcome-page {
     background-color: black;
     color: white;
     min-height: 100vh;
-    padding-top: 70px;
+    padding-top: 170px;
     display: flex; /* Add this line */
     flex-direction: column; /* Add this line */
     justify-content: space-between; /* Add this line */
   }
   
 .welcome-text {
-    background: linear-gradient(90deg, #FFF 1.63%, rgba(255, 255, 255, 0) 103.32%);
+    animation: fadeIn 2s ease-in-out;
+    background: linear-gradient(90deg, #FFF 1.63%, rgba(255, 255, 255, 0.715) 103.32%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
