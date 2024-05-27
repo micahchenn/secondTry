@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+
 import api from '../../api';
 import '../../Styling_Pages/Private_Pages/Investments_Summary.css';
+import React, { useState, useEffect } from 'react';
+
+import { Table } from 'react-bootstrap';
 
 const InvestmentsSummary = () => {
     const [data, setData] = useState(null);
@@ -29,7 +32,36 @@ const InvestmentsSummary = () => {
 
     return (
         <div className="investments-summary">
-            <pre>{JSON.stringify(data, null, 2)}</pre>
+            {data.accounts.map((account, index) => (
+                <div key={index}>
+                    <h2>Account: {account.name}</h2>
+                    <p>Official Name: {account.official_name}</p>
+                    <p>Type: {account.type}</p>
+                    <p>Subtype: {account.subtype}</p>
+                    <p>Institution ID: {account.institution_id}</p>
+
+                    <h3>Holdings:</h3>
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Security Name</th>
+                                <th>Cost Basis</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {account.holdings.map((holding, index) => (
+                                <tr key={index}>
+                                    <td>{holding.security.name}</td>
+                                    <td>{holding.cost_basis}</td>
+                                    <td>{holding.quantity}</td>
+                                    
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                </div>
+            ))}
         </div>
     );
 };

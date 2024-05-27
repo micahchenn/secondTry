@@ -1,8 +1,9 @@
-body {
+.link-account-body {
   background: linear-gradient(to bottom, #B3C8C2, #A1B6BC);
   color: white;
   font-family: Arial, sans-serif;
 }
+
 
 .link-account {
   height: 100vh;

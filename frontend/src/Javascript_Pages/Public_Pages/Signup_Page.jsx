@@ -22,6 +22,7 @@
 import { useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
+import '../../Styling_Pages/Public_Pages/Signup_Page.css';
 //import { ACCESS_TOKEN, REFRESH_TOKEN } from "../Constants";
 
 function Signup() {
@@ -47,34 +48,36 @@ function Signup() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="form-container">
-            <h1>Signup</h1>
-            {error && <p className="error-message">{error}</p>}
-            <input
-                className="form-input"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Username"
-            />
-            <input
-                className="form-input"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-            />
-            <input
-                className="form-input"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-            />
-            <button className="form-button" type="submit">
-                Signup
-            </button>
-        </form>
+        <div className="signup-page">
+            <form onSubmit={handleSubmit} className="signup-form-container">
+                <h1>Signup</h1>
+                {error && <p className="signup-error-message">{error}</p>}
+                <input
+                    className="signup-form-input"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Username"
+                />
+                <input
+                    className="signup-form-input"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                />
+                <input
+                    className="signup-form-input"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Password"
+                />
+                <button className="signup-form-button" type="submit">
+                    Signup
+                </button>
+            </form>
+        </div>
     );
 }
 

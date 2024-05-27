@@ -15,13 +15,19 @@ import Link_Account from './Private_Pages/Link_Account';
 import Welcome_Page from './Public_Pages/Welcome_Page';
 import Dashboard from './Private_Pages/Dashboard';
 import Investments_Summary from './Private_Pages/Investments_Summary';
+import Header from './Static_Elements/Header';
+import User_Header from './Static_Elements/User_Header';
 
 
+import { useLocation } from 'react-router-dom';
 
+function HeaderWrapper() {
+  const location = useLocation();
+  const isWelcomePage = location.pathname === '/welcome';
 
-function App() {
   return (
-    <Router>
+    <>
+      {isWelcomePage ? <Header /> : <User_Header />}
       <Routes>
         <Route path="/welcome" element={<Welcome_Page />} />
         <Route path="/login" element={<Login />} />
@@ -53,6 +59,14 @@ function App() {
           </Protected_Route>
         } />
       </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <HeaderWrapper />
     </Router>
   );
 }
