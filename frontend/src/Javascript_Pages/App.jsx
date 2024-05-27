@@ -17,7 +17,7 @@ import Dashboard from './Private_Pages/Dashboard';
 import Investments_Summary from './Private_Pages/Investments_Summary';
 import Header from './Static_Elements/Header';
 import User_Header from './Static_Elements/User_Header';
-
+import Stock_Watchlist from './Private_Pages/Stock_Watchlist';
 
 import { useLocation } from 'react-router-dom';
 
@@ -32,6 +32,7 @@ function HeaderWrapper() {
         <Route path="/welcome" element={<Welcome_Page />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/stock-watchlist" element={<Stock_Watchlist/>} />
 
         <Route path="/my-dashboard" element={
           <Protected_Route>
