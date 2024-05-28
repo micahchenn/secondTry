@@ -13,8 +13,8 @@ const User_Header = () => {
   }
 
   return (
-    <p>hi</p>
-    /*
+    
+    
     <header className="user-header">
       <div className="logo-title">
         <img src={Logo} alt="Harbinger Logo" className="logo" />
@@ -30,7 +30,7 @@ const User_Header = () => {
         <Link to="/signup" className="header-signup">Sigadsfn up</Link>
       </div>
     </header>
-    */
+    
   );
 };
 

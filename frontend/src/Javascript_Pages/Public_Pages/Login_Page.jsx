@@ -17,6 +17,7 @@ import { useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../Constants";
+import "../../Styling_Pages/Public_Pages/Login_Page.css";
 
 function Login() {
     const [username, setUsername] = useState("");
