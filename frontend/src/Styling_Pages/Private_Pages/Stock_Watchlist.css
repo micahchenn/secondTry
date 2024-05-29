@@ -1,28 +1,23 @@
 .stock-watchlist {
-    background-color: black;
     display: grid;
-    grid-template-columns: 2fr 2fr; /* Adjust this to allocate more space to the second column */
-    padding: 70px;
+    grid-template-columns: 1fr;
     gap: 20px;
-    color:aliceblue;
+    padding: 70px 30px 70px 70px; /* top, right, bottom, left */
+    background-color: rgb(0, 0, 0);
 }
 
-.stock-watchlist .chart-container {
-    height: 500px;
-    width: 900px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: lightgray 0% 0% / 100px 100px repeat, radial-gradient(146.13% 118.42% at 50% -15.5%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 99.59%), linear-gradient(180deg, rgba(46, 51, 90, 0.00) 0%, rgba(28, 27, 51, 0.10) 100%);
-    box-shadow: 0px 00px 400px 0px rgba(204, 215, 255, 0.174) inset, 0px 5px 10px 0px rgba(0, 0, 0, 0.05), 0px 15px 30px 0px rgba(0, 0, 0, 0.05), 0px 30px 60px 0px rgba(0, 0, 0, 0.10);
-    backdrop-filter: blur(10px);
+/* When the viewport is 600px or wider, split into 2 columns with the first column twice as wide as the second */
+@media (min-width: 600px) {
+    .stock-watchlist {
+        grid-template-columns: 9fr 5fr;
+    }
 }
+
 
 .centered-content h1, .centered-content h2 {
     color: white;
 }
-.stock-watchlist {
-    background-color: black;
-}
+
 
 .stock-name-header {
     text-align: left;
@@ -62,4 +57,13 @@
     background-color: #fff;
     border: 1px solid #ccc;
     z-index: 1;
+}
+
+.grid-item {
+    background-color: #000000 !important; /* Change the background color to black */
+    border-color: #000000 !important; /* Change the border color to black */
+}
+
+.second-column-first-item {
+    margin-top: 63px;
 }
