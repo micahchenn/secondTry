@@ -59,7 +59,7 @@ function HeaderWrapper() {
         <Route path="/" element={
           <Protected_Route>
             <div className="App">
-              <h1>Welcome to the Front Page this is the reason I hate coding</h1>
+              <h1>Welcome to the Front Page this is the reason I hate i love it actally coding</h1>
             </div>
           </Protected_Route>
         } />
