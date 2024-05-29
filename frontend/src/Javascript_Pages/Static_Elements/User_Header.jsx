@@ -4,6 +4,8 @@ import '../../Styling_Pages/Static_Elements/User_Header.css';
 import Logo from '../../Styling_Pages/Public_Pictures/Harbinger_Logo.png';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const User_Header = () => {
   const location = useLocation();
@@ -13,8 +15,6 @@ const User_Header = () => {
   }
 
   return (
-    
-    
     <header className="user-header">
       <div className="logo-title">
         <img src={Logo} alt="Harbinger Logo" className="logo" />
@@ -25,12 +25,11 @@ const User_Header = () => {
         <a href="#what-we-offer" className="hover-element">What We Offer</a>
         <a href="#invest" className="hover-element">Invest</a>
       </div>
-      <div className="button-container">
-        <Link to="/login" className="hover-login">Loasdfasdfg in</Link>
-        <Link to="/signup" className="header-signup">Sigadsfn up</Link>
+      <div className="premium-profile">
+        <span>Premium</span>
+        <FontAwesomeIcon icon={faUser} size= 'lg' />
       </div>
     </header>
-    
   );
 };
 
