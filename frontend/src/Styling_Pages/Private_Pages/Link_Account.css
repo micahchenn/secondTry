@@ -1,0 +1,36 @@
+.link-account-body {
+  background: linear-gradient(to bottom, #B3C8C2, #A1B6BC);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+
+.link-account {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-account h1 {
+  color: white;
+}
+
+.link-account-button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.link-account-button:hover {
+  background-color: #FFFF;
+  color: black;
+}
