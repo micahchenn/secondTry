@@ -18,6 +18,8 @@ import Investments_Summary from './Private_Pages/Investments_Summary';
 import Header from './Static_Elements/Header';
 import User_Header from './Static_Elements/User_Header';
 import Stock_Watchlist from './Private_Pages/Stock_Watchlist';
+import Sidebar from './Static_Elements/Sidebar';
+import Test_Grid from './Public_Pages/Test_Grid';
 
 import { useLocation } from 'react-router-dom';
 
@@ -28,11 +30,13 @@ function HeaderWrapper() {
   return (
     <>
       {isWelcomePage ? <Header /> : <User_Header />}
+      {!isWelcomePage && <Sidebar />} {/* Display Sidebar when not on welcome page */}
       <Routes>
         <Route path="/welcome" element={<Welcome_Page />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/stock-watchlist" element={<Stock_Watchlist/>} />
+        <Route path="/grid" element={<Test_Grid/>} />
 
         <Route path="/my-dashboard" element={
           <Protected_Route>

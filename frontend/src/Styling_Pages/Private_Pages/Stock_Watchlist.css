@@ -1,5 +1,5 @@
 .stock-watchlist {
-    background-color: black;
+    background-color: rgb(190, 151, 151);
     display: grid;
     grid-template-columns: 2fr 2fr; /* Adjust this to allocate more space to the second column */
     padding: 70px;
@@ -21,7 +21,7 @@
     color: white;
 }
 .stock-watchlist {
-    background-color: black;
+    background-color: rgb(96, 54, 54);
 }
 
 .stock-name-header {
@@ -62,4 +62,27 @@
     background-color: #fff;
     border: 1px solid #ccc;
     z-index: 1;
+}
+
+.news-sentiment-column {
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: lightgray 0% 0% / 100px 100px repeat, radial-gradient(146.13% 118.42% at 50% -15.5%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 99.59%), linear-gradient(180deg, rgba(46, 51, 90, 0.00) 0%, rgba(28, 27, 51, 0.10) 100%);
+    box-shadow: 0px 00px 400px 0px rgba(204, 215, 255, 0.174) inset, 0px 5px 10px 0px rgba(0, 0, 0, 0.05), 0px 15px 30px 0px rgba(0, 0, 0, 0.05), 0px 30px 60px 0px rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(10px);
+}
+
+.news-sentiment-column::-webkit-scrollbar {
+    width: 4px;
+}
+
+.news-sentiment-column::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.news-sentiment-column::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 1px;
 }

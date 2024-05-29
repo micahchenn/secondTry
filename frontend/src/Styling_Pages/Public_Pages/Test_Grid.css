@@ -1,0 +1,25 @@
+.grid-wrapper {
+    background-color: black;
+    padding: 65px 0 0 60px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+    gap: 5px;
+    height: calc(100vh - 65px);
+    border: 1px solid #ccc;
+    background: white;
+  }
+  
+  .large-box {
+    grid-column: 1 / span 15;
+    grid-row: 4 / span 18;
+    background-color: #ddd;
+  }
+  
+  .grid-item {
+    border: 1px solid #ccc;
+    background-color: #eee;
+  }

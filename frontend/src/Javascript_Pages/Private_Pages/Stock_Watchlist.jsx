@@ -20,6 +20,16 @@ function Stock_Watchlist() {
     const [searchResults, setSearchResults] = useState([]);
     const [searchTimeout, setSearchTimeout] = useState(null);
     const [selectedStock, setSelectedStock] = useState(null);
+    const [newsSentiment, setNewsSentiment] = useState(null); // State for storing the news sentiment
+
+
+
+// rest of your functions
+
+
+
+
+
 
     let mostRecentPrice;
     if (data) {
@@ -78,6 +88,8 @@ function Stock_Watchlist() {
             setSelectedStock(selected);
             setJsonResponse(JSON.stringify(response.data, null, 2));
             setError(null);
+            const newsSentimentResponse = await api.get(`/stocks/news-sentiment?tickers=${symbol}`);
+            setNewsSentiment(newsSentimentResponse.data);
         } catch (error) {
             setError(error.message);
             setData(null);
@@ -90,8 +102,8 @@ function Stock_Watchlist() {
             {
                 label: 'Stock Price',
                 data: data ? Object.values(data).map(item => item['4. close']).reverse() : [],
-                fill: false,
-                backgroundColor: color, // Change the color here
+                fill: true, // Fill the area under the line
+                backgroundColor: color + '66', // Lighter color for the fill
                 borderColor: color,
                 pointRadius: 0,
             },
@@ -190,7 +202,7 @@ function Stock_Watchlist() {
         <div className="stock-watchlist">
             <div 
                 className="blur-effect" 
-                style={{ backgroundImage: `url(${blurImage})` }} // Set the background image here 
+                /*style={{ backgroundImage: `url(${blurImage})` }} */// Set the background image here 
             ></div> {/* This will be the blurred background */}
             <div className="left-aligned-content">
                 {selectedStock && <h2 className="stock-name-header">{selectedStock['2. name']}</h2>}
@@ -222,6 +234,26 @@ function Stock_Watchlist() {
                 {error && <p>Error: {error}</p>}
                 <pre>{jsonResponse}</pre>
             </div>
+            <div className="news-sentiment-column">
+    <h2>News Sentiment</h2>
+    <div style={{overflowY: 'auto', maxHeight: '500px'}}>
+        {newsSentiment && newsSentiment.feed.length > 0 ? (
+            newsSentiment.feed.map((item, index) => (
+                <a href={`${item.url}`} target="_blank" rel="noopener noreferrer" key={index} style={{textDecoration: 'none', color: 'inherit'}}>
+                    <div>
+                        <h3>{item.title}</h3>
+                        <img src={item.banner_image} alt={item.title} style={{width: "100px"}} />
+                        <p>Overall Sentiment Score: {item.overall_sentiment_score}</p>
+                        <p>Overall Sentiment Label: {item.overall_sentiment_label}</p>
+                        {/* Add more properties here as needed */}
+                    </div>
+                </a>
+            ))
+        ) : (
+            <p>No relevant news</p>
+        )}
+    </div>
+</div>
         </div>
     );
 }
