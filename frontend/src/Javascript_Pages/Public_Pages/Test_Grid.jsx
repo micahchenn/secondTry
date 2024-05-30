@@ -1,17 +1,21 @@
-import React from 'react';
+import React from 'react'
+
 import '../../Styling_Pages/Public_Pages/Test_Grid.css';
 
-const TestGrid = () => {
+function Test_Grid() {
   return (
-    <div className="grid-wrapper">
-      <div className="grid">
-        <div className="large-box"></div>
-        {Array.from({ length: 575 }).map((_, idx) => (
-          <div key={idx} className="grid-item"></div>
-        ))}
+      <div class="parent-container">
+        <div class="grid-container">
+          <div class="inner-box">
+            {/* Your content here */}
+          </div>
+        </div>
+        <div class="grid-container-2">
+          {/* Your content here */}
+        </div>
       </div>
-    </div>
-  );
-};
 
-export default TestGrid;
+  )
+}
+
+export default Test_Grid

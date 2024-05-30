@@ -1,5 +1,6 @@
+/*withdh is 56px*/
 .sidebar {
-    width: 10px;
+    width: 15px;
     height: calc(100vh - 75px);
     position: fixed;
     left: 0;
@@ -11,6 +12,7 @@
     overflow: hidden;
     z-index: 9999;
     border-right: 1px solid #ffffff2a;
+    background-color: aquamarine;
 }
 
 /* rest of your CSS */
