@@ -1,0 +1,134 @@
+
+
+.grid-container {
+    width: calc(100vw - 56px - 17px); /* viewport width minus sidebar width and scrollbar width */
+    height: calc(1000vh - 63px); /* viewport height minus header height */
+    margin-left: 56px; /* left margin equal to sidebar width */
+    margin-top: 63px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: flex-start; /* Align items to the start of the cross axis */
+    justify-content: flex-start; /* Align items to the start of the main axis */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+  .header-search-container {
+    display: flex; /* Place children side by side */
+    width: calc(100% - 50px); /* Full width minus left margin */
+    height: 100px; /* Adjust the height as needed */
+    align-items: stretch; /* Stretch children to parent height */
+    margin-left: inherit; /* Inherit left margin from parent */
+    margin-right: inherit; /* Inherit right margin from parent */
+    background-color: bisque;
+  }
+  
+  .header-info {
+    display: flex;
+    width: 60%; /* 60% of parent width */
+    background-color: rgb(49, 163, 43); /* Adjust the color as needed */
+    color: white;
+    margin: 0;
+    align-items: left;
+    justify-content: flex-start; /* Align text to the left */
+    padding: 10px; /* Add padding */
+  }
+  
+  .search-bar {
+    display: flex;
+    width: 40%; /* 40% of parent width */
+    background-color: rgb(132, 35, 35); /* Adjust the color as needed */
+    align-items: center;
+    position: relative; /* Add this to position the dropdown relative to the search bar */
+  }
+  
+  .search-bar input {
+    width: 100%; /* Full width of .search-bar */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #fffefe;
+  }
+  
+  .search-dropdown {
+    position: absolute;
+    top: 100%; /* Position the dropdown below the search bar */
+    width: 100%; /* Full width of .search-bar */
+    max-height: 200px;
+    overflow-y: auto; /* Add this to enable scrolling if the content exceeds max-height */
+    background-color: #fff; /* Add a background color to make the dropdown visible */
+    z-index: 1; /* Add this to make the dropdown appear above other elements */
+  }
+  .search-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .search-item:hover {
+    background-color: #ddd;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .stock-and-widgets {
+    display: flex; /* Place children side by side */
+    width: calc(100% - 50px); /* Full width minus left margin */
+    height: 450px;
+    align-items: stretch; /* Stretch children to parent height */
+  }
+  
+  .stock-watchlist {
+    display: flex;
+    width: 60%; /* Half of parent width */
+    background-color: rgb(255, 0, 200);
+  }
+  
+  .analytics-widgets {
+    display: flex;
+    width: 40%; /* Half of parent width */
+    background-color: rgb(0, 255, 200);
+    margin-right: 20px;
+  }
+  
+  
+  
+  .my-portfolio {
+    width: calc(70% - 50px); /* Full width minus left margin */
+    margin-left: 50px;
+    height: 150px; /* Adjust as needed */
+    background-color: rgb(255, 255, 255); /* Adjust as needed */
+  }
+  
+  
+  .grid-container-2 {
+    width: calc(100vw - 56px - 17px); /* viewport width minus sidebar width and scrollbar width */
+    height: calc(100vh - 63px); /* viewport height minus header height */
+    margin-left: 56px; /* left margin equal to sidebar width */
+    background-color: rgb(255, 0, 0); /* Different background color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
