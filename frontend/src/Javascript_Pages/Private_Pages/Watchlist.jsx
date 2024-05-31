@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../../Styling_Pages/Private_Pages/Watchlist.css';
 import api from '../../api'; // Replace with the path to your API
+import { Line } from 'react-chartjs-2';
+import Line_Graph from '../Static_Elements/Line_Graph';
+import Stock_Line_Graph from '../Static_Elements/Stock_Line_Graph';
 
 function Watchlist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -40,6 +43,7 @@ function Watchlist() {
   }, [searchTerm]);
 
   return (
+    <div className="watchlist-container">
     <div className="grid-container">
       <div className="header-search-container">
         <div className="header-info">
@@ -66,11 +70,14 @@ function Watchlist() {
       </div>
       <div className="stock-and-widgets">
         <div className="stock-watchlist">
-          {/* Your content here */}
+          {Stock_Line_Graph({ symbol: 'LULU', time_period: 'WEEKLY' })}
         </div>
         <div className="analytics-widgets">
           {/* Your content here */}
         </div>
+      </div>
+      <div className="watchlist-settings">
+        {/* Your content here */}
       </div>
       <div className="my-portfolio">
         {/* Your content here */}
@@ -81,6 +88,7 @@ function Watchlist() {
       <div className="inner-box3">
         {/* Your content here */}
       </div>
+    </div>
     </div>
   );
 }
