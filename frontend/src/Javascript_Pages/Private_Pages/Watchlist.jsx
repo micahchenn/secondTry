@@ -45,10 +45,6 @@ function Watchlist() {
   return (
     <div className="watchlist-container">
     <div className="grid-container">
-      <div className="header-search-container">
-        <div className="header-info">
-          <h1>Stock Watchlist</h1>
-        </div>
         <div className="search-bar">
           <input 
             type="text" 
@@ -67,10 +63,10 @@ function Watchlist() {
             </select>
           )}
         </div>
-      </div>
+      
       <div className="stock-and-widgets">
         <div className="stock-watchlist">
-          {Stock_Line_Graph({ symbol: 'LULU', time_period: 'WEEKLY' })}
+          {Stock_Line_Graph({ symbol: 'AAPL', time_period: 'WEEKLY' })}
         </div>
         <div className="analytics-widgets">
           {/* Your content here */}

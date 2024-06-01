@@ -16,7 +16,14 @@ const Stock_Line_Graph = ({ symbol }) => {
     const [period, setPeriod] = useState('daily');
     const [interval, setTimeInterval] = useState('5min');
     const [timeRange, setTimeRange] = useState(null);
+    const [priceTrend, setPriceTrend] = useState(null);
+    const [selectedButton, setSelectedButton] = useState(null);
+    const [currentPrice, setCurrentPrice] = useState(0);
+    const [priceChange, setPriceChange] = useState(0);
+    const [percentChange, setPercentChange] = useState(0);
   
+
+
     const fetchStockData = useCallback(async () => {
       try {
         const response = await api.get(`stocks/get-stock-data/${symbol}/${period.toUpperCase()}/${interval}/${timeRange}`);
@@ -47,6 +54,17 @@ const Stock_Line_Graph = ({ symbol }) => {
           // Determine the color based on the comparison
           const newColor = lastValue > firstValue ? 'green' : 'red';
           setLineColor(newColor);
+
+          setPriceTrend(lastValue > firstValue ? 'positive' : 'negative');
+
+          const priceChange = lastValue - firstValue;
+      const percentChange = (priceChange / firstValue) * 100;
+
+      // Set these values in your state
+      setCurrentPrice(lastValue);
+      setPriceChange(priceChange);
+      setPercentChange(percentChange);
+
   
           setChartData({
             labels: labels.reverse(),
@@ -173,23 +191,30 @@ const Stock_Line_Graph = ({ symbol }) => {
 
 
   
-return (
-    <div className="chart-container">
-      <div className="chart-wrapper">
-        {loading ? <div>Loading...</div> : <Line data={chartData} options={options} />}
+    return (
+      <div className="chart-container">
+        <div className="price-info">
+        <h1 className="stock-name">{symbol}</h1>
+    <a className="current-price">${currentPrice.toFixed(2)}</a>
+<a className="price-change">{priceChange < 0 ? '-' : ''}${Math.abs(priceChange).toFixed(2)} ({percentChange.toFixed(2)}%) Year to date</a>
+</div>
+        <div className="chart-content">
+          <div className="chart-wrapper">
+            {loading ? <div>Loading...</div> : <Line data={chartData} options={options} />}
+          </div>
+          <div className="button-wrapper">
+    <span className={`button ${selectedButton === '1D' ? priceTrend : ''}`} onClick={() => { setPeriod('intraday'); setTimeInterval('1min'); setSelectedButton('1D'); }}>1D</span>
+    <span className={`button ${selectedButton === '1W' ? priceTrend : ''}`} onClick={() => { setPeriod('intraday'); setTimeInterval('60min'); setTimeRange('1W'); setSelectedButton('1W'); }}>1W</span>
+    <span className={`button ${selectedButton === '1M' ? priceTrend : ''}`} onClick={() => { setPeriod('daily'); setTimeInterval('1M'); setTimeRange('1M'); setSelectedButton('1M'); }}>1M</span>
+    <span className={`button ${selectedButton === '3M' ? priceTrend : ''}`} onClick={() => { setPeriod('daily'); setTimeInterval('3M'); setSelectedButton('3M'); }}>3M</span>
+    <span className={`button ${selectedButton === 'YTD' ? priceTrend : ''}`} onClick={() => { setPeriod('daily'); setTimeInterval('YTD'); setSelectedButton('YTD'); }}>YTD</span>
+    <span className={`button ${selectedButton === '1Y' ? priceTrend : ''}`} onClick={() => { setPeriod('daily'); setTimeInterval('1Y'); setSelectedButton('1Y'); }}>1Y</span>
+    <span className={`button ${selectedButton === '5Y' ? priceTrend : ''}`} onClick={() => { setPeriod('weekly'); setTimeInterval('5Y'); setSelectedButton('5Y'); }}>5Y</span>
+    <span className={`button ${selectedButton === 'MAX' ? priceTrend : ''}`} onClick={() => { setPeriod('monthly'); setTimeInterval('MAX'); setSelectedButton('MAX'); }}>MAX</span>
+</div>
+        </div>
       </div>
-      <div className="button-wrapper">
-        <span className="button" onClick={() => { setPeriod('intraday'); setTimeInterval('1min'); }}>1D</span>
-        <span className="button" onClick={() => { setPeriod('intraday'); setTimeInterval('60min'); setTimeRange('1W'); }}>1W</span>
-        <span className="button" onClick={() => { setPeriod('daily'); setTimeInterval('1M'); setTimeRange('1M'); }}>1M</span>
-        <span className="button" onClick={() => { setPeriod('daily'); setTimeInterval('3M'); }}>3M</span>
-        <span className="button" onClick={() => { setPeriod('daily'); setTimeInterval('YTD'); }}>YTD</span>
-        <span className="button" onClick={() => { setPeriod('daily'); setTimeInterval('1Y'); }}>1Y</span>
-        <span className="button" onClick={() => { setPeriod('weekly'); setTimeInterval('5Y'); }}>5Y</span>
-        <span className="button" onClick={() => { setPeriod('monthly'); setTimeInterval('MAX'); }}>MAX</span>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Stock_Line_Graph;
