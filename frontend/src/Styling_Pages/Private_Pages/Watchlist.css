@@ -98,7 +98,7 @@
   .stock-and-widgets {
     display: flex; /* Place children side by side */
     width: calc(100% - 50px); /* Full width minus left margin */
-    height: 450px;
+    height: 470px;
     align-items: stretch; /* Stretch children to parent height */
     margin-left: 56;
 
@@ -106,7 +106,7 @@
   
   .stock-watchlist {
     display: flex;
-    width: 60%; /* Half of parent width */
+    width: 62%; /* Half of parent width */
     background-color: rgb(0, 0, 0);
     margin: 0;
     padding: 7px;
@@ -114,7 +114,7 @@
   
   .analytics-widgets {
     display: flex;
-    width: 40%; /* Half of parent width */
+    width: 38%; /* Half of parent width */
     background-color: rgb(0, 255, 200);
     margin-right: 20px;
   }

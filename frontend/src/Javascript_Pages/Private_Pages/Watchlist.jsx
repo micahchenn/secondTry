@@ -76,9 +76,7 @@ function Watchlist() {
           {/* Your content here */}
         </div>
       </div>
-      <div className="watchlist-settings">
-        {/* Your content here */}
-      </div>
+      
       <div className="my-portfolio">
         {/* Your content here */}
       </div>
