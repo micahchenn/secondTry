@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../../Styling_Pages/Private_Pages/Watchlist.css';
 import api from '../../api'; // Replace with the path to your API
 import { Line } from 'react-chartjs-2';
-import Line_Graph from '../Static_Elements/Line_Graph';
 import Stock_Line_Graph from '../Static_Elements/Stock_Line_Graph';
 
 function Watchlist() {
