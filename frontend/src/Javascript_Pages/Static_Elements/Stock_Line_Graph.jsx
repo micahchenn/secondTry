@@ -1,16 +1,28 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Chart } from 'react-chartjs-2';
 import api from '../../api';
-import { Chart as ChartJS, TimeScale, LinearScale, LineElement, PointElement, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, TimeScale, LinearScale, LineElement, PointElement, Tooltip, Legend, CategoryScale } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import zoomPlugin from 'chartjs-plugin-zoom';
 import crosshairPlugin from 'chartjs-plugin-crosshair';
-import 'chartjs-chart-financial';
+import { CandlestickController, CandlestickElement } from 'chartjs-chart-financial';
 import '../../Styling_Pages/Static_Elements/Stock_Line_Graph.css';
-import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
+import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-ChartJS.register(TimeScale, LinearScale, LineElement, PointElement, Tooltip, Legend, zoomPlugin, crosshairPlugin);
+ChartJS.register(
+  TimeScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Tooltip,
+  Legend,
+  zoomPlugin,
+  crosshairPlugin,
+  CategoryScale,
+  CandlestickController,
+  CandlestickElement
+);
 
 const Stock_Line_Graph = ({ symbol }) => {
   const [chartData, setChartData] = useState({});
@@ -24,6 +36,7 @@ const Stock_Line_Graph = ({ symbol }) => {
   const [currentPrice, setCurrentPrice] = useState(0);
   const [priceChange, setPriceChange] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
+  const [chartType, setChartType] = useState('line'); // Default to line chart
 
   const fetchStockData = useCallback(async () => {
     try {
@@ -50,48 +63,73 @@ const Stock_Line_Graph = ({ symbol }) => {
         const labels = Object.keys(dataset).reverse(); // Ensure labels are sorted chronologically
         const values = [];
         let cumulativeSplitCoefficient = 1;
+
+        if (chartType === 'line') {
+          labels.forEach(label => {
+            const item = dataset[label];
+            const splitCoefficient = parseFloat(item['8. split coefficient']) || 1;
+            if (period !== 'intraday') {
+              cumulativeSplitCoefficient *= splitCoefficient;
+            }
   
-        labels.forEach(label => {
-          const item = dataset[label];
-          const splitCoefficient = parseFloat(item['8. split coefficient']) || 1;
-          if (period !== 'intraday') {
-            cumulativeSplitCoefficient *= splitCoefficient;
-          }
+            const adjustedClose = period === 'intraday'
+              ? parseFloat(item['4. close'])
+              : parseFloat(item['5. adjusted close']) / cumulativeSplitCoefficient;
+            values.push(adjustedClose);
+          });
+        } else {
+          labels.forEach(label => {
+            const item = dataset[label];
+            const splitCoefficient = parseFloat(item['8. split coefficient']) || 1;
+            if (period !== 'intraday') {
+              cumulativeSplitCoefficient *= splitCoefficient;
+            }
   
-          const adjustedClose = period === 'intraday'
-            ? parseFloat(item['4. close'])
-            : parseFloat(item['5. adjusted close']) / cumulativeSplitCoefficient;
-          values.push(adjustedClose);
-        });
-  
+            values.push({
+              x: new Date(label),
+              o: parseFloat(item['1. open']) / cumulativeSplitCoefficient,
+              h: parseFloat(item['2. high']) / cumulativeSplitCoefficient,
+              l: parseFloat(item['3. low']) / cumulativeSplitCoefficient,
+              c: parseFloat(item['4. close']) / cumulativeSplitCoefficient
+            });
+          });
+        }
+
         const firstValue = values[0];
         const lastValue = values[values.length - 1];
-  
+
         // Determine the color based on the comparison
-        const newColor = lastValue > firstValue ? 'green' : 'red';
+        const newColor = chartType === 'line'
+          ? (lastValue > firstValue ? 'green' : 'red')
+          : (lastValue.c > firstValue.c ? 'green' : 'red');
         setLineColor(newColor);
-  
-        setPriceTrend(lastValue > firstValue ? 'positive' : 'negative');
-  
-        const priceChange = lastValue - firstValue;
-        const percentChange = (priceChange / firstValue) * 100;
-  
+
+        setPriceTrend(chartType === 'line'
+          ? (lastValue > firstValue ? 'positive' : 'negative')
+          : (lastValue.c > firstValue.c ? 'positive' : 'negative'));
+
+        const priceChange = chartType === 'line'
+          ? lastValue - firstValue
+          : lastValue.c - firstValue.c;
+        const percentChange = (priceChange / (chartType === 'line' ? firstValue : firstValue.c)) * 100;
+
         // Set these values in your state
-        setCurrentPrice(lastValue);
+        setCurrentPrice(chartType === 'line' ? lastValue : lastValue.c);
         setPriceChange(priceChange);
         setPercentChange(percentChange);
-  
+
         setChartData({
           labels: labels,
           datasets: [{
+            barThickness: 2,
             label: symbol,
             data: values,
-            fill: false,
             backgroundColor: newColor,
-            borderColor: newColor
+            borderColor: newColor,
+            borderWidth: chartType === 'candlestick' ? 1 : 2
           }]
         });
-  
+
         setLoading(false);
       } else {
         console.error(`${timeSeriesKey} not found in data`);
@@ -100,8 +138,8 @@ const Stock_Line_Graph = ({ symbol }) => {
       console.error(error);
       setLoading(false); // Hide loading spinner in case of error
     }
-  }, [symbol, period, interval, timeRange]);
-  
+  }, [symbol, period, interval, timeRange, chartType]);
+
   useEffect(() => {
     fetchStockData();
   }, [fetchStockData]);
@@ -130,7 +168,9 @@ const Stock_Line_Graph = ({ symbol }) => {
           maxRotation: 0,
           autoSkip: true,
           maxTicksLimit: 5 // Adjust this number to the maximum number of ticks you want to display
-        }
+        },
+        // Added barThickness to control the width of candlesticks
+        barThickness: chartType === 'candlestick' ? 'flex' : undefined
       },
       y: {
         type: 'linear',
@@ -169,8 +209,16 @@ const Stock_Line_Graph = ({ symbol }) => {
             if (label) {
               label += ': ';
             }
-            if (context.parsed.y !== null) {
-              label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+            if (chartType === 'candlestick') {
+              const o = context.raw.o;
+              const h = context.raw.h;
+              const l = context.raw.l;
+              const c = context.raw.c;
+              label += `Open: ${o}, High: ${h}, Low: ${l}, Close: ${c}`;
+            } else {
+              if (context.parsed.y !== null) {
+                label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+              }
             }
             return label;
           },
@@ -204,7 +252,6 @@ const Stock_Line_Graph = ({ symbol }) => {
     responsive: true,
     maintainAspectRatio: false
   };
-  
 
   const handlePeriodChange = (newPeriod, newInterval, newTimeRange, button) => {
     setPeriod(newPeriod);
@@ -213,42 +260,54 @@ const Stock_Line_Graph = ({ symbol }) => {
     setSelectedButton(button);
   };
 
+  const handleSettingsClick = () => {
+    setChartType(chartType === 'line' ? 'candlestick' : 'line');
+  };
+
   return (
     <div className="chart-container">
       <div className="price-info">
         <h1 className="stock-name">{symbol}</h1>
         <a className="current-price">${currentPrice.toFixed(2)}</a>
         <a className={`price-change ${priceChange < 0 ? 'negative' : 'positive'}`}>
-  {priceChange < 0 ? '-' : ''}${Math.abs(priceChange).toLocaleString()} 
-  &nbsp;({percentChange.toFixed(2)}%)&nbsp;
-  <span className="description">{getPeriodLabel(selectedButton)}</span>
-</a>
+          {priceChange < 0 ? '-' : ''}${Math.abs(priceChange).toLocaleString()} 
+          &nbsp;({percentChange.toFixed(2)}%)&nbsp;
+          <span className="description">{getPeriodLabel(selectedButton)}</span>
+        </a>
       </div>
       <div className="chart-content">
         <div className="chart-wrapper">
-          {loading ? <div>Loading...</div> : <Line data={chartData} options={options} />}
+          {loading ? <div>Loading...</div> : chartType === 'line' ? <Line data={chartData} options={options} /> : <Chart type="candlestick" data={chartData} options={{
+            ...options,
+            scales: {
+              x: {
+                ...options.scales.x,
+                barPercentage: 0.1, // Adjust this value to control the width of the candlesticks
+                categoryPercentage: 0.1 // Adjust this value to control the width of the candlesticks
+              },
+              y: options.scales.y
+            }
+          }} />}
         </div>
         <div className="button-wrapper">
-  <span className={`button ${selectedButton === '1D' ? priceTrend : ''}`} onClick={() => handlePeriodChange('intraday', '1min', null, '1D')}>1D</span>
-  <span className={`button ${selectedButton === '1W' ? priceTrend : ''}`} onClick={() => handlePeriodChange('intraday', '60min', '1W', '1W')}>1W</span>
-  <span className={`button ${selectedButton === '1M' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', '1M', '1M', '1M')}>1M</span>
-  <span className={`button ${selectedButton === '3M' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', '3M', '3M', '3M')}>3M</span>
-  <span className={`button ${selectedButton === 'YTD' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', 'YTD', 'YTD', 'YTD')}>YTD</span>
-  <span className={`button ${selectedButton === '1Y' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', '1Y', '1Y', '1Y')}>1Y</span>
-  <span className={`button ${selectedButton === '5Y' ? priceTrend : ''}`} onClick={() => handlePeriodChange('weekly', '5Y', '5Y', '5Y')}>5Y</span>
-  <span className={`button ${selectedButton === 'MAX' ? priceTrend : ''}`} onClick={() => handlePeriodChange('monthly', 'MAX', 'MAX', 'MAX')}>MAX</span>
-  <span className={`button candlestick-button ${selectedButton === 'Candlestick' ? priceTrend : ''}`} onClick={() => console.log('Candlestick clicked')}>
-  <FontAwesomeIcon icon={faBitcoin} className="candlestick-icon" />
-</span>
-</div>
+          <span className={`button ${selectedButton === '1D' ? priceTrend : ''}`} onClick={() => handlePeriodChange('intraday', '1min', null, '1D')}>1D</span>
+          <span className={`button ${selectedButton === '1W' ? priceTrend : ''}`} onClick={() => handlePeriodChange('intraday', '60min', '1W', '1W')}>1W</span>
+          <span className={`button ${selectedButton === '1M' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', '1M', '1M', '1M')}>1M</span>
+          <span className={`button ${selectedButton === '3M' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', '3M', '3M', '3M')}>3M</span>
+          <span className={`button ${selectedButton === 'YTD' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', 'YTD', 'YTD', 'YTD')}>YTD</span>
+          <span className={`button ${selectedButton === '1Y' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', '1Y', '1Y', '1Y')}>1Y</span>
+          <span className={`button ${selectedButton === '5Y' ? priceTrend : ''}`} onClick={() => handlePeriodChange('weekly', '5Y', '5Y', '5Y')}>5Y</span>
+          <span className={`button ${selectedButton === 'MAX' ? priceTrend : ''}`} onClick={() => handlePeriodChange('monthly', 'MAX', 'MAX', 'MAX')}>MAX</span>
+          <span className={`button settings-button ${selectedButton === 'Settings' ? priceTrend : ''}`} onClick={handleSettingsClick}>
+            <FontAwesomeIcon icon={faCog} className="settings-icon" />
+          </span>
+        </div>
       </div>
     </div>
   );
 }
 
 export default Stock_Line_Graph;
-
-
 
 const getPeriodLabel = (period) => {
   switch(period) {
