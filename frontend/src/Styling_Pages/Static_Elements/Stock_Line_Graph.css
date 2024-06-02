@@ -57,9 +57,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgb(0, 0, 0) 0% 0% / 100px 100px repeat, radial-gradient(146.13% 118.42% at 50% -15.5%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 99.59%), linear-gradient(180deg, rgba(46, 51, 90, 0.00) 0%, rgba(28, 27, 51, 0.10) 100%);
-    box-shadow: 40px 40px 400px 40px rgba(204, 215, 255, 0.174) inset, 0px 5px 10px 0px rgba(0, 0, 0, 0.05), 0px 15px 30px 0px rgba(0, 0, 0, 0.05), 0px 30px 60px 0px rgba(0, 0, 0, 0.10);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 40px 40px 400px 40px rgba(250, 251, 255, 0.174) inset, 0px 5px 10px 0px rgba(255, 253, 253, 0.05), 0px 15px 30px 0px rgba(0, 0, 0, 0.05), 0px 30px 60px 0px rgba(0, 0, 0, 0.10);
     backdrop-filter: blur(10px);
     box-sizing: border-box;
 }
@@ -70,9 +69,10 @@
 }
 
 .button-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    height: 7%; /* Adjust as needed */
-    padding: 20px; /* Increase this to move the buttons down */
 }
 
 .button {
@@ -97,4 +97,12 @@
 
 .button.negative {
     color: red;
+}
+.settings-icon {
+    font-size: 1.2em; /* Adjust as needed */
+    margin-left: auto;
+}
+
+.settings-button {
+    margin-left: auto;
 }
