@@ -7,7 +7,7 @@ import zoomPlugin from 'chartjs-plugin-zoom';
 import crosshairPlugin from 'chartjs-plugin-crosshair';
 import 'chartjs-chart-financial';
 import '../../Styling_Pages/Static_Elements/Stock_Line_Graph.css';
-import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 ChartJS.register(TimeScale, LinearScale, LineElement, PointElement, Tooltip, Legend, zoomPlugin, crosshairPlugin);
@@ -218,7 +218,11 @@ const Stock_Line_Graph = ({ symbol }) => {
       <div className="price-info">
         <h1 className="stock-name">{symbol}</h1>
         <a className="current-price">${currentPrice.toFixed(2)}</a>
-        <a className="price-change">{priceChange < 0 ? '-' : ''}${Math.abs(priceChange).toFixed(2)} ({percentChange.toFixed(2)}%) Year to date</a>
+        <a className={`price-change ${priceChange < 0 ? 'negative' : 'positive'}`}>
+  {priceChange < 0 ? '-' : ''}${Math.abs(priceChange).toLocaleString()} 
+  &nbsp;({percentChange.toFixed(2)}%)&nbsp;
+  <span className="description">{getPeriodLabel(selectedButton)}</span>
+</a>
       </div>
       <div className="chart-content">
         <div className="chart-wrapper">
@@ -233,7 +237,9 @@ const Stock_Line_Graph = ({ symbol }) => {
   <span className={`button ${selectedButton === '1Y' ? priceTrend : ''}`} onClick={() => handlePeriodChange('daily', '1Y', '1Y', '1Y')}>1Y</span>
   <span className={`button ${selectedButton === '5Y' ? priceTrend : ''}`} onClick={() => handlePeriodChange('weekly', '5Y', '5Y', '5Y')}>5Y</span>
   <span className={`button ${selectedButton === 'MAX' ? priceTrend : ''}`} onClick={() => handlePeriodChange('monthly', 'MAX', 'MAX', 'MAX')}>MAX</span>
-  <span className={`button settings-button ${selectedButton === 'Settings' ? priceTrend : ''}`} onClick={() => console.log('Settings clicked')}><FontAwesomeIcon icon={faCog} className="settings-icon" /></span>
+  <span className={`button candlestick-button ${selectedButton === 'Candlestick' ? priceTrend : ''}`} onClick={() => console.log('Candlestick clicked')}>
+  <FontAwesomeIcon icon={faBitcoin} className="candlestick-icon" />
+</span>
 </div>
       </div>
     </div>
@@ -241,3 +247,28 @@ const Stock_Line_Graph = ({ symbol }) => {
 }
 
 export default Stock_Line_Graph;
+
+
+
+const getPeriodLabel = (period) => {
+  switch(period) {
+    case '1D':
+      return 'Today';
+    case '1W':
+      return 'Past Week';
+    case '1M':
+      return 'Past Month';
+    case '3M':
+      return 'Past 3 Months';
+    case 'YTD':
+      return 'Year to Date';
+    case '1Y':
+      return 'Past Year';
+    case '5Y':
+      return 'Past 5 Years';
+    case 'MAX':
+      return 'Max Time';
+    default:
+      return '';
+  }
+};

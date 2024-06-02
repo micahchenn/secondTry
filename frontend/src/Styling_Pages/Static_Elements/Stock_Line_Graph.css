@@ -39,12 +39,23 @@
     text-align: left;
 }
 
+.description {
+    color: white; /* Adjust as needed */
+}
 .price-change {
     /* Styles for the price change */
     color: white;
     margin: 0;
     padding: 0;
     text-align: left;
+}
+
+.price-change.positive {
+    color: green; /* Adjust as needed */
+}
+
+.price-change.negative {
+    color: red; /* Adjust as needed */
 }
 
 .chart-content {
@@ -58,9 +69,20 @@
     align-items: center;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.5);
-    box-shadow: 40px 40px 400px 40px rgba(250, 251, 255, 0.174) inset, 0px 5px 10px 0px rgba(255, 253, 253, 0.05), 0px 15px 30px 0px rgba(0, 0, 0, 0.05), 0px 30px 60px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: 
+    inset 0px 0px 15px 5px rgba(250, 251, 255, 0.18), /* Subtle inner shadow */
+    0px 3px 6px rgba(255, 255, 255, 0.1), 
+    0px 5px 10px rgba(0, 0, 0, 0.1), 
+    0px 10px 20px rgba(0, 0, 0, 0.0), 
+    0px 15px 30px rgba(0, 0, 0, 0); /* More contained outer shadows */
     backdrop-filter: blur(10px);
     box-sizing: border-box;
+    padding: 2px;
+    
+}
+
+.chart-content:hover {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4));
 }
 
 .chart-wrapper {
@@ -73,13 +95,16 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+
+    
 }
 
 .button {
     color: rgb(255, 255, 255);
-    margin-left: 5px;
     margin-right: 20px; /* Add this to add space between the buttons */
     font-size: 13px;
+    margin-bottom: 5px; 
+    margin-left: 7px;
 }
 
 .button:hover {
