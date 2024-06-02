@@ -1,0 +1,45 @@
+
+/* Signup_Page.css */
+/* Signup_Page.css */
+.signup-page {
+    background-color: #000000; /* Set background color to black */
+    min-height: 100vh; /* Make it cover the full viewport height */
+}
+
+/* Signup_Page.css */
+.signup-form-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.signup-form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.signup-form-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form-button:hover {
+    background-color: #0056b3;
+}
+
+.signup-error-message {
+    color: red;
+    margin-bottom: 10px;
+}

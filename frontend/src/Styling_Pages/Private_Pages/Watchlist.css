@@ -1,0 +1,86 @@
+:root {
+  --sidebar-width: 56px;
+  --right-margin: 20px; /* Adjust as needed */
+}
+
+.watchlist-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: black;
+}
+
+.grid-container {
+  width: calc(100% - var(--sidebar-width) - var(--right-margin));
+  height: calc(100vh - 63px);
+  margin-left: var(--sidebar-width);
+  margin-top: 63px;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 1600px; /* Adjust as needed */
+  margin-right: var(--right-margin); /* Right margin from variable */
+}
+
+
+
+.stock-and-widgets {
+  display: flex;
+  width: calc(100% - var(--sidebar-width));
+  height: 470px;
+  align-items: stretch;
+  margin-left: var(--sidebar-width);
+}
+
+.stock-watchlist {
+  display: flex;
+  width: 62%;
+  background-color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 2px;
+}
+
+.analytics-widgets {
+  display: flex;
+  width: 38%;
+  background-color: rgb(70, 41, 41);
+  margin-right: var(--right-margin);
+}
+
+.watchlist-settings {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.my-portfolio {
+  width: calc(70% - var(--sidebar-width));
+  margin-left: var(--sidebar-width);
+  height: 150px;
+  background-color: rgb(0, 0, 0);
+}
+
+@media screen and (min-width: 1600px) {
+  .grid-container {
+    width: calc(100% - var(--sidebar-width) - var(--right-margin) - 20px); /* Additional space for large screens */
+    margin-left: var(--sidebar-width);
+    margin-right: 20px; /* Increased right margin for large screens */
+  }
+}
+
+@media screen and (max-width: 1599px) {
+  .grid-container {
+    width: calc(100% - var(--sidebar-width));
+    margin-left: var(--sidebar-width);
+    margin-right: 0; /* No extra right margin for smaller screens */
+  }
+}
