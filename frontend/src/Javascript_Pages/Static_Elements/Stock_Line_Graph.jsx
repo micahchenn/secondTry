@@ -9,7 +9,8 @@ import { CandlestickController, CandlestickElement } from 'chartjs-chart-financi
 import '../../Styling_Pages/Static_Elements/Stock_Line_Graph.css';
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+//just testing
+//test
 ChartJS.register(
   TimeScale,
   LinearScale,
