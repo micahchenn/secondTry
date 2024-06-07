@@ -3,6 +3,7 @@ import '../../Styling_Pages/Private_Pages/Watchlist.css';
 import api from '../../api'; // Replace with the path to your API
 import { Line } from 'react-chartjs-2';
 import Stock_Line_Graph from '../Static_Elements/Stock_Line_Graph';
+import Stock_Widgets from '../Static_Elements/Stock_Widgets';
 
 function Watchlist() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -65,10 +66,11 @@ function Watchlist() {
       
       <div className="stock-and-widgets">
         <div className="stock-watchlist">
-          {Stock_Line_Graph({ symbol: 'AAPL', time_period: 'WEEKLY' })}
+
+          {Stock_Line_Graph({ symbol: 'AAPL', time_period: 'Daily' })}
         </div>
         <div className="analytics-widgets">
-          {/* Your content here */}
+        <Stock_Widgets boxTypes={['esgScore', 'esgRiskScore', 'esgRiskScore', 'esgScore']} symbol="TSLA" />
         </div>
       </div>
       

@@ -1,3 +1,41 @@
+import React from 'react';
+import '../../Styling_Pages/Static_Elements/Stock_Line_Graph.css';
+import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const Stock_Line_Graph = ({ symbol }) => {
+  return (
+    <div className="chart-container">
+      <div className="price-info">
+        <h1 className="stock-name">{symbol}</h1>
+      </div>
+      <div className="chart-content">
+        <div className="chart-wrapper">
+          {/* Chart would be here */}
+        </div>
+        <div className="button-wrapper">
+          <span className="button">1D</span>
+          <span className="button">1W</span>
+          <span className="button">1M</span>
+          <span className="button">3M</span>
+          <span className="button">YTD</span>
+          <span className="button">1Y</span>
+          <span className="button">5Y</span>
+          <span className="button">MAX</span>
+          <span className="button settings-button">
+            <FontAwesomeIcon icon={faCog} className="settings-icon" />
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Stock_Line_Graph;
+
+
+/*
+
 import React, { useEffect, useState, useCallback } from 'react';
 import { Line, Chart } from 'react-chartjs-2';
 import api from '../../api';
@@ -332,3 +370,6 @@ const getPeriodLabel = (period) => {
       return '';
   }
 };
+
+
+*/

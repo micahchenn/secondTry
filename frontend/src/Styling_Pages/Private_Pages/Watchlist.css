@@ -9,7 +9,7 @@
   left: 0;
   width: 100%;
   min-height: 100%;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 .grid-container {
@@ -46,9 +46,9 @@
 
 .analytics-widgets {
   display: flex;
-  width: 38%;
-  background-color: rgb(70, 41, 41);
+  flex: 1; /* This will make the element take up the remaining space */
   margin-right: var(--right-margin);
+  
 }
 
 .watchlist-settings {
