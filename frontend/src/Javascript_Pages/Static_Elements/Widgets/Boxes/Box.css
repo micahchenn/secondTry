@@ -1,0 +1,83 @@
+/* Box1.css */
+.box {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 13px;
+    background: lightgray 0% 0% / 100px 100px repeat,
+                radial-gradient(146.13% 118.42% at 50% -15.5%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 99.59%),
+                linear-gradient(180deg, rgba(46, 51, 90, 0.00) 0%, rgba(28, 27, 51, 0.10) 100%);
+    box-shadow: 0px 0px 100px 0px rgba(204, 215, 255, 0.15) inset,
+                0px 5px 10px 0px rgba(0, 0, 0, 0.05),
+                0px 15px 30px 0px rgba(0, 0, 0, 0.05),
+                0px 30px 60px 0px rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(10px);
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+.dropdown-button {
+    position: absolute;
+    font-size: 20px;
+    top: 0px;
+    right: 0px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    border: 1px solid #ccc;
+    backdrop-filter: blur(100px); /* Blur the background */
+    border-radius: 10px; /* Rounded corners */
+    background-color: rgba(5, 24, 53, 0.9); /* Semi-transparent */
+    overflow-y: auto;
+    max-height: 150px;
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    z-index: 30;
+}
+
+.dropdown-item {
+    cursor: pointer;
+    padding: 10px 20px;
+    color: #fff;
+    backdrop-filter: blur(5px);
+    text-align: left;
+    backdrop-filter: blur(10px); /* Blur the background */
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.dropdown-item::after {
+    content: ">";
+    float: right;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}

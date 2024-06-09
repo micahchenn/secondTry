@@ -1,24 +1,21 @@
 .widget {
   display: grid;
-  grid-template-columns: 1fr 1fr;  /* This will create two equal-width columns */
-  grid-template-rows: 1fr 1fr;  /* This will create two equal-height rows */
-  grid-gap: 19px;  /* This will add some space between the boxes */
-  background-color: rgb(0, 0, 0);
-  width: 100%;  /* This will make the widget fill its parent horizontally */
-  height: 100%;  /* This will make the widget fill its parent vertically */
-  
+  grid-template-columns: 1fr 1fr;  /* Creates two equal-width columns */
+  grid-template-rows: 1fr 1fr;     /* Creates two equal-height rows */
+  row-gap: 15px;                   /* Adjust this value to change the row gap size */
+  column-gap: 15px;                /* Adjust this value to change the column gap size */
+  background-color: transparent;
+  width: 93%;                      /* Makes the widget fill its parent horizontally */
+  height: 100%;                    /* Makes the widget fill its parent vertically */
+  margin-left: 3%;
 }
 
-.box {
-  box-sizing: border-box;  /* This includes the padding and border in the element's total width and height */
-  padding: 10px;  /* Add some padding around the content of each box */
-  background-color: blueviolet;
-  width: 100%;  /* This will make the box fill its parent horizontally */
-  height: 100%;  /* This will make the box fill its parent vertically */
-  min-width: 0;  /* This will ensure that the box does not shrink below its content */
-  max-width: 100%;  /* This will ensure that the box does not grow beyond its parent */
-  min-height: 0;  /* This will ensure that the box does not shrink below its content */
-  max-height: 100%;  /* This will ensure that the box does not grow beyond its parent */
-  overflow: hidden;  /* This will cut off any content that overflows */
-  
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;          /* Example border, adjust as needed */
+  background-color: #f0f0f0;       /* Example background color, adjust as needed */
+  padding: 20px;                   /* Example padding, adjust as needed */
+
 }

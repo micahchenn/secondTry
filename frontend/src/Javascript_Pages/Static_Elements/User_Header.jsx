@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import Header_Search_Bar from './Header_Search_Bar'; // import the Header_Search_Bar component
 
 const User_Header = () => {
   const location = useLocation();
@@ -20,17 +21,20 @@ const User_Header = () => {
         <img src={Logo} alt="Harbinger Logo" className="logo" />
         <h1>Harbinger</h1>
       </div>
-      <div className="products">
-        <a href="#about-us" className="hover-element">About Us</a>
-        <a href="#what-we-offer" className="hover-element">What We Offer</a>
-        <a href="#invest" className="hover-element">Investing in my gg</a>
-      </div>
-      <div className="premium-profile">
-        <span>Premium</span>
-        <FontAwesomeIcon icon={faUser} size= 'lg' />
+      <Header_Search_Bar /> {/* Use the Header_Search_Bar component */}
+      <div className="right-header">
+        <div className="products">
+          <a href="#about-us" className="hover-element">Learn</a>
+          <a href="#what-we-offer" className="hover-element">Premium</a>
+          <a href="#invest" className="hover-element">Investing</a>
+        </div>
+        <button className="profile-button">
+          <FontAwesomeIcon icon={faUser} size= 'lg' className="profile-icon" />
+        </button>
       </div>
     </header>
   );
+
 };
 
 export default User_Header;

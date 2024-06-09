@@ -3,15 +3,15 @@
 .user-header {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: calc(100%);
     min-width: 640px;
     height: 50px;
     padding: 6px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Changed from space-between to flex-start */
     align-items: center;
     border-bottom: 1px solid var(--Container-border, rgba(255, 255, 255, 0.10));
-    background: rgba(0, 0, 0, 0.10);
+    background: rgba(0, 0, 0, 0.09); /* gives it that dark color */
     backdrop-filter: blur(10px);
     z-index: 1000;
     color: white;
@@ -25,6 +25,16 @@
     letter-spacing: .3px;
 }
 
+
+
+
+
+
+  .right-header {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
 .button-container {
     display: flex;
     align-items: center;
@@ -33,8 +43,8 @@
 .user .hover-login, .products .hover-element {
     text-decoration: none;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(10px);
+    
+   
     display: flex;
     padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
     align-items: center;
@@ -56,6 +66,13 @@
     width: 50px;
 }
 
+
+.products {
+    display: flex;
+    align-items: center; /* This will center the items vertically */
+  }
+
+
 .products .hover-element {
     gap: 10px;
     color: var(--Foreground-primary, #FFF);
@@ -70,7 +87,20 @@
     gap: 10px;
 }
 
+.profile-button {
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+.profile-icon {
+  margin-right: 50px; /* Adjust this value as needed */
+}
+
+
 .premium-profile {
     margin-left: 75px;
-    padding: 50px;
+    padding: 70px;
 }

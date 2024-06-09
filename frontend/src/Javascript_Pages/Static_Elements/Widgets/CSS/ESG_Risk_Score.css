@@ -1,0 +1,30 @@
+.ESG_Risk_Score {
+    /* Full width and height of the parent */
+    width: 100%;
+    height: 100%;
+    
+    /* Box sizing includes padding and border in the total width and height */
+    box-sizing: border-box;
+    
+    /* Center the text horizontally and vertically */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Add padding around the div */
+    padding: 2rem;
+    
+ 
+    
+    /* Text color */
+    color: white;
+    
+    /* Hide any overflow content */
+    overflow: hidden;
+
+    /* Add this to position the dropdown relative to this div */
+    position: relative;
+}
+

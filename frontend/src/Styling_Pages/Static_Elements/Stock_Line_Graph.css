@@ -1,16 +1,21 @@
+:root {
+    --green: #51C51D;
+    --red: #FF0000;
+    
+}
+
 .chart-container {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: aquamarine;
+    background-color: transparent;
 }
 
 .chart-header {
     width: 100%;
     text-align: center;
     font-size: 24px;
-    color: #c92828;
     margin-bottom: 20px;
 }
 
@@ -52,11 +57,11 @@
 }
 
 .price-change.positive {
-    color: green; /* Adjust as needed */
+    color: var(--green)
 }
 
 .price-change.negative {
-    color: red; /* Adjust as needed */
+    color: var(--red) /* Adjust as needed */
 }
 
 .chart-content {
@@ -69,17 +74,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 
-    inset 0px 0px 15px 5px rgba(250, 251, 255, 0.18), /* Subtle inner shadow */
-    0px 3px 6px rgba(255, 255, 255, 0.1), 
-    0px 5px 10px rgba(0, 0, 0, 0.1), 
-    0px 10px 20px rgba(0, 0, 0, 0.0), 
-    0px 15px 30px rgba(0, 0, 0, 0); /* More contained outer shadows */
+    background: rgba(0, 0, 0, 0.09);
+
     backdrop-filter: blur(10px);
     box-sizing: border-box;
     padding: 2px;
-    
+    outline: 2px solid rgba(255, 255, 255, 0.2); /* Added outline */
 }
 
 .chart-content:hover {
@@ -119,11 +119,11 @@
 }
 
 .button.positive {
-    color: green;
+    color: var(--green)
 }
 
 .button.negative {
-    color: red;
+    color: var(--red)
 }
 .settings-icon {
     font-size: 1.2em; /* Adjust as needed */

@@ -9,7 +9,7 @@ const Sidebar = () => {
         <div className="sidebar">
             <ul>
                 <li>
-                    <Link to="/stock-watchlist">
+                    <Link to="/watchlist-dashboard">
                         <FontAwesomeIcon icon={faChartLine} />
                         <span className="sidebar-text">Stock Watchlist</span>
                     </Link>

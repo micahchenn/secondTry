@@ -17,10 +17,11 @@ import Dashboard from './Private_Pages/Dashboard';
 import Investments_Summary from './Private_Pages/Investments_Summary';
 import Header from './Static_Elements/Header';
 import User_Header from './Static_Elements/User_Header';
-import Stock_Watchlist from './Private_Pages/Stock_Watchlist';
+
 import Sidebar from './Static_Elements/Sidebar';
 import Test_Grid from './Public_Pages/Test_Grid';
 import Watchlist from './Private_Pages/Watchlist';
+import WatchlistDashboard from './Private_Pages/WatchlistDashboard';
 
 import { useLocation } from 'react-router-dom';
 
@@ -36,9 +37,9 @@ function HeaderWrapper() {
         <Route path="/welcome" element={<Welcome_Page />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/stock-watchlist1" element={<Stock_Watchlist/>} />
         <Route path="/grid" element={<Test_Grid/>} />
-        <Route path="/stock-watchlist" element={<Watchlist/>} />
+        <Route path="/stock-watchlist/:symbol" element={<Watchlist />} />
+        <Route path="/watchlist-dashboard" element={<WatchlistDashboard/>} />
 
         <Route path="/my-dashboard" element={
           <Protected_Route>
