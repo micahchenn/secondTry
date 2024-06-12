@@ -1,0 +1,44 @@
+.stock-info-container {
+    border-radius: 10px;
+    background-color: transparent;
+    outline: 2px solid rgba(255, 255, 255, 0.2); /* Added outline */
+  }
+  
+  .stock-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .stock-info-table th, .stock-info-table td {
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 14px; /* Make text a little smaller */
+    color: #d3d3d3; /* Light grey text */
+  }
+  
+  .stock-info-table th {
+    background-color: rgba(255, 255, 255, 0.1); /* Light grey with transparency */
+  }
+  
+  .stock-info-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05); /* Slightly darker grey for even rows */
+  }
+  
+  .stock-info-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Highlight row on hover */
+  }
+  
+  .stock-info-table th, .stock-info-table td {
+    border: none; /* Remove column lines */
+  }
+  
+  .stock-info-table {
+    border-radius: 10px; /* Rounded edges for the table */
+  }
+  
+  .stock-info-table tr {
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  

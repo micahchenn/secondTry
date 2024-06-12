@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom';
 import '../../Styling_Pages/Private_Pages/Watchlist.css';
 import Stock_Line_Graph from '../Static_Elements/Stock_Line_Graph';
 import Stock_Widgets from '../Static_Elements/Stock_Widgets';
+import StockPagePortfolioSummary from '../Static_Elements/StockPagePortfolioSummary';
+import CompanyProfile from '../Static_Elements/CompanyProfile';
+import KeyMetrics from '../Static_Elements/KeyMetrics';
+
 
 function Watchlist() {
   const { symbol } = useParams();
@@ -20,14 +24,13 @@ function Watchlist() {
             </div>
           </div>
           <div className="my-portfolio">
-            {/* Your content here */}
+          <StockPagePortfolioSummary symbol={symbol} time_period='Daily' />
           </div>
-          <div className="inner-box2">
-            <p>This is inner box 2</p>
+          <div className="company-profile">
+            <CompanyProfile symbol={symbol}/>
           </div>
-          <div className="inner-box3">
-            <h1>This is inner box 34</h1><h1>This is inner box 34</h1><h1>This is inner box 34</h1><h1>This is inner box 34</h1><h1>This is inner box 34</h1><h1>This is inner box 34</h1>
-            {/* ... */}
+          <div className="key-metrics">
+            <KeyMetrics symbol={symbol} />  
           </div>
         </div>
       </div>

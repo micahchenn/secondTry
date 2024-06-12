@@ -1,0 +1,20 @@
+.company-picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .company-name-widget {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+    word-wrap: break-word;
+  }
+  
+  .company-logo-widget {
+    max-width: 100px; /* Adjust the size as needed */
+    max-height: 100px;
+    border-radius: 5px;
+  }

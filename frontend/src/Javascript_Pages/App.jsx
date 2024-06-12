@@ -38,9 +38,15 @@ function HeaderWrapper() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/grid" element={<Test_Grid/>} />
-        <Route path="/stock-watchlist/:symbol" element={<Watchlist />} />
+        
         <Route path="/watchlist-dashboard" element={<WatchlistDashboard/>} />
 
+
+        <Route path="/stock-watchlist/:symbol" element={
+          <Protected_Route>
+            <Watchlist />
+          </Protected_Route>
+        } />
         <Route path="/my-dashboard" element={
           <Protected_Route>
             <Dashboard />

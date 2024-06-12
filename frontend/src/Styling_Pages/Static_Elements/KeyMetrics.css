@@ -1,0 +1,42 @@
+.key-metrics-container {
+    border-radius: 10px;
+    width: 100%;
+    margin: auto;
+    margin-top: 4%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .key-metrics-header {
+    color: rgba(240, 240, 240, 0.884);
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .key-metrics-divider {
+    border: none;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+  }
+  
+  .key-metrics-filler-text {
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .key-metrics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .key-metrics-item {
+    flex: 1 1 30%;
+    margin: 10px 0;
+    color: white;
+  }
+  
+  .key-metrics-item p {
+    margin: 5px 0;
+  }
+  

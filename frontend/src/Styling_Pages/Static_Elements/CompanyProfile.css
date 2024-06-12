@@ -1,0 +1,77 @@
+.company-profile-container {
+    border-radius: 10px;
+    width: 100%;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .company-profile-header {
+    display: flex;
+    align-items: center;
+    color: rgba(240, 240, 240, 0.973);
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .company-profile-header img {
+    max-width: 30px; /* Smaller logo */
+    max-height: 30px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  .company-profile-divider {
+    border: none;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .company-profile-filler-text {
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .company-profile-description {
+    text-align: justify;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  
+  .show-more-button {
+    background: none;
+    border: none;
+    color: #416a96;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 5px;
+    font-size: 16px;
+  }
+  
+  .show-more-button:hover {
+    text-decoration: underline;
+  }
+  
+  .company-profile-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .company-profile-details div {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .company-profile-details div:last-child {
+    margin-right: 0;
+  }
+  
+  .company-profile-details p {
+    margin: 5px 0;
+  }
+  

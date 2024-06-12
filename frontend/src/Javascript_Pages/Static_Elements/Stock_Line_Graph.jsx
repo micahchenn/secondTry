@@ -22,9 +22,8 @@
  * 
  * Author: Micah Chen
  * Date: 06/09/2024
- */
-
-import React, { useEffect, useState, useCallback } from 'react';
+ * 
+ */import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Line, Chart } from 'react-chartjs-2';
 import api from '../../api';
 import { Chart as ChartJS, TimeScale, LinearScale, LineElement, PointElement, Tooltip, Legend, CategoryScale } from 'chart.js';
@@ -59,6 +58,8 @@ const Stock_Line_Graph = ({ symbol }) => {
   const [currentPrice, setCurrentPrice] = useState(0);
   const [priceChange, setPriceChange] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
+  const chartRef = useRef(null);
+  const intervalRef = useRef(null);
 
   const fetchStockData = useCallback(async () => {
     try {
@@ -73,10 +74,10 @@ const Stock_Line_Graph = ({ symbol }) => {
       }
 
       let labels, values;
-      if (range === '1W' || range === '1M') {
-        // Handle hourly data
+      if (range === '1D' || range === '1W' || range === '1M') {
+        // Handle intraday or short-term data
         if (!Array.isArray(data)) {
-          console.error('Data is not in expected hourly format');
+          console.error('Data is not in expected intraday format');
           setLoading(false);
           return;
         }
@@ -84,13 +85,14 @@ const Stock_Line_Graph = ({ symbol }) => {
         labels = data.reverse().map(item => new Date(item.date));
         values = data.map(item => ({
           x: new Date(item.date),
+          y: item.close,
           o: item.open,
           h: item.high,
           l: item.low,
           c: item.close
         }));
       } else {
-        // Handle daily data
+        // Handle long-term data
         if (!Array.isArray(data.historical)) {
           console.error('Historical data is not in expected format');
           setLoading(false);
@@ -108,13 +110,17 @@ const Stock_Line_Graph = ({ symbol }) => {
         }));
       }
 
+      if (values.length === 0) {
+        console.error('No data available');
+        setLoading(false);
+        return;
+      }
+
       const firstValue = values[0];
       const lastValue = values[values.length - 1];
 
       // Determine the color based on the comparison
-      const newColor = chartType === 'line'
-        ? (lastValue.c > firstValue.c ? 'green' : 'red')
-        : (lastValue.c > firstValue.c ? 'green' : 'red');
+      const newColor = lastValue.c > firstValue.c ? 'green' : 'red';
       setLineColor(newColor);
 
       const priceChange = lastValue.c - firstValue.c;
@@ -125,7 +131,7 @@ const Stock_Line_Graph = ({ symbol }) => {
       setPriceChange(priceChange);
       setPercentChange(percentChange);
 
-      setChartData({
+      const newChartData = {
         labels: labels,
         datasets: [{
           barThickness: 2,
@@ -135,7 +141,14 @@ const Stock_Line_Graph = ({ symbol }) => {
           borderColor: newColor,
           borderWidth: chartType === 'candlestick' ? 1 : 2
         }]
-      });
+      };
+
+      setChartData(newChartData);
+
+      if (chartRef.current) {
+        chartRef.current.data = newChartData;
+        chartRef.current.update();
+      }
 
       setLoading(false);
     } catch (error) {
@@ -146,7 +159,22 @@ const Stock_Line_Graph = ({ symbol }) => {
 
   useEffect(() => {
     fetchStockData();
-  }, [fetchStockData]);
+    if (range === '1D') {
+      // Set up the interval to fetch data every 1.1 minutes
+      intervalRef.current = setInterval(fetchStockData, 66000);
+    } else {
+      // Clear the interval if range is not '1D'
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [fetchStockData, range]);
 
   const options = {
     elements: {
@@ -158,21 +186,22 @@ const Stock_Line_Graph = ({ symbol }) => {
       x: {
         type: 'time',
         time: {
-          unit: ['1D', '1W', '1M'].includes(range) ? 'hour' : 'day',
+          unit: range === '1D' ? 'minute' : (['1W', '1M'].includes(range) ? 'hour' : 'day'),
           displayFormats: {
+            minute: 'MM/dd/yyyy HH:mm',
             hour: 'MM/dd/yyyy HH:mm',
             day: 'MM/dd/yyyy'
           },
-          tooltipFormat: ['1D', '1W', '1M'].includes(range) ? 'MM/dd/yyyy HH:mm' : 'MM/dd/yyyy',
-          max: chartData.labels ? chartData.labels[0] : null
+          tooltipFormat: range === '1D' ? 'MM/dd/yyyy HH:mm' : (['1W', '1M'].includes(range) ? 'MM/dd/yyyy HH:mm' : 'MM/dd/yyyy'),
         },
         grid: {
           display: false
         },
         ticks: {
+          display: range !== '1D',
           maxRotation: 0,
           autoSkip: true,
-          maxTicksLimit: 5 // Adjust this number to the maximum number of ticks you want to display
+          maxTicksLimit: range === '1D' ? 1440 : 5 // 1440 minutes in a day, adjust max ticks for other ranges
         },
         barThickness: chartType === 'candlestick' ? 'flex' : undefined
       },
@@ -254,16 +283,44 @@ const Stock_Line_Graph = ({ symbol }) => {
       }
     },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0, // Turn off animation to prevent lag with updates
+    }
   };
 
   const handleRangeChange = (newRange) => {
+    // Clear existing chart data when changing the range
+    setChartData({});
     setRange(newRange);
   };
 
   const handleSettingsClick = () => {
     setChartType(chartType === 'line' ? 'candlestick' : 'line');
   };
+
+  // Add a custom plugin to draw the flashing ball
+  const drawFlashingBall = {
+    id: 'flashingBall',
+    afterDatasetsDraw: (chart) => {
+      if (range === '1D') {
+        const ctx = chart.ctx;
+        const dataset = chart.data.datasets[0];
+        const meta = chart.getDatasetMeta(0);
+        const point = meta.data[meta.data.length - 1]; // Get the last point
+
+        // Draw a flashing ball at the current price
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 5, 0, 2 * Math.PI);
+        ctx.fillStyle = color === 'green' ? 'rgba(0, 255, 0, 0.5)' : 'rgba(255, 0, 0, 0.5)';
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+  };
+
+  ChartJS.register(drawFlashingBall);
 
   return (
     <div className="chart-container">
@@ -278,7 +335,7 @@ const Stock_Line_Graph = ({ symbol }) => {
       </div>
       <div className="chart-content">
         <div className="chart-wrapper">
-          {loading ? <div>Loading...</div> : chartType === 'line' ? <Line data={chartData} options={options} /> : <Chart type="candlestick" data={chartData} options={{
+          {loading ? <div>Loading...</div> : chartType === 'line' ? <Line ref={chartRef} data={chartData} options={options} /> : <Chart ref={chartRef} type="candlestick" data={chartData} options={{
             ...options,
             scales: {
               x: {
@@ -327,8 +384,6 @@ const getPeriodLabel = (period) => {
       return '';
   }
 };
-
-
 
 //This is for alphavantage however Harbinger has discountinued using alphavantage
 /*
