@@ -11,10 +11,12 @@
     overflow: hidden;
     z-index: 9999;
     border-right: 1px solid #ffffff2a;
+    background: rgba(0, 0, 0, 0.10);
 }
 
 .sidebar:hover {
     width: 200px;
+    background-color: rgba(0, 0, 0, 0.37); /* Adjust the alpha value as needed to darken the background */
 }
 
 .sidebar ul {

@@ -1,28 +1,3 @@
-/**
- * ESG_Score.jsx
- * 
- * This component fetches and displays the Environmental, Social, and Governance (ESG) score for a given stock symbol.
- * The ESG score is displayed as a circular progress bar using the react-circular-progressbar library.
- * 
- * Props:
- * - symbol: The stock symbol for which the ESG score is to be fetched and displayed.
- * 
- * State:
- * - data: The ESG score data fetched from the API. It's initially null and gets updated when the API call completes.
- * 
- * Dependencies:
- * - React: Used for defining the component and managing state.
- * - react-circular-progressbar: Used for displaying the ESG score as a circular progress bar.
- * - api: Used to fetch the ESG score data.
- * 
- * CSS:
- * - ESG_Risk_Score.css: Contains the styles for this component.
- * 
- * Author: Micah Chen
- * Date: 06/09/2024
- */
-
-
 import React, { useState, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -44,27 +19,62 @@ const ESG_Score = ({ symbol }) => {
     fetchData();
   }, [symbol]);
 
-  const averageScore = data ? (data.average_environmental_score + data.average_social_score + data.average_governance_score) / 3 : 0;
-  const percentage = (averageScore / 5) * 100; // Assuming the max score is 5
+  const getCategoryColor = (category) => {
+    switch (category) {
+      case 'Poor':
+        return '#d9534f';
+      case 'Neutral':
+        return '#f0ad4e';
+      case 'Good':
+        return '#5cb85c';
+      default:
+        return '#f0ad4e';
+    }
+  };
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
+  const overallScore = data.average_esg_score;
+  const scorePercentage = (overallScore / 100) * 100; // Convert to percentage
+  const scoreColor = getCategoryColor(data.esg_score_category);
 
   return (
-    <div className="ESG_Risk_Score">
-      <h2>ESG Risk Sco2</h2>
-      <div style={{ width: '50px', height: '50px' }}> {/* Adjust these values to change the size of the circular progress bar */}
-    <CircularProgressbar
-      value={percentage}
-      text={`${percentage}%`}
-      styles={buildStyles({
-        textSize: '16px',
-        pathColor: `rgba(62, 152, 199, ${percentage / 100})`,
-        textColor: '#f88',
-        trailColor: '#d6d6d6',
-      })}
-    />
-  </div>
-      
-    </div>
+    <>
+      <svg height="0" xmlns="http://www.w3.org/2000/svg">
+        <filter id="glow" width="300%" height="300%" x="-75%" y="-75%">
+          <feMorphology operator="dilate" radius="4" in="SourceAlpha" result="thicken" />
+          <feGaussianBlur in="thicken" stdDeviation="3" result="blurred" />
+          <feFlood floodColor="rgba(255,255,255,0.6)" result="glowColor" />
+          <feComposite in="glowColor" in2="blurred" operator="in" result="softGlowColored" />
+          <feMerge>
+            <feMergeNode in="softGlowColored" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </svg>
+      <div className="ESG_Risk_Score">
+        <h2>ESG Score</h2>
+        <div className="circular-progress-container">
+          <CircularProgressbar
+            value={scorePercentage}
+            text={`${overallScore.toFixed(2)}`}
+            styles={buildStyles({
+              textSize: '16px',
+              pathColor: scoreColor,
+              textColor: '#fff',
+              trailColor: '#d6d6d6',
+              backgroundColor: 'transparent',
+              filter: 'url(#glow)',
+            })}
+          />
+        </div>
+        <div className="esg-label">{data.esg_score_category} investor sentiment</div>
+      </div>
+    </>
   );
+
 };
 
 export default ESG_Score;

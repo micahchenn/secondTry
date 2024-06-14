@@ -6,7 +6,7 @@ import Stock_Widgets from '../Static_Elements/Stock_Widgets';
 import StockPagePortfolioSummary from '../Static_Elements/StockPagePortfolioSummary';
 import CompanyProfile from '../Static_Elements/CompanyProfile';
 import KeyMetrics from '../Static_Elements/KeyMetrics';
-
+import WatchlistNews from '../Static_Elements/WatchlistNews';
 
 function Watchlist() {
   const { symbol } = useParams();
@@ -28,6 +28,9 @@ function Watchlist() {
           </div>
           <div className="company-profile">
             <CompanyProfile symbol={symbol}/>
+          </div>
+          <div className="watchlist-news">
+            <WatchlistNews symbol={symbol} />  
           </div>
           <div className="key-metrics">
             <KeyMetrics symbol={symbol} />  

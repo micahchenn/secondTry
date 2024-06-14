@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Header_Search_Bar from './Header_Search_Bar'; // import the Header_Search_Bar component
+import HarbingerText from '../../Styling_Pages/Public_Pictures/Harbinger_Text.png';
 
 const User_Header = () => {
   const location = useLocation();
@@ -17,16 +18,15 @@ const User_Header = () => {
 
   return (
     <header className="user-header">
-      <div className="logo-title">
+      <div className="logo-title-user-header">
         <img src={Logo} alt="Harbinger Logo" className="logo" />
-        <h1>Harbinger</h1>
       </div>
       <Header_Search_Bar /> {/* Use the Header_Search_Bar component */}
       <div className="right-header">
         <div className="products">
-          <a href="#about-us" className="hover-element">Learn</a>
+          <a href="#about-us" className="hover-element">Investing</a>
           <a href="#what-we-offer" className="hover-element">Premium</a>
-          <a href="#invest" className="hover-element">Investing</a>
+          <a href="#invest" className="hover-element">Omni</a>
         </div>
         <button className="profile-button">
           <FontAwesomeIcon icon={faUser} size= 'lg' className="profile-icon" />

@@ -1,37 +1,44 @@
-.ESG_Score {
-    /* Full width and height of the parent */
-    width: 100%;
-    height: 100%;
-    
-    /* Box sizing includes padding and border in the total width and height */
-    box-sizing: border-box;
-    
-    /* Center the text horizontally and vertically */
+.ESG_Risk_Score {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    /* Add padding around the div */
-    padding: .5rem;
-    margin: 0;
-    
- 
-    
-    /* Text color */
-    color: white;
-    
-    /* Hide any overflow content */
-    overflow: hidden;
-
-    /* Add this to position the dropdown relative to this div */
-    position: relative;
-}
-
-
-
-.ESG_Risk_Score .CircularProgressbar {
-    width: 100px; /* or whatever size you want */
-    height: 100px; /* should match width */
+    color: #fff;
+    padding: 20px;
   }
+  
+  .circular-progress-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .esg-label {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #ffa500; /* Match the color to the sentiment */
+  }
+  
+  svg {
+    overflow: visible;
+  }
+  
+  svg path {
+    stroke-dashoffset: 0;
+    transition: stroke-dasharray 0.3s ease;
+    filter: url(#glow);
+  }
+  
+  svg line {
+    filter: url(#glow);
+  }
+  
+  @media (max-width: 768px) {
+    .circular-progress-container {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .esg-label {
+      font-size: 1em;
+    }
+  }
+  

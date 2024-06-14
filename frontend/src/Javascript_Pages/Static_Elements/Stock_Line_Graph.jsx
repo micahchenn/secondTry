@@ -23,7 +23,11 @@
  * Author: Micah Chen
  * Date: 06/09/2024
  * 
- */import React, { useEffect, useState, useCallback, useRef } from 'react';
+ */
+
+
+
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Line, Chart } from 'react-chartjs-2';
 import api from '../../api';
 import { Chart as ChartJS, TimeScale, LinearScale, LineElement, PointElement, Tooltip, Legend, CategoryScale } from 'chart.js';
@@ -58,6 +62,7 @@ const Stock_Line_Graph = ({ symbol }) => {
   const [currentPrice, setCurrentPrice] = useState(0);
   const [priceChange, setPriceChange] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
+  const [openPrice, setOpenPrice] = useState(0); // To store the open price for 1D
   const chartRef = useRef(null);
   const intervalRef = useRef(null);
 
@@ -130,6 +135,7 @@ const Stock_Line_Graph = ({ symbol }) => {
       setCurrentPrice(lastValue.c);
       setPriceChange(priceChange);
       setPercentChange(percentChange);
+      setOpenPrice(firstValue.o); // Set the open price for 1D
 
       const newChartData = {
         labels: labels,
@@ -299,9 +305,9 @@ const Stock_Line_Graph = ({ symbol }) => {
     setChartType(chartType === 'line' ? 'candlestick' : 'line');
   };
 
-  // Add a custom plugin to draw the flashing ball
-  const drawFlashingBall = {
-    id: 'flashingBall',
+  // Add a custom plugin to draw the flashing ball and the dotted line for the open price
+  const customPlugin = {
+    id: 'customPlugin',
     afterDatasetsDraw: (chart) => {
       if (range === '1D') {
         const ctx = chart.ctx;
@@ -316,11 +322,28 @@ const Stock_Line_Graph = ({ symbol }) => {
         ctx.fillStyle = color === 'green' ? 'rgba(0, 255, 0, 0.5)' : 'rgba(255, 0, 0, 0.5)';
         ctx.fill();
         ctx.restore();
+
+        // Draw the dotted line for the open price
+        const openValue = openPrice;
+        const yScale = chart.scales.y;
+        const xScale = chart.scales.x;
+
+        if (openValue !== undefined) {
+          ctx.save();
+          ctx.setLineDash([5, 5]);
+          ctx.beginPath();
+          ctx.moveTo(xScale.left, yScale.getPixelForValue(openValue));
+          ctx.lineTo(xScale.right, yScale.getPixelForValue(openValue));
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+          ctx.stroke();
+          ctx.restore();
+        }
       }
     }
   };
 
-  ChartJS.register(drawFlashingBall);
+  ChartJS.register(customPlugin);
 
   return (
     <div className="chart-container">
@@ -384,6 +407,7 @@ const getPeriodLabel = (period) => {
       return '';
   }
 };
+
 
 //This is for alphavantage however Harbinger has discountinued using alphavantage
 /*

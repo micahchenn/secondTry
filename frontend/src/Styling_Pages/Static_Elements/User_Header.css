@@ -1,106 +1,100 @@
+/* User Header CSS */
+
 /* This file contains the styling for the user header HEIGHT IS 62 */
-
 .user-header {
-    position: fixed;
-    top: 0;
-    width: calc(100%);
-    min-width: 640px;
-    height: 50px;
-    padding: 6px;
-    display: flex;
-    justify-content: flex-start; /* Changed from space-between to flex-start */
-    align-items: center;
-    border-bottom: 1px solid var(--Container-border, rgba(255, 255, 255, 0.10));
-    background: rgba(0, 0, 0, 0.09); /* gives it that dark color */
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    color: white;
-}
-
-.user-header h1 {
-    color: var(--Foreground-primary, #FFF);
-    font-family: Inter;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: .3px;
+  position: fixed;
+  top: 0;
+  width: calc(100%);
+  min-width: 640px;
+  height: 50px;
+  padding: 6px;
+  display: flex;
+  justify-content: flex-start; /* Changed from space-between to flex-start */
+  align-items: center;
+  border-bottom: 1px solid var(--Container-border, rgba(255, 255, 255, 0.10));
+  background: rgba(0, 0, 0, 0.09); /* gives it that dark color */
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  color: white;
 }
 
 
 
+.right-header {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
 
-
-
-  .right-header {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-  }
 .button-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .user .hover-login, .products .hover-element {
-    text-decoration: none;
-    border-radius: 8px;
-    
-   
-    display: flex;
-    padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
-    align-items: center;
-    gap: var(--Button-gap, 8px);
-    color: white;
-    margin-left: auto;
-    transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
+  align-items: center;
+  gap: var(--Button-gap, 8px);
+  color: white;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.02); /* Light background for the box */
+  border: 1px solid rgba(255, 255, 255, 0.07); /* Border for the box */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+.user .hover-login:hover, .products .hover-element:hover {
+  background: rgba(255, 255, 255, 0.1); /* Change the background color when hovered */
+  border: 1px solid #FFF; /* Slightly visible border on hover */
+}
 
-.logo-title {
-    display: flex;
-    align-items: center;
+.logo-title-user-header {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  gap: 10px; /* Adjust this value to bring the text closer or further from the logo */
 }
 
 .logo {
-    margin-right: 10px;
-    margin-left: 75px;
-    width: 50px;
+  /* Adjust the logo size if needed */
+  padding-top: 2%;
+  width: 240px; /* Example size, adjust as needed */
+  height: auto;
+  margin-left: 0px; /* Adjust this value as needed */
 }
 
 
 .products {
-    display: flex;
-    align-items: center; /* This will center the items vertically */
-  }
-
+  display: flex;
+  gap: 20px; /* Ensure spacing between elements */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
+  justify-content: space-around; /* Space out items evenly */
+  align-items: center; /* Center the items vertically */
+}
 
 .products .hover-element {
-    gap: 10px;
-    color: var(--Foreground-primary, #FFF);
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-}
-
-.products {
-    display: flex;
-    gap: 10px;
+  gap: 10px;
+  color: var(--Foreground-primary, #FFF);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .profile-button {
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-
-.profile-icon {
-  margin-right: 50px; /* Adjust this value as needed */
+  margin-left: 40px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
+.profile-icon {
+  margin-right: 70px; /* Adjust this value as needed */
+}
 
 .premium-profile {
-    margin-left: 75px;
-    padding: 70px;
+  margin-left: 75px;
+  padding: 70px;
 }

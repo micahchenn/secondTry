@@ -40,17 +40,17 @@ function Login() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="form-container">
+        <form onSubmit={handleSubmit} className="form-container1">
             <h1>Login</h1>
             <input
-                className="form-input"
+                className="form-input2"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
             />
             <input
-                className="form-input"
+                className="form-input2"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
