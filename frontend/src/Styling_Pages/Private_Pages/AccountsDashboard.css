@@ -1,0 +1,35 @@
+:root {
+    --sidebar-width: 90px;
+    --right-margin: 100px; /* Adjust as needed */
+    --double-sidebar-width: 185px;
+    background-color: #0A0B0D;
+  }
+  
+  
+  .accounts-dashboard__container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    width: calc(100% - var(--double-sidebar-width) - var(--right-margin));
+    margin-left: var(--double-sidebar-width);
+    box-sizing: border-box; /* Ensure padding is included in the width */
+
+    border: 2px solid rgb(49, 49, 49); /* Temporary border for debugging */
+    overflow: hidden; /* Prevent overflow */
+    height: auto; /* Adjust height based on the content */
+}
+  
+  .accounts-dashboard__account-name {
+
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .accounts-dashboard__menu-bar {
+    
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+  }

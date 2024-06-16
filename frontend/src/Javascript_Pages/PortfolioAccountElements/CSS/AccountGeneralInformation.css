@@ -1,0 +1,23 @@
+.account-type-general-information {
+    font-weight: 550; /* Not semibold, should be normal */
+    text-transform: capitalize;
+    font-size: 17px; /* Use CSS variable for font size */
+    color: rgba(255, 255, 255, 0.96); /* White with 50% opacity for semi-transparency */
+    margin-bottom: 5px; /* Reduced bottom margin */
+}
+
+.account-value-general-information {
+    font-weight: 600; /* Semibold */
+    text-transform: capitalize;
+    font-size: 50px; /* Use CSS variable for font size */
+    background: linear-gradient(to right, #0026ff, #ffffff);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent; /* Ensures the text takes the background color */
+
+    margin-top: -5px; /* Negative top margin to reduce space */
+}
+
+.account-detail{
+    color: white;
+}

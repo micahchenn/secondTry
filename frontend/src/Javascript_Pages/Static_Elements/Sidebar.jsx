@@ -64,7 +64,7 @@ const Sidebar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/learn" activeClassName="active">
+                    <NavLink exact to="/accounts-dashboard" activeClassName="active">
                         <FontAwesomeIcon icon={faBook} />
                         <span className="sidebar-text">Learn</span>
                     </NavLink>

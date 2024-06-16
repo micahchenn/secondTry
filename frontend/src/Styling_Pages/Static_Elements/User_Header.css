@@ -12,7 +12,7 @@
   justify-content: flex-start; /* Changed from space-between to flex-start */
   align-items: center;
   border-bottom: 1px solid var(--Container-border, rgba(255, 255, 255, 0.10));
-  background: rgba(0, 0, 0, 0.09); /* gives it that dark color */
+  background-color: #0A0B0D;; /* gives it that dark color */
   backdrop-filter: blur(10px);
   z-index: 1000;
   color: white;
@@ -59,7 +59,7 @@
 .logo {
   /* Adjust the logo size if needed */
   padding-top: 2%;
-  width: 240px; /* Example size, adjust as needed */
+  width: 19px; /* Example size, adjust as needed */
   height: auto;
   margin-left: 0px; /* Adjust this value as needed */
 }

@@ -9,35 +9,35 @@
     padding: 20px;
     transition: width 0.5s, background-color 0.5s;
     overflow: hidden;
-    z-index: 9999;
+    z-index: 100;
     border-right: 1px solid #ffffff2a;
     background: rgba(0, 0, 0, 0.10);
-}
-
-.sidebar:hover {
-    width: 200px;
+  }
+  
+  .sidebar:hover {
+    width: 145px;
     background-color: rgba(0, 0, 0, 0.37); /* Adjust the alpha value as needed to darken the background */
-}
-
-.sidebar ul {
+  }
+  
+  .sidebar ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-}
-
-.sidebar li {
+  }
+  
+  .sidebar li {
     padding: 20px 0; /* Increase spacing between list items */
-}
-
-.sidebar li a {
+  }
+  
+  .sidebar li a {
     color: #fff;
     text-decoration: none;
     display: flex;
     align-items: center;
     position: relative; /* For the active indicator */
-}
-
-.sidebar li a::before {
+  }
+  
+  .sidebar li a::before {
     content: '';
     position: absolute;
     left: -10px;
@@ -45,39 +45,39 @@
     height: 100%;
     background-color: transparent;
     transition: background-color 0.3s;
-}
-
-.sidebar li a.active::before {
+  }
+  
+  .sidebar li a.active::before {
     background-color: #fff; /* Color of the active indicator */
-}
-
-.sidebar-text {
+  }
+  
+  .sidebar-text {
     display: none; /* Hide text initially */
     margin-left: 15px; /* Add more space between icon and text */
-}
-
-.sidebar:hover .sidebar-text {
+  }
+  
+  .sidebar:hover .sidebar-text {
     display: inline; /* Show text on hover */
-}
-
-.sub-menu {
+  }
+  
+  .sub-menu {
     padding-left: 30px; /* Increase the indent for sub-menu items */
     display: none;
-}
-
-.sidebar:hover .sub-menu {
+  }
+  
+  .sidebar:hover .sub-menu {
     display: block; /* Show sub-menu on hover */
-}
-
-
-.sub-menu li {
+  }
+  
+  .sub-menu li {
     padding: 5px 0; /* Spacing for sub-menu items */
     margin-left: 30px;
     font-size: 12px; /* Adjust this value to make the text smaller */
-}
-
-.sidebar-bottom {
+  }
+  
+  .sidebar-bottom {
     position: absolute;
     bottom: 50px;
     width: 100%;
-}
+  }
+  

@@ -22,12 +22,13 @@ import Sidebar from './Static_Elements/Sidebar';
 import Test_Grid from './Public_Pages/Test_Grid';
 import Watchlist from './Private_Pages/Watchlist';
 import WatchlistDashboard from './Private_Pages/WatchlistDashboard';
+import AccountsDashboard from './Private_Pages/AccountsDashboard';
 
 import { useLocation } from 'react-router-dom';
 
 function HeaderWrapper() {
   const location = useLocation();
-  const isWelcomePage = location.pathname === '/welcome';
+  const isWelcomePage = location.pathname === '/welcome' || location.pathname === '/login' || location.pathname === '/signup';
 
   return (
     <>
@@ -62,6 +63,12 @@ function HeaderWrapper() {
         <Route path="/investments-summary" element={
           <Protected_Route>
             <Investments_Summary />
+          </Protected_Route>
+        } />
+
+        <Route path="/accounts-dashboard" element={
+          <Protected_Route>
+            <AccountsDashboard />
           </Protected_Route>
         } />
 

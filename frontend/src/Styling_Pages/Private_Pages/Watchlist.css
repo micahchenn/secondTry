@@ -2,6 +2,7 @@
   --sidebar-width: 90px;
   --right-margin: 0; /* Adjust as needed */
   --right-margin-content: 100px;
+  background-color: #0A0B0D;
 }
 
 
@@ -10,7 +11,6 @@
   position: relative;
   width: 100%;
   height: 100vh; /* Full viewport height */
-  background-color: #0A0B0D;
   /*
   background-image: url('/src/Styling_Pages/Public_Pictures/Circle_Blur2.png'), url('/src/Styling_Pages/Public_Pictures/Circle_Blur1.png');
   background-size: 170%, 130%;
@@ -26,18 +26,18 @@
   flex-direction: column;
   */
 }
-
+/*
 .content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow-y: auto; /* Scroll only for the content */
+  overflow-y: auto; /
   box-sizing: border-box;
   
 }
-
+*/
 .grid-container {
   width: calc(100% - var(--sidebar-width));
   margin-left: var(--sidebar-width);
@@ -89,10 +89,10 @@
 }
 
 .my-portfolio {
-  margin-top: 2%;
+  margin-top: 1%;
   width: 57%;
   margin-left: var(--sidebar-width);
-  padding: 2px;
+  padding: 10px;
   height: auto;
   background-color: transparent;
 }
@@ -122,6 +122,7 @@
   margin: 0;
   margin-left: var(--sidebar-width);
   overflow-x:hidden;
+  padding: 10px;
 
 }
 
@@ -145,6 +146,7 @@
   margin: 0;
   margin-left: var(--sidebar-width);
   overflow-x:hidden;
+  padding: 10px;
 }
 
 

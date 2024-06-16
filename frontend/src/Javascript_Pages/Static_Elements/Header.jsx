@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'; // Import Link
 const Header = () => {
     const location = useLocation();
   
-    if (location.pathname !== "/welcome") {
+    if (location.pathname !== "/welcome" && location.pathname !== "/login" && location.pathname !== "/signup") {
       return null;
     }
   

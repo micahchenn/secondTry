@@ -1,0 +1,80 @@
+.account-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 80vh; /* Adjust this value as needed */
+    padding: 10px; /* Padding to prevent content from touching the container edges */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .account-cards::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
+  
+  .account-card {
+    position: relative;
+    width: 320px;
+    height: 150px;
+    margin-top: -70px; /* Adjust this value to control the overlap */
+    padding: 15px;
+    border-radius: 15px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+    z-index: 1;
+    overflow: hidden; /* Ensure content doesn't overflow */
+  }
+  
+  .account-card:first-child {
+    margin-top: 0; /* Ensure the first card is fully visible */
+  }
+  
+  .account-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    margin-top: 0;
+    z-index: 10; /* Bring the hovered card to the front */
+  }
+  
+  .account-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .account-name {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .account-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .gradient-0 {
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+  }
+  
+  .gradient-1 {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  }
+  
+  .gradient-2 {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+  }
+  
+  .gradient-3 {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+  }
+  
+  .gradient-4 {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+  }
+  
