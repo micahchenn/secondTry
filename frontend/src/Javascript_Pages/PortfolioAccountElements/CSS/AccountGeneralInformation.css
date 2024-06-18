@@ -10,7 +10,7 @@
     font-weight: 600; /* Semibold */
     text-transform: capitalize;
     font-size: 50px; /* Use CSS variable for font size */
-    background: linear-gradient(to right, #0026ff, #ffffff);
+    background: linear-gradient(to right, #0044ff, #ffffff);
 -webkit-background-clip: text;
 background-clip: text;
 color: transparent; /* Ensures the text takes the background color */

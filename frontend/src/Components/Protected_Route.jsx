@@ -13,6 +13,71 @@
  */
 
 
+import { Navigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode'; // Correct import as a named export
+import api from '../api';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '../Constants';
+import { useEffect, useState } from 'react';
+
+function Protected_Route({ children }) {
+    const [isAuthorized, setIsAuthorized] = useState(null);
+
+    const refreshToken = async () => {
+        const refreshToken = localStorage.getItem(REFRESH_TOKEN);
+        try {
+            const res = await api.post("/authenticate/token/refresh/", {
+                refresh: refreshToken,
+            });
+            if (res.status === 200) {
+                localStorage.setItem(ACCESS_TOKEN, res.data.access);
+                setIsAuthorized(true);
+            } else {
+                setIsAuthorized(false);
+            }
+        } catch (error) {
+            console.log(error);
+            setIsAuthorized(false);
+        }
+    };
+
+    const auth = async () => {
+        const token = localStorage.getItem(ACCESS_TOKEN);
+        if (!token) {
+            setIsAuthorized(false);
+            return;
+        }
+
+        const decoded = jwtDecode(token); // Correct usage with named import
+        const tokenExpiration = decoded.exp;
+        const now = Date.now() / 1000;
+
+        if (tokenExpiration < now) {
+            await refreshToken();
+        } else {
+            setIsAuthorized(true);
+        }
+    };
+
+    useEffect(() => {
+        // Call auth on each render to ensure that the auth check is done on route change
+        auth();
+    });
+
+    if (isAuthorized === null) {
+        return <div>Loading...</div>;
+    }
+
+    return isAuthorized ? children : <Navigate to="/welcome" />;
+}
+
+export default Protected_Route;
+
+
+
+
+// This is the old version, it doesn't handle refresh 
+
+/*
 import {Navigate, Route} from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode';
 import api from '../api';
@@ -70,3 +135,4 @@ function Protected_Route({children}){
 }
 
 export default Protected_Route;
+*/
