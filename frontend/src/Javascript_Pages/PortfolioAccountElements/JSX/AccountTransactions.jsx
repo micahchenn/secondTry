@@ -7,7 +7,7 @@ const AccountTransactions = ({ selectedAccount }) => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await api.get(`plaid/get-investment-transactions/${selectedAccount.id}/1M`);
+        const response = await api.get(`plaid/get-investment-transactions/${selectedAccount.id}/1Y`);
         console.log('Transactions:', response.data);
         setTransactions(response.data.transactions); // Store the transactions data in state
       } catch (error) {

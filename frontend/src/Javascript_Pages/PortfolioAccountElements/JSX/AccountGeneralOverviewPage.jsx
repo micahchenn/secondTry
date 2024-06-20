@@ -4,6 +4,8 @@ import AccountGeneralInformation from './AccountGeneralInformation';
 import api from '../../../api'; // Adjust the import path to where your API is defined
 import '../CSS/AccountGeneralOverviewPage.css';
 
+import AccountGeneralMoreDetailedInformation from './AccountGeneralMoreDetailedInformation';
+
 const AccountGeneralOverviewPage = ({ selectedAccount, accounts, handleAccountSelect }) => {
   const [accountDetails, setAccountDetails] = useState(null);
 
@@ -37,8 +39,7 @@ const AccountGeneralOverviewPage = ({ selectedAccount, accounts, handleAccountSe
       </div>
       <div className="accounts-dashboard__more-details-wrapper">
         <div className="accounts-dashboard__detailed-information">
-          <h2>More Detailed Information</h2>
-          {/* Add your detailed information content here */}
+          {accountDetails && <AccountGeneralMoreDetailedInformation accountId={selectedAccount.id} />}
           <p>Details go here...</p>
         </div>
         <div className="accounts-dashboard__accounts">

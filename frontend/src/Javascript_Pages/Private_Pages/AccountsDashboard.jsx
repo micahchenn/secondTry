@@ -6,6 +6,7 @@ import AccountGeneralOverviewPage from '../PortfolioAccountElements/JSX/AccountG
 import AccountTransactions from '../PortfolioAccountElements/JSX/AccountTransactions'; // Adjust the import path as necessary
 import AccountAnalytics from '../PortfolioAccountElements/JSX/AccountAnalytics'; // Adjust the import path as necessary
 import AccountMenuBarLine from '../PortfolioAccountElements/JSX/AccountMenuBarLine';
+import ManageAccountsTest from '../PortfolioAccountElements/JSX/ManageAccountsTest';
 
 function AccountsDashboard() {
   const [accounts, setAccounts] = useState([]);
@@ -44,6 +45,8 @@ function AccountsDashboard() {
         return <AccountAnalytics selectedAccount={selectedAccount} accounts={accounts} handleAccountSelect={handleAccountSelect} />;
       case 'Transactions':
         return <AccountTransactions selectedAccount={selectedAccount} accounts={accounts} handleAccountSelect={handleAccountSelect} />;
+        case 'Manage Accounts':
+            return <ManageAccountsTest selectedAccount={selectedAccount} accounts={accounts} handleAccountSelect={handleAccountSelect} />;
       default:
         return null;
     }

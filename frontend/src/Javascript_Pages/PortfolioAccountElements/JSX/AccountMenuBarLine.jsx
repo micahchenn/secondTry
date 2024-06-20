@@ -3,7 +3,7 @@ import '../CSS/AccountMenuBarLine.css';
 
 
 function AccountMenuBarLine({ selectedMenuItem, setSelectedMenuItem }) {
-  const menuItems = ['General Information', 'Analytics', 'Transactions'];
+  const menuItems = ['General Information', 'Analytics', 'Transactions', 'Manage Accounts'];
   const menuRefs = useRef([]);
 
   useEffect(() => {
