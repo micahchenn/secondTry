@@ -36,9 +36,9 @@ const LinkAccount = () => {
                 onSuccess: async (publicToken) => { // If the user successfully links their account, the Plaid Link module will return a public token
                     const response = await api.post('/plaid/get-access-token/', { publicToken });  // The public token is sent to the server to exchange it for an access token (then securely stored in server side)
                     setAccessToken(response.data.access_token); // Update this line
-                    // const accessToken = response.data.access_token; // Commented out since it's not used directly
-                    //const userDataResponse = await api.post('/plaid/get-user-data/', { access_token: accessToken });
-                    //setAccountData(userDataResponse.data); 
+                     const accessToken = response.data.access_token; // Commented out since it's not used directly
+                     const userDataResponse = await api.post('/plaid/get-user-data/', { access_token: accessToken });
+                     setAccountData(userDataResponse.data); // Commented out since it's not used directly
                 },
             });
             handler.open(); // The Plaid Link module is opened 

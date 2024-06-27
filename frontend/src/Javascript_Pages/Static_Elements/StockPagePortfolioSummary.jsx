@@ -27,6 +27,7 @@ const IndividualStockSecurityInformation = ({ symbol }) => {
       );
     }
 
+    
     const overall = {
       accountName: 'Overall Portfolio',
       costBasis: parseFloat(data.total_cost_basis).toFixed(2),

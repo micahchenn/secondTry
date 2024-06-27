@@ -53,7 +53,7 @@ ChartJS.register(
   CandlestickElement
 );
 
-const Stock_Line_Graph = ({ symbol }) => {
+const StockLineGraph = ({ symbol }) => {
   const [chartData, setChartData] = useState({});
   const [loading, setLoading] = useState(true);
   const [color, setLineColor] = useState('green'); // default color
@@ -311,7 +311,7 @@ const Stock_Line_Graph = ({ symbol }) => {
     afterDatasetsDraw: (chart) => {
       if (range === '1D') {
         const ctx = chart.ctx;
-        const dataset = chart.data.datasets[0];
+        //const dataset = chart.data.datasets[0];
         const meta = chart.getDatasetMeta(0);
         const point = meta.data[meta.data.length - 1]; // Get the last point
 
@@ -349,12 +349,12 @@ const Stock_Line_Graph = ({ symbol }) => {
     <div className="chart-container">
       <div className="price-info">
         <h1 className="stock-name">{symbol}</h1>
-        <a className="current-price">${currentPrice.toFixed(2)}</a>
-        <a className={`price-change ${priceChange < 0 ? 'negative' : 'positive'}`}>
+        <span className="current-price">${currentPrice.toFixed(2)}</span>
+        <span className={`price-change ${priceChange < 0 ? 'negative' : 'positive'}`}>
           {priceChange < 0 ? '-' : ''}${Math.abs(priceChange).toLocaleString()} 
           &nbsp;({percentChange.toFixed(2)}%)&nbsp;
           <span className="description">{getPeriodLabel(range)}</span>
-        </a>
+        </span>
       </div>
       <div className="chart-content">
         <div className="chart-wrapper">
@@ -381,9 +381,13 @@ const Stock_Line_Graph = ({ symbol }) => {
       </div>
     </div>
   );
-}
+};
 
-export default Stock_Line_Graph;
+export default StockLineGraph;
+
+
+
+
 
 const getPeriodLabel = (period) => {
   switch(period) {

@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import '../CSS/AccountMenuBarLine.css'; 
-
 
 function AccountMenuBarLine({ selectedMenuItem, setSelectedMenuItem }) {
   const menuItems = ['General Information', 'Analytics', 'Transactions', 'Manage Accounts'];
@@ -15,6 +14,7 @@ function AccountMenuBarLine({ selectedMenuItem, setSelectedMenuItem }) {
       document.documentElement.style.setProperty('--highlight-left', `${left}px`);
       document.documentElement.style.setProperty('--highlight-width', `${width}px`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedMenuItem]);
 
   return (

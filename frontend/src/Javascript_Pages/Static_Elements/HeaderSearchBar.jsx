@@ -2,13 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../Styling_Pages/Static_Elements/Header_Search_Bar.css';
 import api from '../../api';
-import Watchlist from '../Private_Pages/Watchlist';
 
-const Header_Search_Bar = () => {
+const HeaderSearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
-  const [triggerSearch, setTriggerSearch] = useState(false); // add a trigger for the search
-  const [selectedSymbol, setSelectedSymbol] = useState(null);
+  const [triggerSearch, setTriggerSearch] = useState(false);
   const wrapperRef = useRef(null);
   const navigate = useNavigate();
 
@@ -32,13 +30,13 @@ const Header_Search_Bar = () => {
         clearTimeout(timerId);
       };
     }
-  }, [searchTerm, triggerSearch]); // re-run the effect when triggerSearch changes
+  }, [searchTerm, triggerSearch]);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        setResults([]); // clear the results
-        setTriggerSearch(false); // reset the trigger
+        setResults([]);
+        setTriggerSearch(false);
       }
     }
 
@@ -50,9 +48,9 @@ const Header_Search_Bar = () => {
 
   const handleClick = (symbol) => {
     navigate(`/stock-watchlist/${symbol}`);
-    setSearchTerm(''); // clear the search bar
-    setResults([]); // clear the results
-    setTriggerSearch(false); // reset the trigger
+    setSearchTerm('');
+    setResults([]);
+    setTriggerSearch(false);
   };
 
   return (
@@ -63,9 +61,9 @@ const Header_Search_Bar = () => {
         value={searchTerm}
         onChange={e => {
           setSearchTerm(e.target.value);
-          setTriggerSearch(true); // set the trigger when the input value changes
+          setTriggerSearch(true);
         }}
-        onClick={() => setTriggerSearch(true)} // set the trigger when the input is clicked
+        onClick={() => setTriggerSearch(true)}
       />
       {results.length > 0 && (
         <div className="results" onClick={e => e.stopPropagation()}>
@@ -82,9 +80,8 @@ const Header_Search_Bar = () => {
           </table>
         </div>
       )}
-      
     </div>
   );
 };
 
-export default Header_Search_Bar;
+export default HeaderSearchBar;

@@ -16,12 +16,12 @@ import { Navigate } from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode'; // Correct import as a default export
 import api from '../api';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../Constants';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
-function Protected_Route({ children }) {
+function ProtectedRoute({ children }) {
     const [isAuthorized, setIsAuthorized] = useState(null);
 
-    const refreshToken = async () => {
+    const refreshToken = useCallback(async () => {
         const refreshToken = localStorage.getItem(REFRESH_TOKEN);
         try {
             const res = await api.post("/authenticate/token/refresh/", {
@@ -37,9 +37,9 @@ function Protected_Route({ children }) {
             console.log(error);
             setIsAuthorized(false);
         }
-    };
+    }, []);
 
-    const auth = async () => {
+    const auth = useCallback(async () => {
         const token = localStorage.getItem(ACCESS_TOKEN);
         if (!token) {
             setIsAuthorized(false);
@@ -55,7 +55,7 @@ function Protected_Route({ children }) {
         } else {
             setIsAuthorized(true);
         }
-    };
+    }, [refreshToken]);
 
     useEffect(() => {
         // Call auth on initial render
@@ -78,7 +78,7 @@ function Protected_Route({ children }) {
 
         // Clean up the interval on component unmount
         return () => clearInterval(interval);
-    }, []); // Run only once when the component mounts
+    }, [auth, refreshToken]); // Run only once when the component mounts
 
     if (isAuthorized === null) {
         return <div>Loading...</div>;
@@ -87,8 +87,7 @@ function Protected_Route({ children }) {
     return isAuthorized ? children : <Navigate to="/welcome" />;
 }
 
-export default Protected_Route;
-
+export default ProtectedRoute;
 
 
 
