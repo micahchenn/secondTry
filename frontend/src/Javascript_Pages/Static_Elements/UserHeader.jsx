@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import Header_Search_Bar from './Header_Search_Bar'; // import the Header_Search_Bar component
+import HeaderSearchBar from './HeaderSearchBar'; // import the Header_Search_Bar component
 import HarbingerText from '../../Styling_Pages/Public_Pictures/Harbinger_Text.png';
 
 const User_Header = () => {
@@ -21,7 +21,7 @@ const User_Header = () => {
       <div className="logo-title-user-header">
         <img src={Logo} alt="Harbinger Logo" className="logo" />
       </div>
-      <Header_Search_Bar /> {/* Use the Header_Search_Bar component */}
+      <HeaderSearchBar /> {/* Use the Header_Search_Bar component */}
       <div className="right-header">
         <div className="products">
           <a href="#about-us" className="hover-element">Investing</a>

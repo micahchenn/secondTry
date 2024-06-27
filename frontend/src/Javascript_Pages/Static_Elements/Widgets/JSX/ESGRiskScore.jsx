@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../../api';
-import '../CSS/ESG_Risk_Score.css';
+import '../CSS/ESGRiskScore.css';
 
 const ESGRiskScore = ({ symbol }) => {
   const [data, setData] = useState(null);

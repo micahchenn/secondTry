@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import api from '../../../../api';
-import '../CSS/ESG_Risk_Score.css';
+import '../CSS/ESGRiskScore.css';
 
 const ESG_Score = ({ symbol }) => {
   const [data, setData] = useState(null);

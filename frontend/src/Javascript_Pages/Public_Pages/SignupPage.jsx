@@ -37,7 +37,7 @@ function Signup() {
         e.preventDefault();
 
         try {
-            const res = await api.post("authenticate/user-signup/", { username, email, password });
+            await api.post("authenticate/user-signup/", { username, email, password });
             //localStorage.setItem(ACCESS_TOKEN, res.data.access); 
             //localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
             navigate("/login");

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Box.css';
-import ESG_Score from '../JSX/ESG_Score';
-import ESG_Risk_Score from '../JSX/ESG_Risk_Score';
+import ESGScore from '../JSX/ESGScore';
+import ESGRiskScore from '../JSX/ESGRiskScore';
 import CompanyPicture from '../JSX/CompanyPicture';
 const Box2 = ({ symbol }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -48,8 +48,8 @@ const Box2 = ({ symbol }) => {
           <div onClick={() => handleItemClick('Logo')} className="dropdown-item">Logo</div>
         </div>
       ) : null}
-      {selectedComponent === 'ESG_Score' && <ESG_Score symbol={symbol} />} 
-      {selectedComponent === 'ESG_Risk_Score' && <ESG_Risk_Score symbol={symbol} />} 
+      {selectedComponent === 'ESG_Score' && <ESGScore symbol={symbol} />} 
+      {selectedComponent === 'ESG_Risk_Score' && <ESGRiskScore symbol={symbol} />} 
       {selectedComponent === 'Logo' && <CompanyPicture symbol={symbol} />} 
     </div>
   );

@@ -7,17 +7,17 @@
 import '../Styling_Pages/App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Protected_Route from '../Components/Protected_Route'; // Make sure to adjust the path to where your Protected_Route component is located
-import Login from './Public_Pages/Login_Page'; // Make sure to adjust the path to where your Login component is located
-import Signup from './Public_Pages/Signup_Page';
-import Link_Account from './Private_Pages/Link_Account';
-import Welcome_Page from './Public_Pages/Welcome_Page';
+import ProtectedRoute from '../Components/ProtectedRoute'; // Make sure to adjust the path to where your Protected_Route component is located
+import Login from './Public_Pages/LoginPage'; // Make sure to adjust the path to where your Login component is located
+import Signup from './Public_Pages/SignupPage';
+import LinkAccount from './Private_Pages/LinkAccount';
+import WelcomePage from './Public_Pages/WelcomePage';
 import Dashboard from './Private_Pages/Dashboard';
-import Investments_Summary from './Private_Pages/Investments_Summary';
+import InvestmentsSummary from './Private_Pages/InvestmentsSummary';
 import Header from './Static_Elements/Header';
-import User_Header from './Static_Elements/User_Header';
+import UserHeader from './Static_Elements/UserHeader';
 import Sidebar from './Static_Elements/Sidebar';
-import Test_Grid from './Public_Pages/Test_Grid';
+import TestGrid from './Public_Pages/TestGrid';
 import Watchlist from './Private_Pages/Watchlist';
 import WatchlistDashboard from './Private_Pages/WatchlistDashboard';
 import AccountsDashboard from './Private_Pages/AccountsDashboard';
@@ -31,50 +31,50 @@ function HeaderWrapper() {
 
   return (
     <>
-      {isWelcomePage ? <Header /> : <User_Header />}
+      {isWelcomePage ? <Header /> : <UserHeader />}
       {!isWelcomePage && <Sidebar />} {/* Display Sidebar when not on welcome page */}
       <Routes>
-        <Route path="/welcome" element={<Welcome_Page />} />
+        <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/grid" element={<Test_Grid />} />
+        <Route path="/grid" element={<TestGrid />} />
         <Route path="/test-langchain" element={
-          <Protected_Route>
+          <ProtectedRoute>
             <TestLangchain />
-          </Protected_Route>
+          </ProtectedRoute>
         } />
         <Route path="/watchlist-dashboard" element={<WatchlistDashboard />} />
         <Route path="/stock-watchlist/:symbol" element={
-          <Protected_Route>
+          <ProtectedRoute>
             <Watchlist />
-          </Protected_Route>
+          </ProtectedRoute>
         } />
         <Route path="/my-dashboard" element={
-          <Protected_Route>
+          <ProtectedRoute>
             <Dashboard />
-          </Protected_Route>
+          </ProtectedRoute>
         } />
         <Route path="/link-account" element={
-          <Protected_Route>
-            <Link_Account />
-          </Protected_Route>
+          <ProtectedRoute>
+            <LinkAccount />
+          </ProtectedRoute>
         } />
         <Route path="/investments-summary" element={
-          <Protected_Route>
-            <Investments_Summary />
-          </Protected_Route>
+          <ProtectedRoute>
+            <InvestmentsSummary />
+          </ProtectedRoute>
         } />
         <Route path="/accounts-dashboard" element={
-          <Protected_Route>
+          <ProtectedRoute>
             <AccountsDashboard />
-          </Protected_Route>
+          </ProtectedRoute>
         } />
         <Route path="/" element={
-          <Protected_Route>
+          <ProtectedRoute>
             <div className="App">
               <h1>Welcome to the Front Page this is the reason I hate i love it actually coding</h1>
             </div>
-          </Protected_Route>
+          </ProtectedRoute>
         } />
       </Routes>
     </>

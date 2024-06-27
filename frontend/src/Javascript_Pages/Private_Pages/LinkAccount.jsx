@@ -18,14 +18,13 @@
 
 import React, { useState } from 'react';
 import api from '../../api';
-import { useNavigate } from 'react-router-dom';
 import '../../Styling_Pages/Private_Pages/Link_Account.css'; // Import the CSS file
 
-const Link_Account = () => {
-    const navigate = useNavigate();
+const LinkAccount = () => {
+    // const navigate = useNavigate(); // Commented out since it's not used
     const [accountData, setAccountData] = useState(null);
     const [error, setError] = useState(null);
-    const [accessToken, setAccessToken] = useState(null); // Add this line
+    const [accessToken, setAccessToken] = useState(null);
 
     const linkAccount = async () => {
         try {
@@ -36,8 +35,8 @@ const Link_Account = () => {
                 token: linkToken, // The link token is passed to the Plaid Link module to open the module
                 onSuccess: async (publicToken) => { // If the user successfully links their account, the Plaid Link module will return a public token
                     const response = await api.post('/plaid/get-access-token/', { publicToken });  // The public token is sent to the server to exchange it for an access token (then securely stored in server side)
-                    setAccessToken(response.data.access_token); // Update this line THIS IS JUST A PLACEHOLDER FOR ALL ERROR AND STUFF
-                    const accessToken = response.data.access_token; // with the access token you can send requests to the Plaid API to get the user's account data
+                    setAccessToken(response.data.access_token); // Update this line
+                    // const accessToken = response.data.access_token; // Commented out since it's not used directly
                     //const userDataResponse = await api.post('/plaid/get-user-data/', { access_token: accessToken });
                     //setAccountData(userDataResponse.data); 
                 },
@@ -61,15 +60,14 @@ const Link_Account = () => {
 
     return (
         <div className="link-account">
-            <h1>Link Accountasd</h1>
+            <h1>Link Account</h1>
             <button className="link-account-button" onClick={linkAccount}>Link Account</button>
             <button className="test-request-button" onClick={sendTestRequest}>Send Test Request</button>
-            {accessToken && <p>Access Token: {accessToken}</p>} {/* Add this line */}
+            {accessToken && <p>Access Token: {accessToken}</p>}
             {responseData && 
             <pre style={{ maxHeight: '500px', overflowY: 'scroll' }}>
                 {responseData}
-            </pre>
-        }
+            </pre>}
             {error && <p className="error-message">{error}</p>}
             {accountData && (
                 <table>
@@ -91,4 +89,4 @@ const Link_Account = () => {
     );
 };
 
-export default Link_Account;
+export default LinkAccount;
