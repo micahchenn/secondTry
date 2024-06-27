@@ -49,9 +49,11 @@
 }
 
 .accounts-dashboard__accounts {
-  flex: 0 1 50%; /* Set width */
+  flex: 0 1 auto; /* Do not grow, allow shrink, basis auto */
+  width: 50%; /* Set width to 50% */
+  max-width: 50%; /* Ensure it does not exceed 50% width */
   background-color: #7fbaf5; /* Light blue background */
   padding: 20px;
   margin-top: 0; /* Remove spacing on the top */
-  /* Ensure content overflow is handled */
+  overflow: hidden; /* Ensure content overflow is handled */
 }

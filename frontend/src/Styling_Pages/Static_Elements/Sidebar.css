@@ -5,13 +5,13 @@
     left: 0;
     top: 63px;
     backdrop-filter: blur(10px); /* Apply a blur effect to the background */
-    color: #fff;
+    color: #696260;
     padding: 20px;
     transition: width 0.5s, background-color 0.5s;
     overflow: hidden;
     z-index: 100;
     border-right: 1px solid #ffffff2a;
-    background: rgba(0, 0, 0, 0.10);
+    background: transparent;
   }
   
   .sidebar:hover {
@@ -30,7 +30,7 @@
   }
   
   .sidebar li a {
-    color: #fff;
+    color: #ececec;
     text-decoration: none;
     display: flex;
     align-items: center;

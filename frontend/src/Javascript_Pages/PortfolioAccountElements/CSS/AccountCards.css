@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    overflow-y: auto;
+    overflow-y: none;
     max-height: 80vh; /* Adjust this value as needed */
     padding: 10px; /* Padding to prevent content from touching the container edges */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */

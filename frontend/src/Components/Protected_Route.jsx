@@ -12,9 +12,8 @@
  * If the access token is valid and not expired, the user is considered authenticated and is allowed to access the protected route.
  */
 
-
 import { Navigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // Correct import as a named export
+import {jwtDecode} from 'jwt-decode'; // Correct import as a default export
 import api from '../api';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../Constants';
 import { useEffect, useState } from 'react';
@@ -47,7 +46,7 @@ function Protected_Route({ children }) {
             return;
         }
 
-        const decoded = jwtDecode(token); // Correct usage with named import
+        const decoded = jwtDecode(token); // Correct usage with default import
         const tokenExpiration = decoded.exp;
         const now = Date.now() / 1000;
 
@@ -59,9 +58,27 @@ function Protected_Route({ children }) {
     };
 
     useEffect(() => {
-        // Call auth on each render to ensure that the auth check is done on route change
+        // Call auth on initial render
         auth();
-    });
+
+        // Set up interval to refresh token before it expires
+        const interval = setInterval(() => {
+            const token = localStorage.getItem(ACCESS_TOKEN);
+            if (token) {
+                const decoded = jwtDecode(token);
+                const tokenExpiration = decoded.exp;
+                const now = Date.now() / 1000;
+
+                // Refresh the token if it will expire in the next minute
+                if (tokenExpiration - now < 60) {
+                    refreshToken();
+                }
+            }
+        }, 5000); // Check every 5 seconds
+
+        // Clean up the interval on component unmount
+        return () => clearInterval(interval);
+    }, []); // Run only once when the component mounts
 
     if (isAuthorized === null) {
         return <div>Loading...</div>;

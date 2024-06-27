@@ -35,6 +35,20 @@ const UserInstitutions = () => {
     }
   };
 
+  const handleUpdatePlaidUser = async (plaidUserId) => {
+    setLoading(true); // Set loading flag to true
+    try {
+      await api.post(`plaid/update-plaid-user/${plaidUserId}/`);
+      // Optionally, fetch the updated Plaid users again
+      const response = await api.get('plaid/get-all-plaid-users/');
+      setPlaidUsers(response.data.plaid_users);
+    } catch (error) {
+      console.error('Error updating Plaid user:', error);
+    } finally {
+      setLoading(false); // Reset loading flag
+    }
+  };
+
   return (
     <div className="user-institutions">
       <h1>User Institutions</h1>
@@ -56,6 +70,9 @@ const UserInstitutions = () => {
               </ul>
               <button onClick={() => handleRemovePlaidUser(plaidUser.id)} disabled={loading}>
                 Remove
+              </button>
+              <button onClick={() => handleUpdatePlaidUser(plaidUser.id)} disabled={loading}>
+                Update
               </button>
             </li>
           ))}
