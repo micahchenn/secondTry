@@ -58,13 +58,13 @@ const Sidebar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/goals" activeClassName="active">
+                    <NavLink exact to="/link-account" activeClassName="active">
                         <FontAwesomeIcon icon={faBullseye} />
                         <span className="sidebar-text">Goals</span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/link-account" activeClassName="active">
+                    <NavLink exact to="/accounts-dashboard" activeClassName="active">
                         <FontAwesomeIcon icon={faBook} />
                         <span className="sidebar-text">Learn</span>
                     </NavLink>
