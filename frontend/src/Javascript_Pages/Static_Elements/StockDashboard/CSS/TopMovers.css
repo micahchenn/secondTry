@@ -1,0 +1,123 @@
+.TopMovers {
+    background-color: transparent; /* Make the background transparent */
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    position: relative;
+}
+
+.top-movers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Targeting direct child text elements within .top-movers-header */
+.top-movers-header > *, .top-movers-header {
+    font-family: 'Inter', sans-serif; /* Specify the font family if not globally defined */
+    font-style: italic; /* Make text italic */
+    font-size: small;
+}
+
+.top-movers-header select {
+    background-color: var(--background-color-global-black);
+    color: var(--user-normal-text-color-global);
+    margin-left: auto; /* Aligns the dropdown to the right */
+    margin-bottom: 0; /* Minimal spacing at the bottom */
+    outline: none; /* Remove the outline */
+    border: none; /* Remove the border */
+    cursor: pointer; /* Add cursor pointer to indicate it is clickable */
+}
+
+.ticker-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 15px; /* Increased padding for better spacing */
+    position: relative;
+}
+
+.ticker {
+    display: flex;
+    animation: ticker 200s linear infinite; /* Slowed down to 200s for readability */
+}
+
+.ticker:hover {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px; /* Increased padding for better spacing */
+    margin-right: 15px; /* Increased margin for better spacing between boxes */
+    font-size: 16px;
+    border-radius: var(--Container-corner-radius, 10px);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.322) -40.91%, rgba(114, 166, 187, 0.247) 132.95%);
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+    text-align: left;
+    color: var(--user-normal-text-color-global); /* Use global text color */
+    cursor: pointer; /* Change cursor to pointer to indicate clickable items */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05), 
+                0px 10px 10px 0px rgba(0, 0, 0, 0.10), 
+                0px 10px 40px 0px rgba(255, 255, 255, 0.15), 
+                0px 8px 10px 0px rgba(246, 249, 255, 0.20) inset;
+}
+
+.ticker-item .details {
+    display: flex;
+    align-items: center;
+    margin-top: 5px; /* Add margin for spacing between text and details */
+}
+
+.ticker-item .percentage {
+    background: -webkit-linear-gradient(left, rgb(191, 255, 191), rgb(36, 104, 27)); /* For Chrome and Safari */
+    background: linear-gradient(to right, rgb(191, 255, 191), rgb(36, 104, 27)); /* Standard syntax */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback: the text will be transparent if the gradient doesn't work */
+    margin-left: 10px; /* Add spacing between price and percentage */
+}
+
+.ticker-item .percentage.positive {
+    background: -webkit-linear-gradient(left, rgb(191, 255, 191), rgb(36, 104, 27)); /* For Chrome and Safari */
+    background: linear-gradient(to right, rgb(191, 255, 191), rgb(36, 104, 27)); /* Green gradient for positive */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback: the text will be transparent if the gradient doesn't work */
+    margin-left: 10px; /* Add spacing between price and percentage */
+}
+
+.ticker-item .percentage.negative {
+    background: -webkit-linear-gradient(left, rgb(255, 191, 191), rgb(255, 36, 36)); /* For Chrome and Safari */
+    background: linear-gradient(to right, rgb(255, 191, 191), rgb(255, 36, 36)); /* Red gradient for negative */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback: the text will be transparent if the gradient doesn't work */
+    margin-left: 10px; /* Add spacing between price and percentage */
+}
+
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .TopMovers {
+        padding: 10px;
+    }
+
+    .ticker-item {
+        font-size: 14px;
+    }
+}

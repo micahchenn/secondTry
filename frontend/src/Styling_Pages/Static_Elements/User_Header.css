@@ -1,29 +1,55 @@
 /* User Header CSS */
 
-/* This file contains the styling for the user header HEIGHT IS 62 */
+/* Include the font */
+@font-face {
+  font-family: 'Rosmatika';
+  src: url('../../../public/fonts/RosmatikaRegular-BWA45.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .user-header {
   position: fixed;
   top: 0;
-  width: calc(100%);
+  width: 100%;
   min-width: 640px;
   height: 50px;
   padding: 6px;
   display: flex;
-  justify-content: flex-start; /* Changed from space-between to flex-start */
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--Container-border, rgba(255, 255, 255, 0.10));
-  background-color: #0A0B0D;; /* gives it that dark color */
+  background-color: transparent; /* gives it that dark color */
   backdrop-filter: blur(10px);
   z-index: 1000;
   color: white;
 }
 
+.logo-title-user-header {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  gap: 5px; /* Adjust this value to bring the text closer or further from the logo */
+}
 
+.logo {
+  padding-top: 0; /* Removed padding-top to center vertically */
+  width: 32px; /* Example size, adjust as needed */
+  height: auto;
+  margin-left: 75px; /* Adjust this value as needed */
+}
+
+.harbinger-text {
+  font-family: 'Rosmatika', sans-serif;
+  font-size: 24px; /* Adjust the size as needed */
+  margin-left: 15px;
+  margin-top: 5px;
+}
 
 .right-header {
   margin-left: auto;
   display: flex;
   align-items: center;
+  gap: 20px; /* Adjust this value for spacing between right header elements */
 }
 
 .button-container {
@@ -40,9 +66,9 @@
   gap: var(--Button-gap, 8px);
   color: white;
   transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.02); /* Light background for the box */
-  border: 1px solid rgba(255, 255, 255, 0.07); /* Border for the box */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+
+
 }
 
 .user .hover-login:hover, .products .hover-element:hover {
@@ -50,25 +76,10 @@
   border: 1px solid #FFF; /* Slightly visible border on hover */
 }
 
-.logo-title-user-header {
-  display: flex;
-  align-items: center; /* Align items vertically in the center */
-  gap: 10px; /* Adjust this value to bring the text closer or further from the logo */
-}
-
-.logo {
-  /* Adjust the logo size if needed */
-  padding-top: 2%;
-  width: 19px; /* Example size, adjust as needed */
-  height: auto;
-  margin-left: 0px; /* Adjust this value as needed */
-}
-
-
 .products {
   display: flex;
   gap: 20px; /* Ensure spacing between elements */
-  flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
+  flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
   justify-content: space-around; /* Space out items evenly */
   align-items: center; /* Center the items vertically */
 }
@@ -82,7 +93,6 @@
 }
 
 .profile-button {
-  margin-left: 40px;
   color: white;
   background: none;
   border: none;
@@ -90,10 +100,49 @@
 }
 
 .profile-icon {
-  margin-right: 70px; /* Adjust this value as needed */
+  margin-right: 75px; /* Adjust this value as needed */
 }
 
 .premium-profile {
   margin-left: 75px;
   padding: 70px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .user-header {
+    padding: 6px 10px;
+  }
+
+  .logo-title-user-header {
+    gap: 5px; /* Adjust this value as needed for smaller screens */
+  }
+
+  .products {
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .profile-icon {
+    margin-right: 10px; /* Reduce margin for smaller screens */
+  }
+}
+
+@media (max-width: 640px) {
+  .user-header {
+    padding: 6px 10px;
+    justify-content: center; /* Center the logo and text */
+  }
+
+  .logo {
+    margin-left: 0; /* Remove left margin for centering */
+    margin-top: 5px;
+  }
+
+  .logo-title-user-header {
+    gap: 5px; /* Adjust gap if needed */
+  }
+
+  .right-header, .products, .profile-button {
+    display: none; /* Hide elements on small screens */
+  }
 }

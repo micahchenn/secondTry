@@ -1,45 +1,67 @@
 import React, { useEffect, useState } from 'react';
-import '../CSS/AccountGeneralInformation.css'; // Adjust the import path to where your CSS file is located
-import api from '../../../api'; // Adjust the import path to where your API is defined
+import '../CSS/AccountGeneralInformation.css';
 
-function AccountGeneralInformation({ details }) {
-  const [portfolioValues, setPortfolioValues] = useState(null);
+function AccountGeneralInformation({ details, selectedTimePeriod }) {
+  const { final_value, change_in_value, percentage_change, daily_values } = details;
+  const [dailyChange, setDailyChange] = useState(0);
+  const [dailyPercentageChange, setDailyPercentageChange] = useState(0);
 
   useEffect(() => {
-    const fetchPortfolioValues = async () => {
-      try {
-        const response = await api.get(`plaid/get-portfolio-value-for-account/${details.id}/1W`); // You can change '1W' to other date ranges like '1M', '1D', etc.
-        console.log('Portfolio values:', response.data);
-        setPortfolioValues(response.data); // Store the portfolio values data in state
-      } catch (error) {
-        console.error('Error fetching portfolio values:', error);
-      }
-    };
-
-    if (details && details.id) { // Ensure id is not null or undefined
-      fetchPortfolioValues();
+    if (daily_values.length >= 2) {
+      const latestValue = daily_values[daily_values.length - 1].value;
+      const previousValue = daily_values[daily_values.length - 2].value;
+      const change = latestValue - previousValue;
+      const percentageChange = ((change / previousValue) * 100).toFixed(2);
+      setDailyChange(change.toFixed(2));
+      setDailyPercentageChange(percentageChange);
     }
-  }, [details]);
+  }, [daily_values]);
 
   return (
-    <div className="account-general-information">
-      <h2 className="account-type-general-information">{details.type + ' ' + details.subtype}</h2>
-      <h2 className="account-value-general-information">{'$' + Number(details.balances[0].current).toFixed(2)}</h2>
-      <div className="account-detail">
-        <pre>{JSON.stringify(details, null, 2)}</pre> {/* Display the JSON content */}
-      </div>
-      {portfolioValues && (
-        <div className="portfolio-values">
-          <h2>Portfolio Values</h2>
-          <pre>{JSON.stringify(portfolioValues.portfolio_values, null, 2)}</pre>
-          <p>Initial Value: ${portfolioValues.initial_value.toFixed(2)}</p>
-          <p>Final Value: ${portfolioValues.final_value.toFixed(2)}</p>
-          <p>Change in Value: ${portfolioValues.change_in_value.toFixed(2)}</p>
-          <p>Percentage Change: {portfolioValues.percentage_change.toFixed(2)}%</p>
+    <div className="account-general-information-unique-9">
+      <div className="final-value-container-unique-9">
+        <div className="final-value-unique-9">
+          ${final_value.toFixed(2)}
         </div>
-      )}
+        <div className="daily-change-unique-9">
+          <div className={`triangle-unique-9 ${dailyChange >= 0 ? 'up' : 'down'}`}></div>
+          <span className="gradient-text-unique-9">
+            ${Math.abs(dailyChange)} ({dailyPercentageChange}%)
+          </span>
+        </div>
+      </div>
+      <div className="returns-container-unique-9">
+        <div className="return-change-unique-9">
+          <div className="triangle-unique-9" style={{ transform: change_in_value >= 0 ? 'rotate(0deg)' : 'rotate(180deg)' }}></div>
+          <span className="gradient-text-unique-9">
+            ${change_in_value.toFixed(2)} ({percentage_change.toFixed(2)}%)
+          </span>
+          <span className="time-period-label-unique-9"> {selectedTimePeriod}</span>
+        </div>
+        <div className="line-unique-9"></div>
+        <div className="return-calculations-unique-9">
+          <div className="return-section-unique-9">
+            <div className="label-unique-9">Return %:</div>
+            <div className="value-unique-9 gradient-text-unique-9">{percentage_change.toFixed(2)}%</div>
+          </div>
+          <div className="return-section-unique-9">
+            <div className="label-unique-9">Return $:</div>
+            <div className="value-unique-9 gradient-text-unique-9">${change_in_value.toFixed(2)}</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
+
+AccountGeneralInformation.defaultProps = {
+  details: {
+    final_value: 0,
+    change_in_value: 0,
+    percentage_change: 0,
+    daily_values: [],
+  },
+  selectedTimePeriod: 'Daily',
+};
 
 export default AccountGeneralInformation;

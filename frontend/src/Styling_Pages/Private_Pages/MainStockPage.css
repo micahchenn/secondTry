@@ -1,0 +1,120 @@
+
+  
+  .stock-watchlist-dashboard-container-unique-7 {
+    margin-top: 63px;
+    margin-left: var(--user-margin-left-global);
+    margin-right: var(--user-margin-right-global);
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-width-global);
+    min-width: var(--min-width-global);
+  }
+  
+  .stock-watchlist-dashboard-title-and-search-unique-7 {
+    margin-top: 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+    border: 1px solid #000; /* Border for visibility */
+  }
+  
+  .stock-watchlist-dashboard-title-unique-7,
+  .stock-watchlist-dashboard-search-unique-7 {
+    flex: 1;
+    color: var(--user-normal-text-color-global);
+  }
+  
+  .stock-watchlist-dashboard-title-unique-7 {
+    font-size: 28px; /* Increased font size */
+    font-weight: bold; /* Bold font */
+  }
+  
+  .stock-watchlist-dashboard-search-unique-7 {
+    display: flex;
+    justify-content: flex-end; /* Align search to the right */
+    margin-right: 33px;
+  }
+  
+  .stock-watchlist-dashboard-top-movers-unique-7 {
+    margin-top: 20px;
+  }
+  
+  .stock-watchlist-dashboard-news-and-index-unique-7 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+  }
+  
+  .stock-watchlist-dashboard-news-unique-7,
+  .stock-watchlist-dashboard-index-unique-7 {
+    flex: 1;
+    margin-right: 10px;
+   
+    
+  }
+  
+  .stock-watchlist-dashboard-news-unique-7 {
+    flex: 60%;
+  }
+  
+  .stock-watchlist-dashboard-index-unique-7 {
+    flex: 40%;
+  }
+  
+  .stock-watchlist-dashboard-news-unique-7:last-child {
+    margin-right: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .stock-watchlist-dashboard-container-unique-7 {
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+  
+    .stock-watchlist-dashboard-title-and-search-unique-7 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .stock-watchlist-dashboard-news-and-index-unique-7 {
+      flex-direction: column;
+    }
+  
+    .stock-watchlist-dashboard-news-unique-7,
+    .stock-watchlist-dashboard-index-unique-7 {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .stock-watchlist-dashboard-news-unique-7:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .stock-watchlist-dashboard-container-unique-7 {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  
+    .stock-watchlist-dashboard-title-and-search-unique-7 {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .stock-watchlist-dashboard-search-unique-7 {
+      display: none; /* Hide search bar on small screens */
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    .stock-watchlist-dashboard-container-unique-7 {
+      max-width: 1300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  

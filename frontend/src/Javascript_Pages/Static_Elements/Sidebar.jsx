@@ -23,7 +23,7 @@ const Sidebar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/watchlist-dashboard" activeClassName="active">
+                    <NavLink exact to="/main-stock-page" activeClassName="active">
                         <FontAwesomeIcon icon={faSeedling} />
                         <span className="sidebar-text">Watchlist</span>
                     </NavLink>

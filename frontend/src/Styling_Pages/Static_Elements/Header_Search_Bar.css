@@ -3,6 +3,7 @@
     width: 350px; /* Adjust as needed */
     color: white;
     margin-left: 7%;
+    z-index: 111;
 }
   
 .search-bar input::placeholder {

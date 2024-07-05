@@ -19,11 +19,14 @@ import UserHeader from './Static_Elements/UserHeader';
 import Sidebar from './Static_Elements/Sidebar';
 import TestGrid from './Public_Pages/TestGrid';
 import Watchlist from './Private_Pages/Watchlist';
-import WatchlistDashboard from './Private_Pages/WatchlistDashboard';
+//import WatchlistDashboard from './Private_Pages/WatchlistDashboard';
+import MainStockPage from './Private_Pages/MainStockPage';
 import AccountsDashboard from './Private_Pages/AccountsDashboard';
 import TestLangchain from './Private_Pages/TestLangchain';
 import 'normalize.css';
 import ChatBot from './Static_Elements/ChatBot';
+import QuantaraUserPage from './Private_Pages/QuantaraUserPage';
+import UserPremiumPage from './Private_Pages/UserPremiumPage';
 
 function HeaderWrapper() {
   const location = useLocation();
@@ -43,7 +46,7 @@ function HeaderWrapper() {
             <TestLangchain />
           </ProtectedRoute>
         } />
-        <Route path="/watchlist-dashboard" element={<WatchlistDashboard />} />
+        <Route path="/main-stock-page" element={<MainStockPage />} />
         <Route path="/stock-watchlist/:symbol" element={
           <ProtectedRoute>
             <Watchlist />
@@ -57,6 +60,16 @@ function HeaderWrapper() {
         <Route path="/link-account" element={
           <ProtectedRoute>
             <LinkAccount />
+          </ProtectedRoute>
+        } />
+        <Route path="/about-quantara" element={
+          <ProtectedRoute>
+            <QuantaraUserPage />
+          </ProtectedRoute>
+        } />
+        <Route path="/premium-plans" element={
+          <ProtectedRoute>
+            <UserPremiumPage />
           </ProtectedRoute>
         } />
         <Route path="/investments-summary" element={

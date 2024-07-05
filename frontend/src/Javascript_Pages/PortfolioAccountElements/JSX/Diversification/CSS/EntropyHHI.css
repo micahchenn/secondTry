@@ -1,0 +1,90 @@
+.entropy-hhi-container-unique-8 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .entropy-container-unique-8, .hhi-container-unique-8 {
+    width: 45%;
+  }
+  
+  .bar-container-unique-8 {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .bar-unique-8 {
+    height: 100%;
+    border-radius: 15px;
+    transition: width 0.3s ease;
+  }
+  
+  .entropy-bar-unique-8 {
+    background: linear-gradient(90deg, #40916c, #52b788, #74c69d, #95d5b2, #b7e4c7);
+  }
+  
+  .hhi-bar-unique-8 {
+    background: linear-gradient(90deg, #61a5c2, #468faf, #2a6f97, #013a63);
+  }
+  
+  .value-unique-8 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .info-icon-unique-8 {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #888;
+    font-size: 12px;  /* Smaller icon size */
+  }
+  
+  .info-icon-unique-8:hover {
+    color: #555;
+  }
+  
+  .header-unique-8 {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .entropy-explanation-unique-8, .hhi-explanation-unique-8 {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  .custom-tooltip-unique-8 {
+    z-index: 9999;
+    max-width: 200px; /* Adjust as needed */
+    font-size: 12px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+  }
+  
+  .tooltip-content-unique-8 .description-unique-8 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .tooltip-content-unique-8 .classification-unique-8 {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

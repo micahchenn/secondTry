@@ -1,23 +1,92 @@
-.account-type-general-information {
-    font-weight: 550; /* Not semibold, should be normal */
-    text-transform: capitalize;
-    font-size: 17px; /* Use CSS variable for font size */
-    color: rgba(255, 255, 255, 0.96); /* White with 50% opacity for semi-transparency */
-    margin-bottom: 5px; /* Reduced bottom margin */
-}
-
-.account-value-general-information {
-    font-weight: 600; /* Semibold */
-    text-transform: capitalize;
-    font-size: 50px; /* Use CSS variable for font size */
-    background: linear-gradient(to right, #0044ff, #ffffff);
--webkit-background-clip: text;
-background-clip: text;
-color: transparent; /* Ensures the text takes the background color */
-
-    margin-top: -5px; /* Negative top margin to reduce space */
-}
-
-.account-detail{
+.account-general-information-unique-9 {
     color: white;
-}
+  }
+  
+  .final-value-container-unique-9 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .final-value-unique-9 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-right: 35px;
+    margin-bottom: 30px;
+  }
+  
+  .daily-change-unique-9 {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+
+  }
+  
+  .triangle-unique-9 {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid #12c2e9; /* Gradient color */
+    margin-right: 5px;
+    
+  }
+  
+  .gradient-text-unique-9 {
+    background: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .returns-container-unique-9 {
+    margin-top: 10px;
+  }
+  
+  .return-change-unique-9 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+  }
+  
+  .time-period-label-unique-9 {
+    color: white;
+    margin-left: 5px;
+  }
+  
+  .line-unique-9 {
+    border-top: 1px solid white;
+    margin-bottom: 25px;
+  }
+  
+  .return-calculations-unique-9 {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  
+  .return-section-unique-9 {
+    width: 50%;
+    text-align: left;
+
+
+  }
+  
+  .label-unique-9 {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 15px;
+  }
+  
+  .value-unique-9 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Ensures the text takes the background color */
+  }
+  

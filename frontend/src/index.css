@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --user-margin-left-global: 200px;
+  --user-margin-right-global: 200px;
+  --user-margin-top-global: 63px;
+  --user-normal-text-color-global: #f7f7f7;
+  --max-width-global: 1400px;
+  --min-width-global: 320px;
+  --background-color-global-black: #0A0B0D;
+  --user-margin-left-global8: 200px;
+  --user-margin-right-global8: 500px;
+}

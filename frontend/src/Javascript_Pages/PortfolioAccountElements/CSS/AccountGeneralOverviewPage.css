@@ -6,26 +6,68 @@
   margin-top: 0; /* Remove spacing on the top */
 }
 
+.accounts-dashboard__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--user-normal-text-color-global);
+  margin-top: 10px;
+}
+
+.account-type, .time-period-selection {
+  display: flex;
+  align-items: center;
+}
+
+.account-type span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.time-period-selection {
+  display: flex;
+  gap: 10px;
+  background: #007acc;
+  border-radius: 10px;
+}
+
+.time-period-button {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  border-radius: 12px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin: 0 5px;
+}
+
+.time-period-button.active {
+  background-color: #3b4142; /* Active button background color */
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.time-period-button:hover {
+  background-color: #007acc; /* Hover button background color */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .accounts-dashboard__account-details-wrapper {
   display: flex;
-  
   height: 375px; /* Set fixed height */
   margin-top: 0; /* Remove spacing on the top */
 }
 
 .accounts-dashboard__general-information {
-  flex: 0 1 50%; /* Set width */
-  
+  flex: 0 1 45%; /* Set width */
   margin-top: 0; /* Remove spacing on the top */
-  padding: 10px;
-  border-right: 1px solid #dee2e6;
   overflow-y: auto; /* Ensure content overflow is handled */
 }
 
 .accounts-dashboard__general-graph {
-  flex: 0 1 50%; /* Set width */
-  background-color: #205f9e; /* Light blue background */
-  padding: 10px;
+  flex: 0 1 55%; /* Set width */
   overflow-y: auto; /* Ensure content overflow is handled */
   margin-top: 0; /* Remove spacing on the top */
 }
@@ -42,7 +84,6 @@
 .accounts-dashboard__detailed-information {
   flex: 0 1 50%; /* Set width */
   background-color: #e9ecef; /* Slightly darker background */
-  padding: 20px;
   border-right: 1px solid #dee2e6;
   overflow-y: auto; /* Ensure content overflow is handled */
   margin-top: 0; /* Remove spacing on the top */
@@ -53,7 +94,7 @@
   width: 50%; /* Set width to 50% */
   max-width: 50%; /* Ensure it does not exceed 50% width */
   background-color: #7fbaf5; /* Light blue background */
-  padding: 20px;
   margin-top: 0; /* Remove spacing on the top */
   overflow: hidden; /* Ensure content overflow is handled */
 }
+

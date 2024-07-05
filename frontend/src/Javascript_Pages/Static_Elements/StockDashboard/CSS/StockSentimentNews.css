@@ -1,0 +1,154 @@
+.StockSentimentNews {
+    background-color: transparent;
+    color: var(--user-normal-text-color-global);
+    overflow: hidden;
+  }
+  
+  .StockSentimentNews h2 {
+    font-size: 24px;
+    font-weight: 650;
+    margin-bottom: 25px;
+  }
+  
+  .news-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .news-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #333; /* Slightly darker gray line */
+    padding: 15px 0; /* Add some padding for better spacing */
+  }
+  
+  .news-content {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .news-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .news-site-date {
+    font-size: 13px;
+    color: var(--user-normal-text-color-global);
+  }
+  
+  .news-site {
+    font-weight: 700;
+
+  }
+  
+  .news-date {
+    font-weight: 400;
+  }
+  
+  .news-title {
+    font-size: 16px; /* Slightly larger font size for the title */
+    margin-bottom: 15px;
+    cursor: pointer;
+    color: var(--user-normal-text-color-global);
+    font-weight: 500; /* Medium weight for title */
+  }
+  
+  .news-title:hover {
+    text-decoration: underline;
+  }
+  
+  .symbol-sentiment {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .news-symbol {
+    font-size: 14px;
+    font-weight: 500; /* Medium weight */
+    cursor: pointer;
+    color: var(--user-normal-text-color-global);
+  }
+  
+  .news-symbol:hover {
+    text-decoration: underline;
+  }
+  
+  .news-sentiment {
+    font-size: 14px;
+    font-weight: bold;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+  
+  .news-sentiment.positive {
+    background: -webkit-linear-gradient(left, #a0e518, #0a8903); /* For Chrome and Safari */
+    background: linear-gradient(to right, #a0e518, #0a8903); /* Standard syntax */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback: the text will be transparent if the gradient doesn't work */
+  }
+  
+  .news-sentiment.neutral {
+    background: -webkit-linear-gradient(left, #bbbbbb, #888888); /* For Chrome and Safari */
+    background: linear-gradient(to right, #bbbbbb, #888888); /* Standard syntax */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback: the text will be transparent if the gradient doesn't work */
+  }
+  
+  .news-sentiment.negative {
+    background: -webkit-linear-gradient(left, #ff6161, #d50000); /* For Chrome and Safari */
+    background: linear-gradient(to right, #ff6161, #d50000); /* Standard syntax */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback: the text will be transparent if the gradient doesn't work */
+  }
+  
+  .news-image {
+    width: 120px;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 640px) {
+    .StockSentimentNews {
+      padding: 10px;
+    }
+  
+    .news-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .news-content {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .news-image {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .news-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .symbol-sentiment {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  

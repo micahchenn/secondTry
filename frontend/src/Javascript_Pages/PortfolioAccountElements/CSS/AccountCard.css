@@ -1,0 +1,36 @@
+/* AccountCard.css */
+
+.account-card {
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 357px; /* Adjust the width as needed */
+    margin: 5px; /* Adjust the margin as needed */
+
+}
+
+.account-card:hover {
+    transform: translateY(-10px);
+}
+
+.account-card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.account-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.account-info p, .account-values p {
+    margin: 5px 0;
+}
+
+.account-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}

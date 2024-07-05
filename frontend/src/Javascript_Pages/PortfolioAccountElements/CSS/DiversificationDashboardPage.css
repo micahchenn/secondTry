@@ -1,0 +1,33 @@
+.diversification-dashboard-unique-8 {
+    color: white;
+  }
+  
+  .entropy-hhi-container-unique-8 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+  }
+  
+  .sector-industry-container-unique-8,
+  .asset-type-holdings-container-unique-8,
+  .market-cap-country-container-unique-8 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+  }
+  
+  .sectors-unique-8, 
+  .industries-unique-8,
+  .asset-types-unique-8,
+  .holdings-unique-8,
+  .market-caps-unique-8,
+  .countries-unique-8 {
+    width: 100%;
+  }
+  
+  .diversification-dashboard-unique-8 h1 {
+    font-size: 1.5em; /* Adjust this value as needed */
+    margin-bottom: 20px;
+  }

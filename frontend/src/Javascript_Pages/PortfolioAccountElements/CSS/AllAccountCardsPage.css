@@ -1,0 +1,7 @@
+.account-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align items to the start */
+    padding: 20px;
+    gap: 20px;
+  }

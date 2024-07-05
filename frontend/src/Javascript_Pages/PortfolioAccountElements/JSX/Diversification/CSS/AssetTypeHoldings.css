@@ -1,0 +1,88 @@
+/* Main container for asset type holdings */
+.asset-type-holdings-unique-9 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 20px;
+}
+
+/* Wrapper for chart and legend containers */
+.chart-legend-wrapper-unique-9 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Container for chart and legend */
+.chart-legend-container-unique-9 {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 45%;
+    margin: 20px;
+}
+
+/* Chart styles */
+.asset-type-chart-unique-9, .stock-holdings-chart-unique-9 {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Legend styles */
+.asset-type-legend-unique-9, .stock-holdings-legend-unique-9 {
+    text-align: left;
+    margin: 20px;
+}
+
+.asset-type-legend-unique-9 ul, .stock-holdings-legend-unique-9 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.asset-type-legend-unique-9 li, .stock-holdings-legend-unique-9 li {
+    margin-bottom: 5px;
+}
+
+/* Tooltip styles */
+.custom-tooltip-unique-9 {
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .chart-legend-container-unique-9 {
+        flex-direction: row;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .asset-type-holdings-unique-9 {
+        flex-direction: column;
+    }
+
+    .chart-legend-container-unique-9 {
+        margin: 10px;
+    }
+
+    .asset-type-legend-unique-9, .stock-holdings-legend-unique-9 {
+        margin: 10px;
+    }
+}
+
+/* Temporary background color for identification */
+.container-div {
+    background-color: #f0f0f0; /* Light grey */
+    padding: 20px;
+    margin: 20px;
+}

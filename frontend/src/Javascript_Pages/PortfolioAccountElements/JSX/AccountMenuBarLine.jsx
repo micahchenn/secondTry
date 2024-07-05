@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import '../CSS/AccountMenuBarLine.css'; 
 
 function AccountMenuBarLine({ selectedMenuItem, setSelectedMenuItem }) {
-  const menuItems = ['General Information', 'Analytics', 'Transactions', 'Manage Accounts'];
+  const menuItems = ['General Information', 'Analytics', 'Diversification', 'Transactions', 'Accounts', 'Manage Accounts'];
   const menuRefs = useRef([]);
 
   useEffect(() => {
