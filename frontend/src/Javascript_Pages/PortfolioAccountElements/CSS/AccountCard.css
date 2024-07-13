@@ -1,5 +1,3 @@
-/* AccountCard.css */
-
 .account-card {
     color: white;
     padding: 20px;
@@ -7,30 +5,49 @@
     cursor: pointer;
     width: 357px; /* Adjust the width as needed */
     margin: 5px; /* Adjust the margin as needed */
-
-}
-
-.account-card:hover {
+    position: relative; /* For positioning the update button */
+  }
+  
+  .account-card:hover {
     transform: translateY(-10px);
-}
-
-.account-card h2 {
+  }
+  
+  .account-card h2 {
     font-size: 20px;
     margin-bottom: 20px;
-}
-
-.account-details {
+  }
+  
+  .account-details {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-}
-
-.account-info p, .account-values p {
+  }
+  
+  .account-info p, .account-values p {
     margin: 5px 0;
-}
-
-.account-footer {
+  }
+  
+  .account-footer {
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-}
+  }
+  
+  .update-button {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.473);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    backdrop-filter: blur(5px);
+    color: rgb(255, 255, 255);
+  }
+  
+  .update-button:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  

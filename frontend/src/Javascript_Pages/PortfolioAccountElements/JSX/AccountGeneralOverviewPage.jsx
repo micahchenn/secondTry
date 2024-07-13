@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import AccountCards from './AccountCards'; // Adjust the import path as necessary
 import AccountGeneralInformation from './AccountGeneralInformation';
 import PortfolioValueChartPerformance from './PortfolioValueChartPerformance';
 import api from '../../../api'; // Adjust the import path to where your API is defined
 import '../CSS/AccountGeneralOverviewPage.css';
 import AccountGeneralMoreDetailedInformation from './AccountGeneralMoreDetailedInformation';
 import LoadingScreen from '../../../Javascript_Pages/Static_Elements/LoadingScreen'; // Import the loading screen
+import AccountCard from './AccountCard'; // Import AccountCard component
 
 const AccountGeneralOverviewPage = ({ selectedAccount = {}, accounts, handleAccountSelect }) => {
   const [accountDetails, setAccountDetails] = useState(null);
   const [portfolioData, setPortfolioData] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [selectedTimePeriod, setSelectedTimePeriod] = useState('1D');
+  const [selectedTimePeriod, setSelectedTimePeriod] = useState('1W');
 
   const { id, type = '', subtype = '' } = selectedAccount;
   const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -42,7 +42,7 @@ const AccountGeneralOverviewPage = ({ selectedAccount = {}, accounts, handleAcco
   }, [id, selectedTimePeriod]); // Dependency array to trigger effect when id or selectedTimePeriod changes
 
   const timePeriods = [
-    { label: 'Daily', value: '1D' },
+    { label: '1W', value: '1W' },
     { label: '1M', value: '1M' },
     { label: '3M', value: '3M' },
     { label: '1Y', value: '1Y' },
@@ -77,9 +77,6 @@ const AccountGeneralOverviewPage = ({ selectedAccount = {}, accounts, handleAcco
         </div>
       </div>
       <div className="time-period">
-        <span>Daily Change: {selectedTimePeriod}</span>
-        <br />
-        <span className="return-change">Return Change: </span>
       </div>
       <div className="line-separator"></div>
       <div className="accounts-dashboard__account-details-wrapper">
@@ -92,7 +89,6 @@ const AccountGeneralOverviewPage = ({ selectedAccount = {}, accounts, handleAcco
           )}
         </div>
         <div className="accounts-dashboard__general-graph">
-          <h2>General Graph</h2>
           {portfolioData ? (
             <PortfolioValueChartPerformance data={portfolioData} />
           ) : (
@@ -106,8 +102,13 @@ const AccountGeneralOverviewPage = ({ selectedAccount = {}, accounts, handleAcco
           <p>Details go here...</p>
         </div>
         <div className="accounts-dashboard__accounts">
-          <AccountCards accounts={accounts} onSelectAccount={handleAccountSelect} />
-          <p>Account details go here...</p>
+          {selectedAccount && (
+            <AccountCard 
+              account={selectedAccount} 
+              index={accounts.indexOf(selectedAccount)} 
+              handleAccountSelect={handleAccountSelect} 
+            />
+          )}
         </div>
       </div>
     </div>

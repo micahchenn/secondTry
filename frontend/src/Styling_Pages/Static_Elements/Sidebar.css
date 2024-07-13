@@ -1,82 +1,113 @@
+/* Sidebar.css */
 .sidebar {
-    width: 15px; /* Revert to the original sidebar width */
-    height: calc(100vh - 75px);
-    position: fixed;
-    left: 0;
-    top: 63px;
-    backdrop-filter: blur(10px); /* Apply a blur effect to the background */
-    color: #696260;
-    padding: 20px;
-    transition: width 0.5s, background-color 0.5s;
-    overflow: hidden;
-    z-index: 100;
-    border-right: 1px solid #ffffff2a;
-    background: transparent;
-  }
-  
-  .sidebar:hover {
-    width: 145px;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar li {
-    padding: 20px 0; /* Increase spacing between list items */
-  }
-  
-  .sidebar li a {
-    color: #ececec;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    position: relative; /* For the active indicator */
-  }
-  
-  .sidebar li a::before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    width: 3px;
-    height: 100%;
-    background-color: transparent;
-    transition: background-color 0.3s;
-  }
-  
-  .sidebar li a.active::before {
-    background-color: #fff; /* Color of the active indicator */
-  }
-  
-  .sidebar-text {
-    display: none; /* Hide text initially */
-    margin-left: 15px; /* Add more space between icon and text */
-  }
-  
-  .sidebar:hover .sidebar-text {
-    display: inline; /* Show text on hover */
-  }
-  
-  .sub-menu {
-    padding-left: 30px; /* Increase the indent for sub-menu items */
-    display: none;
-  }
-  
-  .sidebar:hover .sub-menu {
-    display: block; /* Show sub-menu on hover */
-  }
-  
-  .sub-menu li {
-    padding: 5px 0; /* Spacing for sub-menu items */
-    margin-left: 30px;
-    font-size: 12px; /* Adjust this value to make the text smaller */
-  }
-  
-  .sidebar-bottom {
-    position: absolute;
-    bottom: 50px;
-    width: 100%;
-  }
-  
+  width: 26px;
+  height: calc(100vh - 75px);
+  position: fixed;
+  left: 0;
+  top: 63px;
+  backdrop-filter: blur(10px);
+  color: #696260;
+  padding: 20px;
+  transition: width 0.5s, background-color 0.5s;
+  overflow: hidden;
+  z-index: 100;
+  border-right: 1px solid #ffffff2a;
+  background: transparent;
+}
+
+.sidebar.expanded {
+  width: 150px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 5px 0;
+}
+
+.sidebar:not(.expanded) li {
+  margin-bottom: 25px;
+}
+
+.sidebar.expanded li {
+  margin-bottom: 15px;
+}
+
+.sidebar li a,
+.sidebar .dropdown {
+  display: flex;
+  align-items: center;
+  color: #ececec;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.sidebar .sidebar-icon {
+  font-size: 17px; /* Larger size when minimized */
+  margin-right: 10px;
+  transition: font-size 0.5s;
+}
+
+.sidebar.expanded .sidebar-icon {
+  font-size: 16px; /* Smaller size when expanded */
+}
+
+.sidebar .sidebar-text {
+  display: inline;
+  white-space: normal; /* Allow text wrapping */
+  overflow-wrap: break-word; /* Break long words */
+}
+
+.sidebar .dropdown-icon {
+  margin-left: auto;
+}
+
+.sidebar .dropdown.active .sidebar-icon,
+.sidebar .dropdown.active .sidebar-text {
+  color: red;
+}
+
+.sidebar .dropdown.active .dropdown-icon {
+  color: red;
+}
+
+.sub-menu {
+  padding-left: 20px;
+}
+
+.sub-menu li {
+  padding: 2px 0; /* Reduce padding for dropdown elements */
+  font-size: 12px; /* Make the font smaller for dropdown elements */
+  margin-bottom: -5px; /* Smaller margin-bottom for dropdown items */
+}
+
+.indent {
+  padding-left: 20px;
+  font-size: 13px;
+}
+
+.indent-more {
+  margin-left: 35px;
+  margin-bottom: 0px; /* Smaller margin-bottom for dropdown items */
+}
+
+.active-icon,
+.active .sidebar-text {
+  color: red;
+}
+
+.active {
+  color: red;
+}
+
+.sidebar-label {
+  color: #e2e2e2;
+  font-size: 10px;
+  margin-left: -10px;
+  letter-spacing: 0.08em; /* Adjust the value as needed */
+}

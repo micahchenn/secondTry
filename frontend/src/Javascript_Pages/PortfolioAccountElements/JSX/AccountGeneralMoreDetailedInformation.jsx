@@ -36,6 +36,17 @@ function AccountGeneralMoreDetailedInformation({ accountId, topN = 3 }) {
         <ul>
           {topHoldings.map((holding, index) => (
             <li key={index}>
+              {holding.image ? (
+                <img
+                  src={holding.image}
+                  alt={`${holding.name} logo`}
+                  className="holding-image"
+                />
+              ) : (
+                <div className="default-icon">
+                  <span>{holding.name.charAt(0)}</span>
+                </div>
+              )}
               <strong>{holding.name}</strong>: ${holding.value.toLocaleString()} ({holding.percentage.toFixed(2)}%)
             </li>
           ))}

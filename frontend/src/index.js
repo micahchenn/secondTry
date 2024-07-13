@@ -4,6 +4,7 @@ import './index.css';
 import App from '../src/Javascript_Pages/App';
 import reportWebVitals from './reportWebVitals';
 import 'normalize.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

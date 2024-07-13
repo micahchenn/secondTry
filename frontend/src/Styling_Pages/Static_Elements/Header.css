@@ -1,135 +1,161 @@
 /* Header.css */
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    min-width: 640px; /* Minimum width of the header */
-    height: 50px; /* Height of the header */
-    padding: 6px; /* Padding around the content */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space out the flex items */
-    align-items: center; /* Center the flex items vertically */
-    border-bottom: 1px solid var(--Container-border, rgba(255, 255, 255, 0.10)); /* Border at the bottom of the header */
-    background: rgba(0, 0, 0, 0.10); /* Background color of the header */
-    backdrop-filter: blur(10px); /* Apply a blur effect to the background */
-    z-index: 1000; /* This ensures the header is always on top */
-    color: white; /* Color of the text */
+.header-unique-11 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-width: 640px;
+  height: 50px;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--Container-border, rgba(255, 255, 255, 0.10));
+  background: rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  color: white;
+}
+
+.header-unique-11 h1-unique-11 {
+  color: var(--Foreground-primary, #FFF);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: .3px;
+}
+
+.button-container-unique-11 {
+  display: flex;
+  align-items: center;
+}
+
+.header-signup-unique-11 {
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0px 1px 3px 0px rgba(199, 220, 255, 0.35) inset, 0px 0px 20px 0px rgba(198, 204, 255, 0.20) inset, 0px 1px 22px 0px rgba(255, 255, 255, 0.10), 0px 4px 4px 0px rgba(0, 0, 0, 0.05), 0px 10px 10px 0px rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(10px);
+  display: flex;
+  padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
+  align-items: center;
+  gap: var(--Button-gap, 8px);
+  color: white;
+  margin-left: auto;
+  margin-right: 75px;
+  transition: all 0.3s ease;
+}
+
+.header-signup-unique-11:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header-signup-unique-11:active {
+  transform: scale(0.95);
+}
+
+.hover-login-unique-11 {
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  display: flex;
+  padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
+  align-items: center;
+  gap: var(--Button-gap, 8px);
+  color: white;
+  margin-left: auto;
+  margin-right: 5px;
+  transition: all 0.3s ease;
+}
+
+.hover-login-unique-11:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: .05px solid #FFF;
+}
+
+.logo-title-unique-11 {
+  display: flex;
+  align-items: center;
+}
+
+.logo-unique-11 {
+  margin-right: 10px;
+  margin-left: 75px;
+  width: 50px;
+}
+
+.products-unique-11 .hover-element-unique-11 {
+  display: flex;
+  gap: 10px;
+  color: var(--Foreground-primary, #FFF);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.products-unique-11 {
+  display: flex;
+  gap: 10px;
+}
+
+.products-unique-11 .hover-element-unique-11 {
+  text-decoration: none;
+  border-radius: 8px;
+  display: flex;
+  padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
+  align-items: center;
+  gap: var(--Button-gap, 8px);
+  color: white;
+  margin-left: auto;
+  margin-right: 5px;
+  transition: all 0.3s ease;
+}
+
+.products-unique-11 .hover-element-unique-11:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: .05px solid #FFF;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .header-unique-11 {
+    padding: 6px 10px;
   }
 
-  .header h1 {
-    color: var(--Foreground-primary, #FFF);
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: .3px;
+  .logo-title-unique-11 {
+    gap: 5px;
   }
 
-
-
-  .button-container {
-    display: flex;
-    align-items: center;
-  }
-  
-/* Header.css */
-.header-signup {
-    text-decoration: none;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.02);
-    box-shadow: 0px 1px 3px 0px rgba(199, 220, 255, 0.35) inset, 0px 0px 20px 0px rgba(198, 204, 255, 0.20) inset, 0px 1px 22px 0px rgba(255, 255, 255, 0.10), 0px 4px 4px 0px rgba(0, 0, 0, 0.05), 0px 10px 10px 0px rgba(0, 0, 0, 0.10);
-    backdrop-filter: blur(10px);
-    display: flex;
-    padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
-    align-items: center;
-    gap: var(--Button-gap, 8px);
-    color: white; /* Color of the text */
-    margin-left: auto; /* This will push the button to the right */
-    margin-right: 75px;
-    transition: all 0.3s ease; /* Add this line */
-  }
-  
-  .header-signup:hover {
-    background: rgba(255, 255, 255, 0.1); /* Change the background color when hovered */
-  }
-  
-  .header-signup:active {
-    transform: scale(0.95); /* Make the button slightly smaller when clicked */
+  .products-unique-11 {
+    gap: 10px;
   }
 
-
-
-
-
-/* Header.css */
-.hover-login {
-    text-decoration: none;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(10px);
-    display: flex;
-    padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
-    align-items: center;
-    gap: var(--Button-gap, 8px);
-    color: white; /* Color of the text */
-    margin-left: auto; /* This will push the button to the right */
-    margin-right: 75px;
-    transition: all 0.3s ease; /* Add this line */
-    margin-right: 5px;
-  }
-  
-  .hover-login:hover {
-    background: rgba(255, 255, 255, 0.1); /* Change the background color when hovered */
-    border: .05px solid #FFF; 
-  }
-  
-  /* Header.css */
-.logo-title {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
+  .profile-icon-unique-11 {
     margin-right: 10px;
-    margin-left: 75px; /* Add this line */
-    width: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-unique-11 {
+    padding: 6px 10px;
+    justify-content: center;
   }
 
-  .products .hover-element {
-    display: flex; /* Add this line */
-    gap: 10px; /* Add this line if you want some space between the elements */
-    color: var(--Foreground-primary, #FFF);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
+  .logo-unique-11 {
+    margin-left: 0;
+    margin-top: 5px;
   }
 
-  .products {
-    display: flex; /* Add this line */
-    gap: 10px; /* Add this line if you want some space between the elements */
+  .logo-title-unique-11 {
+    gap: 5px;
   }
 
-  
-  /* Header.css */
-.products .hover-element {
-    text-decoration: none;
-    border-radius: 8px;
-    display: flex;
-    padding: var(--Button-vertical-padding, 6px) var(--Button-horizontal-padding, 16px);
-    align-items: center;
-    gap: var(--Button-gap, 8px);
-    color: white; /* Color of the text */
-    margin-left: auto; /* This will push the button to the right */
-    margin-right: 75px;
-    transition: all 0.3s ease; /* Add this line */
-    margin-right: 5px;
+  .right-header-unique-11, .products-unique-11, .profile-button-unique-11 {
+    display: none;
   }
-  
-  .products .hover-element:hover {
-    background: rgba(255, 255, 255, 0.1); /* Change the background color when hovered */
-    border: .05px solid #FFF; 
-  }
+}

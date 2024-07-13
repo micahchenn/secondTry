@@ -1,0 +1,94 @@
+/* Styles for each section */
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    padding: 40px;
+}
+
+/* Styles for the content within each section */
+.section-content-unique2 {
+    max-width: 1000px;
+    text-align: left; /* Left align text */
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    transform: translateY(50px); /* Initial position for rising effect */
+    opacity: 0;
+    animation: fadeInUp 1s forwards; /* Fade-in effect */
+    transition: opacity 0.5s, transform 0.5s; /* Smooth transition */
+}
+
+.section-content h2 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.portfolio-graphic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(100px); /* Initial position for transition */
+    transition: opacity 1.5s, transform 1.5s; /* Smooth transition */
+}
+
+.portfolio-graphic {
+    margin-left: 5%;
+    max-width: 120%;
+    height: auto;
+    transform: rotate(-10deg); /* Slanted at 15 degrees */
+    transition: transform 0.5s ease-in-out;
+}
+
+.portfolio-graphic:hover {
+    transform: scale(1.05); /* Scale up on hover while keeping the slant */
+}
+
+.portfolio-graphic-container.visible {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .section-content {
+        padding: 20px;
+    }
+
+    .section-content h2 {
+        font-size: 28px;
+    }
+
+    .portfolio-graphic-container {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-content {
+        padding: 10px;
+    }
+
+    .section-content h2 {
+        font-size: 24px;
+    }
+}

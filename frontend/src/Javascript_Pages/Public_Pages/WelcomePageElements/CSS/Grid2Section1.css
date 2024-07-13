@@ -1,0 +1,214 @@
+/* Styles for each section */
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    padding: 40px;
+}
+  
+/* Styles for the content within each section */
+.section-content {
+    max-width: 800px;
+    text-align: left; /* Left align text */
+    color: white;
+    background-color: transparent; /* Transparent background color */
+    padding: 40px;
+    border-radius: 10px;
+    transform: translateY(50px); /* Initial position for rising effect */
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s; /* Smooth transition */
+}
+  
+.text-and-graphic-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute space between text and graphic */
+    width: 100%;
+}
+  
+.title-container {
+    text-align: left;
+    flex: 1;
+}
+  
+.section-content .title-text {
+    font-size: 36px;
+    line-height: 0.8; /* Adjust line height */
+    margin-bottom: 40px; /* Adjust bottom margin */
+}
+  
+.section-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+  
+/* New class for paragraph */
+.paragraph-unique3 {
+    font-weight: 100; /* Adjust font weight */
+}
+  
+/* New button styles */
+.button-container-section1-unique3 {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.auth-button-section1-unique3 {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    background: linear-gradient(180deg, rgba(61, 66, 68, 0.00) -40.91%, rgba(158, 170, 176, 0.62) 132.95%);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 10px 20px;
+    margin-right: 20px; /* Space between buttons */
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: auto; /* Adjust width */
+    height: auto; /* Adjust height */
+    line-height: normal; /* Vertically center the text */
+    text-align: center; /* Horizontally center the text */
+    position: relative;
+    z-index: 2;
+}
+
+.auth-button-section1-unique3:hover {
+    border: 1px solid white;
+}
+
+.auth-button-section1-unique3::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 2px solid white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+  
+/* Animation for the switching title */
+.title-transition-group {
+    display: inline-block;
+    position: relative;
+    height: 29px; /* Ensure it stays on the same line */
+}
+
+.animated-title {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+/* Slide in and out animation */
+.slide-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+  
+.slide-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1000ms, transform 1000ms;
+}
+  
+.slide-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+  
+.slide-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1000ms, transform 1000ms;
+}
+  
+/* Styles for the Plaid graphic */
+.plaid-graphic-container {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0; /* Adjust as needed */
+    flex: 1; /* Allow the graphic to take remaining space */
+}
+  
+.plaid-graphic {
+    margin-top: 25%;
+    margin-left: 20%;
+    max-width: 80%; /* Adjust size as needed */
+    height: auto;
+    transition: box-shadow 0.3s ease;
+}
+  
+/* Styles for the logo slider */
+.logo-slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+}
+  
+.logo-slider {
+    display: flex;
+    animation: slide 20s linear infinite;
+}
+  
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+  
+.logo-box {
+    min-width: 200px;
+    max-width: 200px;
+    height: 100px; /* Set a fixed height */
+    margin: 0 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.01);
+    box-shadow: 0px 20px 50px 0px rgba(255, 255, 255, 0.10) inset;
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.logo {
+    width: 70%; /* Make the logo smaller */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0.8;
+    transition: opacity 0.5s;
+}
+  
+.logo:hover {
+    opacity: 1;
+}
+  
+.fade-left,
+.fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+}
+  
+.fade-left {
+    left: 0;
+}
+  
+.fade-right {
+    right: 0;
+}

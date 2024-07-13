@@ -1,7 +1,12 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import { Chart } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
 import '../CSS/PortfolioValueChartPerformance.css';
+
+// Register the zoom plugin
+Chart.register(zoomPlugin);
 
 const PortfolioValueChartPerformance = ({ data }) => {
   // Logging data to ensure it's passed correctly
@@ -27,8 +32,8 @@ const PortfolioValueChartPerformance = ({ data }) => {
           gradient.addColorStop(1, 'rgba(75,192,192,0)');
           return gradient;
         },
-        borderColor: 'rgba(75,192,192,1)',
-        borderWidth: 1,
+        borderColor: 'rgba(75,192,192,0.5)', // Clear color for the line
+        borderWidth: 2,
         tension: 0.4,
         pointRadius: 0,  // Remove point circles
         pointHoverRadius: 5,
@@ -45,20 +50,24 @@ const PortfolioValueChartPerformance = ({ data }) => {
     scales: {
       x: {
         title: {
-          display: true,
-          text: 'Date',
+          display: false,
         },
         ticks: {
           display: false,  // Hide X axis tick labels
         },
+        grid: {
+          display: false,  // Hide grid lines
+        },
       },
       y: {
         title: {
-          display: true,
-          text: 'Value',
+          display: false,
         },
         ticks: {
           display: false,  // Hide Y axis tick labels
+        },
+        grid: {
+          display: false,  // Hide grid lines
         },
         beginAtZero: false,
         min: Math.min(...data.map(entry => entry.value)) - 10,  // Set a minimum value close to data
@@ -82,6 +91,21 @@ const PortfolioValueChartPerformance = ({ data }) => {
       },
       legend: {
         display: false,
+      },
+      zoom: {
+        pan: {
+          enabled: true,
+          mode: 'xy',
+        },
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: 'xy',
+        },
       },
     },
     hover: {

@@ -12,14 +12,19 @@
     font-size: 3rem;
     font-weight: bold;
     margin-right: 35px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   
   .daily-change-unique-9 {
     font-size: 1rem;
     display: flex;
     align-items: center;
-
+    margin-top: 10px;
+  }
+  
+  .daily-change-line-unique-9 {
+    display: flex;
+    align-items: center;
   }
   
   .triangle-unique-9 {
@@ -29,7 +34,6 @@
     border-right: 6px solid transparent;
     border-bottom: 10px solid #12c2e9; /* Gradient color */
     margin-right: 5px;
-    
   }
   
   .gradient-text-unique-9 {
@@ -40,15 +44,22 @@
     color: transparent;
   }
   
+  .white-text-unique-9 {
+    color: white;
+  }
+  
   .returns-container-unique-9 {
-    margin-top: 10px;
+    margin-top: 0px;
+  }
+  
+  .change-container-unique-9 {
+    margin-bottom: 20px;
   }
   
   .return-change-unique-9 {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    
   }
   
   .time-period-label-unique-9 {
@@ -57,21 +68,18 @@
   }
   
   .line-unique-9 {
-    border-top: 1px solid white;
+    border-top: 1px solid rgba(255, 255, 255, 0.233);
     margin-bottom: 25px;
   }
   
   .return-calculations-unique-9 {
     display: flex;
     justify-content: space-between;
-    
   }
   
   .return-section-unique-9 {
     width: 50%;
     text-align: left;
-
-
   }
   
   .label-unique-9 {
@@ -83,10 +91,5 @@
   .value-unique-9 {
     font-size: 2.4rem;
     font-weight: bold;
-    background: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent; /* Ensures the text takes the background color */
   }
   

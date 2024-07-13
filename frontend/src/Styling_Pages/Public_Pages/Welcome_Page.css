@@ -1,152 +1,311 @@
-/* Welcome_Page.css */
+/* CSS for Welcome_Page */
+.welcome-page-unique-12 {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  animation: fadeInUp 2s ease-in-out;
+}
+
+.welcome-page-grid-1-unique-12 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.circle-blur-unique-12 {
+  position: absolute;
+  width: 100%; /* Adjust size as needed */
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.left-aligned-content-unique-12 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to start vertically */
+  align-items: flex-start; /* Align items to the left */
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  padding-top: 270px; /* Adjust padding to move text up */
+  padding-left: 10px; /* Set padding to zero */
+  margin-left: -200px; /* Ensure no margin on the left */
+}
+
+.title-text-unique-12 {
+  font-size: 3rem; /* Adjusted size */
+  font-weight: 700;
+  font-family: 'inter', sans-serif;
+  margin-bottom: 19px;
+  animation: fadeIn 2s ease-in-out;
+
+}
+
+
+
+.title-line2 {
+
+  color: white; /* Fallback: the text will be transparent if the gradient doesn't work */
+
+
+}
+
+.subtitle-text-unique-12 {
+  font-size: 1.25rem; /* Adjusted size */
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif; /* Changed font family */
+  color: #dbdbdb; /* Light gray color */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid;
+  animation: typing 4s steps(40, end) 1;
+}
+
+.button-container-unique-12 {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  animation: fadeInUp 2s ease-in-out;
+}
+
+.auth-button-unique-12 {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: linear-gradient(180deg, rgba(61, 66, 68, 0.00) -40.91%, rgba(158, 170, 176, 0.62) 132.95%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05), 0px 10px 10px 0px rgba(0, 0, 0, 0.10), 0px 10px 40px 0px rgba(255, 255, 255, 0.15), 0px 8px 10px 0px rgba(246, 249, 255, 0.20) inset;
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 10px 20px;
+  margin-right: 20px; /* Space between buttons */
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: auto; /* Adjust width */
+  height: auto; /* Adjust height */
+  line-height: normal; /* Vertically center the text */
+  text-align: center; /* Horizontally center the text */
+  position: relative;
+  z-index: 2;
+}
+
+.auth-button-unique-12:hover {
+  border: 1px solid white;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6), 0px 0px 20px rgba(255, 255, 255, 0.3);
+}
+
+.auth-button-unique-12::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 2px solid white;
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+  transition: opacity 0.3s ease;
+}
+
+.auth-button-unique-12:hover::after {
+  opacity: 1;
+  animation: outlineAnimation 1s infinite;
+}
+
+.text-button-unique-12 {
+  border: none;
+  background: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 50px; /* Adjust height */
+  line-height: 40px; /* Vertically center the text */
+  text-align: center; /* Horizontally center the text */
+  position: relative;
+  z-index: 2;
+  margin-left: 15px;
+}
+
+.text-button-unique-12:hover {
+  color: #E5E7EB; /* Slightly lighter on hover */
+}
+
+.arrow-icon-unique-12 {
+  margin-left: 15px; /* Adjust space between text and icon */
+  font-size: 1rem; /* Adjust size of the icon */
+}
+
+.down-arrow-container-unique-12 {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  animation: flash 2s infinite;
+}
+
+.down-arrow-unique-12 {
+  font-size: 2rem; /* Adjust size as needed */
+  color: #E5E7EB; /* Light gray color */
+}
+
+.section-unique-12 {
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-unique-12 {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content-unique-12 .section-unique-12 {
+  margin-bottom: 20px;
+}
+
+.about-me-section-unique-12 {
+  border: 1px solid #000;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgb(0, 0, 0);
+}
+
+.about-me-title-unique-12 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.about-me-text-unique-12 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer-unique-12 {
+  color: var(--Foreground-primary, #FFF);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-top: 50px;
+}
+
+.footer-content-unique-12 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-unique-12 h2 {
+  font-weight: bold;
+}
+
+.footer-unique-12 a {
+  color: var(--Foreground-primary, #FFF);
+  text-decoration: none;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .left-aligned-content-unique-12 {
+    padding-left: 10px; /* Reduce left padding for mobile view */
+    padding-top: 150px; /* Adjust top padding for mobile view */
+    margin-left: 0; /* Ensure no margin on the left */
+  }
+
+  .title-text-unique-12 {
+    font-size: 2rem; /* Adjust font size for mobile view */
+  }
+
+  .subtitle-text-unique-12 {
+    font-size: 1.5rem; /* Adjust font size for mobile view */
+  }
+
+  .auth-button-unique-12,
+  .text-button-unique-12 {
+    width: auto; /* Adjust width for mobile view */
+    height: auto; /* Adjust height for mobile view */
+    line-height: normal; /* Adjust line-height for mobile view */
+    padding: 8px 16px; /* Adjust padding for mobile view */
+  }
+
+  .arrow-icon-unique-12 {
+    font-size: 0.75rem; /* Adjust size of the icon for mobile view */
+  }
+}
+
+
+
+/* Additional animations */
 @keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-  }
-  
-
-
-.welcome-page {
-    background-color: black;
-    color: white;
-    min-height: 100vh;
-    padding-top: 170px;
-    display: flex; /* Add this line */
-    flex-direction: column; /* Add this line */
-    justify-content: space-between; /* Add this line */
-  }
-  
-.welcome-text {
-    animation: fadeIn 2s ease-in-out;
-    background: linear-gradient(90deg, #FFF 1.63%, rgba(255, 255, 255, 0.715) 103.32%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    font-family: 'Inter';
-    font-size: 60px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -3px;
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-.auth-button {
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.20);
-    background: linear-gradient(180deg, rgba(61, 66, 68, 0.00) -40.91%, rgba(158, 170, 176, 0.62) 132.95%);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05), 0px 10px 10px 0px rgba(0, 0, 0, 0.10), 0px 10px 40px 0px rgba(255, 255, 255, 0.15), 0px 8px 10px 0px rgba(246, 249, 255, 0.20) inset;
-    backdrop-filter: blur(10px);
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-    width: 150px; /* Set a fixed width */
-    height: 50px; /* Set a fixed height */
-    line-height: 50px; /* Vertically center the text */
-    text-align: center; /* Horizontally center the text */
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
 }
 
-.auth-button:hover {
-    opacity: 0.8;
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
 }
 
-.blur-effect {
-    position: absolute;
-    top: 10%; /* Adjust this to move the blur effect vertically */
-    left: 10%; /* Adjust this to move the blur effect horizontally */
-    width: 807px; /* Adjust this to change the width of the blur effect */
-    height: 807px; /* Adjust this to change the height of the blur effect */
-    border-radius: 807px;
-    filter: blur(200px);
-    z-index: 1; /* This will put the blur effect above the background but still behind the content */
-    flex-shrink: 0;
-}
-.welcome-page {
-    position: relative; /* This is needed for the z-index of the children to work */
-    background: black; /* This will set the background color to black */
+@keyframes hoverAnimation {
+  0% { box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); }
+  100% { box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3); }
 }
 
-.welcome-page::before {
-    content: "";
-    position: absolute;
-    top: 10%; /* Adjust this to move the blur effect vertically */
-    left: 10%; /* Adjust this to move the blur effect horizontally */
-    width: 80%; /* Adjust this to change the width of the blur effect */
-    height: 80%; /* Adjust this to change the height of the blur effect */
-    border-radius: 1054px;
-    background: linear-gradient(135deg, #176AB1 0%, #CBD8F1 100%); /* This will set the background color of the blur effect */
-    filter: blur(100px);
-    z-index: 1; /* This will put the blur effect above the background but still behind the content */
-    opacity: 0.4; /* This will make the blur effect more opaque */
+@keyframes outlineAnimation {
+  0% {
+    stroke-dasharray: 0, 200;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 200, 200;
+    stroke-dashoffset: 200;
+  }
 }
 
-.auth-button, .welcome-text {
-    position: relative;
-    z-index: 2; /* This will put the content in front of the blur effect */
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
+@keyframes riseInPlace {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-.centered-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%; /* This will make the content take up the full height of the parent */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-
-  /* Welcome_Page.css */
-.about-me-section {
-    border: 1px solid #000; /* Add a border */
-    padding: 20px; /* Add some padding */
-    margin-top: 20px; /* Add some margin at the top */
-    background-color: rgb(0, 0, 0);
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .about-me-title {
-    font-size: 24px;
-    font-weight: 700;
-  }
-  
-  .about-me-text {
-    font-size: 16px;
-    font-weight: 400;
-  }
-  
-  /* existing styles... */
-
-
-  /* styles.css */
-.footer {
-    color: var(--Foreground-primary, #FFF);
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .footer h2 {
-    font-weight: bold; /* Make the section titles bold */
-  }
-  
-  .footer a {
-    color: var(--Foreground-primary, #FFF); /* Make the links the same color as the text */
-    text-decoration: none; /* Remove the underline from the links */
-  }
-  
-  .footer a:hover {
-    text-decoration: underline; /* Add the underline back when the links are hovered */
-  }
+}

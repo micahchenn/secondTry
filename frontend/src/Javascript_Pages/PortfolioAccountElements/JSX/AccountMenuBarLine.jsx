@@ -1,12 +1,22 @@
 import React, { useRef, useEffect } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import '../CSS/AccountMenuBarLine.css'; 
 
-function AccountMenuBarLine({ selectedMenuItem, setSelectedMenuItem }) {
-  const menuItems = ['General Information', 'Analytics', 'Diversification', 'Transactions', 'Accounts', 'Manage Accounts'];
+function AccountMenuBarLine() {
+  const { accountId } = useParams();
+  const menuItems = [
+    { name: 'General Information', path: `/accounts/${accountId}/general-information` },
+    { name: 'Analytics', path: `/accounts/${accountId}/analytics` },
+    { name: 'Diversification', path: `/accounts/${accountId}/diversification` },
+    { name: 'Transactions', path: `/accounts/${accountId}/transactions` },
+    { name: 'Accounts', path: `/accounts/${accountId}` },
+    { name: 'Manage Accounts', path: `/accounts/${accountId}/manage` },
+  ];
   const menuRefs = useRef([]);
+  const location = useLocation();
 
   useEffect(() => {
-    const index = menuItems.indexOf(selectedMenuItem);
+    const index = menuItems.findIndex(item => item.path === location.pathname);
     const menuItem = menuRefs.current[index];
     if (menuItem) {
       const left = menuItem.offsetLeft;
@@ -14,21 +24,20 @@ function AccountMenuBarLine({ selectedMenuItem, setSelectedMenuItem }) {
       document.documentElement.style.setProperty('--highlight-left', `${left}px`);
       document.documentElement.style.setProperty('--highlight-width', `${width}px`);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedMenuItem]);
+  }, [location.pathname, menuItems]);
 
   return (
     <div className="menu-bar-container">
       <div className="menu-bar">
         {menuItems.map((item, index) => (
-          <div
-            key={item}
+          <Link
+            key={item.name}
+            to={item.path}
             ref={(el) => (menuRefs.current[index] = el)}
-            className={`menu-item ${selectedMenuItem === item ? 'selected' : ''}`}
-            onClick={() => setSelectedMenuItem(item)}
+            className={`menu-item ${location.pathname === item.path ? 'selected' : ''}`}
           >
-            {item}
-          </div>
+            {item.name}
+          </Link>
         ))}
       </div>
       <div className="menu-bar-line">

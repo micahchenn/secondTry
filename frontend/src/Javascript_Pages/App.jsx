@@ -19,7 +19,6 @@ import UserHeader from './Static_Elements/UserHeader';
 import Sidebar from './Static_Elements/Sidebar';
 import TestGrid from './Public_Pages/TestGrid';
 import Watchlist from './Private_Pages/Watchlist';
-//import WatchlistDashboard from './Private_Pages/WatchlistDashboard';
 import MainStockPage from './Private_Pages/MainStockPage';
 import AccountsDashboard from './Private_Pages/AccountsDashboard';
 import TestLangchain from './Private_Pages/TestLangchain';
@@ -77,7 +76,12 @@ function HeaderWrapper() {
             <InvestmentsSummary />
           </ProtectedRoute>
         } />
-        <Route path="/accounts-dashboard" element={
+        <Route path="/accounts/:accountId/*" element={
+          <ProtectedRoute>
+            <AccountsDashboard />
+          </ProtectedRoute>
+        } />
+        <Route path="/accounts/*" element={
           <ProtectedRoute>
             <AccountsDashboard />
           </ProtectedRoute>
@@ -85,7 +89,7 @@ function HeaderWrapper() {
         <Route path="/" element={
           <ProtectedRoute>
             <div className="App">
-              <h1>Welcome to the Front Page this is the reason I hate i love it actually coding</h1>
+              {/* Your default component or redirect here */}
             </div>
           </ProtectedRoute>
         } />

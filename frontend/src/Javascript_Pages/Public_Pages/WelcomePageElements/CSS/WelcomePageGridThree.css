@@ -1,0 +1,59 @@
+/* WelcomePageGridThree.css */
+.welcome-page-grid-3-unique-12 {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: transparent;
+    overflow: hidden; /* Ensure nothing overflows */
+  }
+  
+  .welcome-page-grid-3-unique-12::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+  }
+  
+  .welcome-page-grid-3-unique-12 h2 {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-page-grid-3-unique-12 img.background-blur {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 39px;
+    z-index: 1;
+  }
+  
+  .welcome-page-grid-3-unique-12 img.foreground-image {
+    width: 90%;
+    max-width: 900px; /* Ensure it works for larger screens */
+    height: auto;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    transform: rotate(-12deg); /* Add slant effect */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .welcome-page-grid-3-unique-12 img.foreground-image {
+      width: 90%;
+      max-width: 400px; /* Adjust width for mobile view */
+    }
+  }
+  

@@ -18,6 +18,7 @@
     "chartjs-plugin-zoom": "^2.0.1",
     "csrf-token": "^1.1.0",
     "dotenv": "^16.4.5",
+    "gsap": "^3.12.5",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "normalize.css": "^8.0.1",
@@ -33,6 +34,7 @@
     "react-scripts": "5.0.1",
     "react-tooltip": "^5.27.1",
     "recharts": "^2.12.7",
+    "split-type": "^0.3.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

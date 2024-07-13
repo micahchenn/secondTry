@@ -56,35 +56,37 @@
 
 .accounts-dashboard__account-details-wrapper {
   display: flex;
-  height: 375px; /* Set fixed height */
-  margin-top: 0; /* Remove spacing on the top */
+  height: 300px; /* Set fixed height */
+  margin-top: 10px; /* Remove spacing on the top */
+  
+
 }
 
 .accounts-dashboard__general-information {
   flex: 0 1 45%; /* Set width */
   margin-top: 0; /* Remove spacing on the top */
   overflow-y: auto; /* Ensure content overflow is handled */
+  
 }
 
 .accounts-dashboard__general-graph {
   flex: 0 1 55%; /* Set width */
   overflow-y: auto; /* Ensure content overflow is handled */
   margin-top: 0; /* Remove spacing on the top */
+  
 }
 
 .accounts-dashboard__more-details-wrapper {
   display: flex;
-  background-color: #ffffff; /* Light background */
-  height: calc(100% - 300px); /* Adjust height based on the remaining space */
+
+  height: 350px; /* Adjust height based on the remaining space */
   overflow: hidden; /* Ensure it doesn't overflow */
-  border-top: 1px solid #dee2e6;
   margin-top: 0; /* Remove spacing on the top */
 }
 
 .accounts-dashboard__detailed-information {
   flex: 0 1 50%; /* Set width */
-  background-color: #e9ecef; /* Slightly darker background */
-  border-right: 1px solid #dee2e6;
+
   overflow-y: auto; /* Ensure content overflow is handled */
   margin-top: 0; /* Remove spacing on the top */
 }
@@ -93,8 +95,10 @@
   flex: 0 1 auto; /* Do not grow, allow shrink, basis auto */
   width: 50%; /* Set width to 50% */
   max-width: 50%; /* Ensure it does not exceed 50% width */
-  background-color: #7fbaf5; /* Light blue background */
-  margin-top: 0; /* Remove spacing on the top */
+  margin-top: 20px; /* Remove spacing on the top */
   overflow: hidden; /* Ensure content overflow is handled */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  height: 65%;
 }
 

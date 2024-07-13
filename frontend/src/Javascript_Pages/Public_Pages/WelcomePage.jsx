@@ -1,122 +1,31 @@
-// Welcome_Page.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../../Styling_Pages/Public_Pages/Welcome_Page.css';
-import circleBlur from '../../Styling_Pages/Public_Pictures/Circle_Blur.png';
+import circleBlur1 from '../../Styling_Pages/Public_Pictures/test.png';
+import WelcomePageGridThree from '../Public_Pages/WelcomePageElements/WelcomePageGridThree.jsx';
+import GridTwo from '../Public_Pages/WelcomePageElements/GridTwo.jsx'; // Import the new GridTwo component
 
 const Welcome_Page = () => {
   return (
-    <div className="welcome-page">
-      <div 
-        className="blur-effect" 
-        style={{ backgroundImage: `url(${circleBlur})` }} // Set the background image here
-      ></div> {/* This will be the blurred background */}
-      <div className="centered-content"> {/* Add this div */}
-        <h1 className="welcome-text">Welcome!</h1>
-        <p>This is a simple welcome page.</p>
-        <p>This is a simple welcome page.</p>
-        <Link to="/signup" className="auth-button">Get Started</Link>
-        <br />
-        <Link to="/login" className="auth-button">Log In</Link>
-      </div>
-      <div id="about-us" className="section"> {/* Add this div */}
-        <h2>About Us</h2>
-        <p>This is some information about us.</p>
-      </div>
-      <div id="what-we-offer" className="section"> {/* Add this div */}
-        <h2>What We Offer</h2>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-        <p>This is some information about what we offer.</p>
-
-      </div>
-      <div id="invest" className="section"> {/* Add this div */}
-        <h2>Invest</h2>
-        <p>This is some information about how to invest.</p>
-      </div>
-
-      <footer className="footer"> {/* Add this footer */}
-        <div className="footer-content">
-          <div id="resources" className="section">
-            <h2>Resources</h2>
-            <ul>
-              <li><a href="resource1.pdf">Resource 1</a></li>
-              <li><a href="resource2.pdf">Resource 2</a></li>
-              <li><a href="resource3.pdf">Resource 3</a></li>
-              {/* Add more resources as needed */}
-            </ul>
-          </div>
-          <div id="contact" className="section">
-            <h2>Contact Information</h2>
-            <p>Email: info@example.com</p>
-            <p>Phone: (123) 456-7890</p>
-            <p>Address: 123 Main St, Anytown, USA</p>
+    <div className="welcome-page-unique-12">
+      <div className="welcome-page-grid-1-unique-12">
+        <img src={circleBlur1} alt="Circle Blur" className="circle-blur-unique-12" />
+        <div className="left-aligned-content-unique-12">
+          <h1 className="title-text-unique-12">
+            <span className="title-line">The Future of</span>
+            <br />
+            <span className="title-line title-line2">Investment Management</span>
+          </h1>
+          <p className="subtitle-text-unique-12">Your All-in-One Solution for Tracking and Optimizing Your Portfolio</p>
+          <div className="button-container-unique-12">
+            <a href="/signup" className="auth-button-unique-12">Get Started</a>
+            <a href="/login" className="text-button-unique-12">Login <span className="arrow-icon-unique-12">→</span></a>
           </div>
         </div>
-      </footer>
+      </div>
+
+      <GridTwo /> {/* Add the new GridTwo component here */}
+
+      <WelcomePageGridThree />
     </div>
   );
 };

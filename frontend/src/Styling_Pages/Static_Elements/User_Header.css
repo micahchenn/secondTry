@@ -1,4 +1,4 @@
-/* User Header CSS */
+/* Header.css */
 
 /* Include the font */
 @font-face {
@@ -8,7 +8,7 @@
   font-style: normal;
 }
 
-.user-header {
+.header-unique-11 {
   position: fixed;
   top: 0;
   width: 100%;
@@ -19,45 +19,45 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--Container-border, rgba(255, 255, 255, 0.10));
-  background-color: transparent; /* gives it that dark color */
+  background-color: transparent;
   backdrop-filter: blur(10px);
   z-index: 1000;
   color: white;
 }
 
-.logo-title-user-header {
+.logo-title-user-header-unique-11 {
   display: flex;
-  align-items: center; /* Align items vertically in the center */
-  gap: 5px; /* Adjust this value to bring the text closer or further from the logo */
+  align-items: center;
+  gap: 5px;
 }
 
-.logo {
-  padding-top: 0; /* Removed padding-top to center vertically */
-  width: 32px; /* Example size, adjust as needed */
+.logo-unique-11 {
+  padding-top: 0;
+  width: 32px;
   height: auto;
-  margin-left: 75px; /* Adjust this value as needed */
+  margin-left: 75px;
 }
 
-.harbinger-text {
+.harbinger-text-unique-11 {
   font-family: 'Rosmatika', sans-serif;
-  font-size: 24px; /* Adjust the size as needed */
+  font-size: 24px;
   margin-left: 15px;
   margin-top: 5px;
 }
 
-.right-header {
+.right-header-unique-11 {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 20px; /* Adjust this value for spacing between right header elements */
+  gap: 20px;
 }
 
-.button-container {
+.button-container-unique-11 {
   display: flex;
   align-items: center;
 }
 
-.user .hover-login, .products .hover-element {
+.user-unique-11 .hover-login-unique-11, .products-unique-11 .hover-element-unique-11 {
   text-decoration: none;
   border-radius: 8px;
   display: flex;
@@ -66,25 +66,47 @@
   gap: var(--Button-gap, 8px);
   color: white;
   transition: all 0.3s ease;
-
-
-
 }
 
-.user .hover-login:hover, .products .hover-element:hover {
-  background: rgba(255, 255, 255, 0.1); /* Change the background color when hovered */
-  border: 1px solid #FFF; /* Slightly visible border on hover */
+.hover-login-unique-11 {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  margin-left: auto;
+  margin-right: 5px;
 }
 
-.products {
+.hover-login-unique-11:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: .05px solid #FFF;
+}
+
+.header-signup-unique-11 {
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0px 1px 3px 0px rgba(199, 220, 255, 0.35) inset, 0px 0px 20px 0px rgba(198, 204, 255, 0.20) inset, 0px 1px 22px 0px rgba(255, 255, 255, 0.10), 0px 4px 4px 0px rgba(0, 0, 0, 0.05), 0px 10px 10px 0px rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(10px);
+  margin-right: 75px;
+}
+
+.header-signup-unique-11:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header-signup-unique-11:active {
+  transform: scale(0.95);
+}
+
+.products-unique-11 {
   display: flex;
-  gap: 20px; /* Ensure spacing between elements */
-  flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
-  justify-content: space-around; /* Space out items evenly */
-  align-items: center; /* Center the items vertically */
+  gap: 10px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.products .hover-element {
+.products-unique-11 .hover-element-unique-11 {
   gap: 10px;
   color: var(--Foreground-primary, #FFF);
   font-family: Inter;
@@ -92,57 +114,57 @@
   line-height: 20px;
 }
 
-.profile-button {
+.profile-button-unique-11 {
   color: white;
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.profile-icon {
-  margin-right: 75px; /* Adjust this value as needed */
+.profile-icon-unique-11 {
+  margin-right: 75px;
 }
 
-.premium-profile {
+.premium-profile-unique-11 {
   margin-left: 75px;
   padding: 70px;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
-  .user-header {
+  .header-unique-11 {
     padding: 6px 10px;
   }
 
-  .logo-title-user-header {
-    gap: 5px; /* Adjust this value as needed for smaller screens */
+  .logo-title-user-header-unique-11 {
+    gap: 5px;
   }
 
-  .products {
-    gap: 10px; /* Reduce gap for smaller screens */
+  .products-unique-11 {
+    gap: 10px;
   }
 
-  .profile-icon {
-    margin-right: 10px; /* Reduce margin for smaller screens */
+  .profile-icon-unique-11 {
+    margin-right: 10px;
   }
 }
 
 @media (max-width: 640px) {
-  .user-header {
+  .header-unique-11 {
     padding: 6px 10px;
-    justify-content: center; /* Center the logo and text */
+    justify-content: center;
   }
 
-  .logo {
-    margin-left: 0; /* Remove left margin for centering */
+  .logo-unique-11 {
+    margin-left: 0;
     margin-top: 5px;
   }
 
-  .logo-title-user-header {
-    gap: 5px; /* Adjust gap if needed */
+  .logo-title-user-header-unique-11 {
+    gap: 5px;
   }
 
-  .right-header, .products, .profile-button {
-    display: none; /* Hide elements on small screens */
+  .right-header-unique-11, .products-unique-11, .profile-button-unique-11 {
+    display: none;
   }
 }
