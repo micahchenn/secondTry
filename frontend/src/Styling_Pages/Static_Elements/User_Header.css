@@ -1,5 +1,3 @@
-/* Header.css */
-
 /* Include the font */
 @font-face {
   font-family: 'Rosmatika';
@@ -8,7 +6,7 @@
   font-style: normal;
 }
 
-.header-unique-11 {
+.user-header-unique-11 {
   position: fixed;
   top: 0;
   width: 100%;

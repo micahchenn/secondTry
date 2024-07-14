@@ -1,36 +1,65 @@
-/* General styles for the grid-two component */
+/* Highlight class for specific word */
+.highlight {
+  color: white;
+}
+
+/* Adjusted h2 styling for the sticky-nav */
+.sticky-nav h2 {
+  font-size: 43px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  color: grey; /* Make the rest of the text grey */
+}
+
+/* Existing styles */
 .grid-two {
   display: flex;
   position: relative;
   min-height: 100vh;
-  background-size: 90%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: background-image 1s ease-in-out; /* Smooth background transition */
+  transition: background-image 1s ease-in-out, background-size 1s ease-in-out, background-position 1s ease-in-out;
 }
 
-/* Styles for the sticky navigation bar */
+.section-bg1 {
+  background-image: url('../../../../Styling_Pages/Public_Pictures/Section_Blur4.png');
+  background-size: cover;
+  background-position: 0% 0%;
+}
+
+.section-bg2 {
+  background-image: url('../../../../Styling_Pages/Public_Pictures/Section_Blur4.png');
+  background-size: cover;
+  background-position: 130% 2%;
+}
+
+.section-bg3 {
+  background-image: url('../../../../Styling_Pages/Public_Pictures/Section_Blur3.png');
+  background-size: cover;
+  background-position: 0% 0%;
+}
+
+.section-bg4 {
+  background-image: url('../../../../Styling_Pages/Public_Pictures/Section_Blur2.png');
+  background-size: 120%;
+  background-position: 120% 90%;
+}
+
 .sticky-nav {
   position: sticky;
   top: 0;
   left: 0;
   margin-left: 5%;
   height: 100vh;
-  width: 35%;
-
+  width: 40%;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
-  z-index: 2; /* Ensure it stays on top */
-}
-
-.sticky-nav h2 {
-  font-size: 43px; /* Smaller font size */
-  margin-bottom: 30px;
-  font-weight: 500; /* Increased font weight */
+  z-index: 2;
 }
 
 .sticky-nav ul {
@@ -46,9 +75,9 @@
 
 .sticky-nav a {
   text-decoration: none;
-  color: #bebebe; /* Light grey color */
-  font-size: 20px; /* Increased font size */
-  font-weight: 600; /* Normal font weight */
+  color: #7e7e7e;
+  font-size: 20px;
+  font-weight: 600;
   display: block;
   position: relative;
   margin-bottom: 10px;
@@ -59,9 +88,9 @@
   display: block;
   width: 2px;
   height: 100%;
-  background: linear-gradient(to bottom, #ffffff, #696969); /* Gradient line */
+  background: linear-gradient(to bottom, #ffffff, #696969);
   position: absolute;
-  left: -20px; /* Positioning the gradient line to the left */
+  left: -20px;
   top: 0;
   opacity: 0;
   transition: opacity 0.3s;
@@ -69,52 +98,54 @@
 
 .sticky-nav a.active::before,
 .sticky-nav a:hover::before {
-  opacity: 1; /* Show the gradient line on hover and active */
+  opacity: 1;
 }
 
 .sticky-nav a:hover {
-  color: white; /* Change color on hover */
+  color: white;
 }
 
 .sticky-nav a.active {
   color: white;
 }
 
+.sticky-nav a.active + .nav-subtitle {
+  color: white; /* Make subtitle white when active */
+}
+
 .nav-subtitle {
   font-size: 16px;
-  font-weight: 500;
-  color: #b3b3b3; /* Subtitle color */
+  font-weight: 450;
+  color: #6e6e6e;
   margin-top: 5px;
 }
 
-/* Container for the sections */
 .sections-container {
   flex-grow: 1;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
   padding: 20px;
-  z-index: 3; /* Ensure it stays below the nav bar */
+  z-index: 1;
 }
 
-/* Styles for each section */
 .section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align content to the right */
+  justify-content: flex-end;
   padding: 40px;
-  margin-right: 10%; /* Increased right margin */
+  margin-right: 10%;
 }
 
-/* Styles for the content within each section */
 .section-content {
   max-width: 800px;
   text-align: left;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5); /* Transparent background color */
   padding: 40px;
   border-radius: 10px;
-  transform: translateY(50px); /* Initial position for rising effect */
+  transform: translateY(50px);
   opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .section h2 {
@@ -127,11 +158,10 @@
   line-height: 1.6;
 }
 
-/* Responsive design adjustments */
 @media (max-width: 768px) {
   .sticky-nav {
     width: 200px;
-    margin-left: 5%; /* Adjusted left margin for smaller screens */
+    margin-left: 5%;
   }
 
   .sticky-nav h2 {
@@ -147,7 +177,7 @@
   }
 
   .section {
-    margin-right: 5%; /* Adjusted right margin for smaller screens */
+    margin-right: 5%;
   }
 
   .section-content {
@@ -164,36 +194,47 @@
 }
 
 @media (max-width: 480px) {
+  .grid-two {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .sticky-nav {
-    width: 150px;
-    margin-left: 3%; /* Adjusted left margin for smallest screens */
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .sticky-nav h2 {
     font-size: 18px;
+    text-align: center;
+  }
+
+  .sticky-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sticky-nav li {
+    margin-bottom: 20px;
   }
 
   .sticky-nav a {
     font-size: 14px;
+    text-align: center;
   }
 
   .nav-subtitle {
     font-size: 10px;
-  }
-
-  .section {
-    margin-right: 3%; /* Adjusted right margin for smallest screens */
+    text-align: center;
   }
 
   .section-content {
-    padding: 10px;
-  }
-
-  .section h2 {
-    font-size: 18px;
-  }
-
-  .section p {
-    font-size: 14px;
+    display: none; /* Hide section content on small screens */
   }
 }

@@ -6,19 +6,19 @@ import Grid2Section1 from './Grid2Section1';
 import Grid2Section2 from './Grid2Section2';
 import Grid2Section3 from './Grid2Section3';
 import Grid2Section4 from './Grid2Section4';
-import test from '../../../Styling_Pages/Public_Pictures/Circle_Blur.png';
-import test2 from '../../../Styling_Pages/Public_Pictures/Circle_Blur2.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const GridTwo = () => {
   const sectionsRef = useRef([]);
   const navRef = useRef(null);
-  const [backgroundImage, setBackgroundImage] = useState(test);
+  const [sectionClass, setSectionClass] = useState('section-bg1');
 
   useEffect(() => {
     const sections = sectionsRef.current;
     const navLinks = navRef.current.querySelectorAll('a');
+
+    const classes = ['section-bg1', 'section-bg2', 'section-bg3', 'section-bg4'];
 
     sections.forEach((section, index) => {
       ScrollTrigger.create({
@@ -28,7 +28,7 @@ const GridTwo = () => {
         onEnter: () => {
           navLinks[index].classList.add('active');
           gsap.to(section.querySelector('.section-content'), { y: 0, opacity: 1, duration: 0.5 });
-          setBackgroundImage(index % 2 === 0 ? test2 : test2); // Change background image based on section index
+          setSectionClass(classes[index]); // Change section class based on section index
         },
         onLeaveBack: () => {
           navLinks[index].classList.remove('active');
@@ -41,7 +41,7 @@ const GridTwo = () => {
         onEnterBack: () => {
           navLinks[index].classList.add('active');
           gsap.to(section.querySelector('.section-content'), { y: 0, opacity: 1, duration: 0.5 });
-          setBackgroundImage(index % 2 === 0 ? test2 : test2); // Change background image based on section index
+          setSectionClass(classes[index]); // Change section class based on section index
         },
       });
     });
@@ -59,9 +59,9 @@ const GridTwo = () => {
   }, []);
 
   return (
-    <div className="grid-two" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className={`grid-two ${sectionClass}`}>
       <nav ref={navRef} className="sticky-nav">
-        <h2>Empower Your Investments with Harbinger</h2>
+        <h2><span className="highlight">Empower</span> Your Investments with Harbinger</h2>
         <ul>
           <li>
             <a href="#section1">Connect Your Financial Accounts</a>
@@ -69,7 +69,7 @@ const GridTwo = () => {
           </li>
           <li>
             <a href="#section2">Your Portfolio at a Glance</a>
-            <p className="nav-subtitle">See all your investments in one place</p>
+            <p className="nav-subtitle">See all your investments in one place. Track your net worth or individual accounts. Get a Dashboard</p>
           </li>
           <li>
             <a href="#section3">Deep Dive into Your Data</a>

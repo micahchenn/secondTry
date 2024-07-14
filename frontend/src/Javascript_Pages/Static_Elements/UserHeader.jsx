@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-//import HeaderSearchBar from './HeaderSearchBar'; // import the Header_Search_Bar component
-
-
 const User_Header = () => {
   const location = useLocation();
 
@@ -17,20 +14,19 @@ const User_Header = () => {
   }
 
   return (
-    <header className="user-header">
-      <div className="logo-title-user-header">
-        <img src={Logo} alt="Harbinger Logo" className="logo" />
-        <span className="harbinger-text">Harbinger</span> {/* Use the Harbinger text with the new font */}
+    <header className="user-header-unique-11">
+      <div className="logo-title-user-header-unique-11">
+        <img src={Logo} alt="Harbinger Logo" className="logo-unique-11" />
+        <span className="harbinger-text-unique-11">Harbinger</span>
       </div>
-       {/* Use the Header_Search_Bar component REMOVED AS OF 6/30/2024*/}
-      <div className="right-header">
-        <div className="products">
-          <Link to="/link-account" className="hover-element">Link Account</Link>
-          <Link to="/premium-plans" className="hover-element">Premium</Link>
-          <Link to="/about-quantara" className="hover-element">Quantara</Link>
+      <div className="right-header-unique-11">
+        <div className="products-unique-11">
+          <Link to="/link-account" className="hover-element-unique-11">Link Account</Link>
+          <Link to="/premium-plans" className="hover-element-unique-11">Premium</Link>
+          <Link to="/about-quantara" className="hover-element-unique-11">Quantara</Link>
         </div>
-        <button className="profile-button">
-          <FontAwesomeIcon icon={faUser} size='lg' className="profile-icon" />
+        <button className="profile-button-unique-11">
+          <FontAwesomeIcon icon={faUser} size='lg' className="profile-icon-unique-11" />
         </button>
       </div>
     </header>

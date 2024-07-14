@@ -1,59 +1,73 @@
-/* WelcomePageGridThree.css */
 .welcome-page-grid-3-unique-12 {
-    position: relative;
-    text-align: center;
-    padding: 20px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: transparent;
-    overflow: hidden; /* Ensure nothing overflows */
-  }
-  
-  .welcome-page-grid-3-unique-12::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ensure it fills the entire viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-    z-index: 1;
+.section-content {
+  position: relative;
+  z-index: 2; /* Ensure it stays above the background image */
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.title-unique-12 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.paragraph-unique-12 {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.background-image-unique-12 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.full-image-unique-12 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire section */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .title-unique-12 {
+    font-size: 28px;
   }
-  
-  .welcome-page-grid-3-unique-12 h2 {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 20px;
+
+  .paragraph-unique-12 {
+    font-size: 16px;
   }
-  
-  .welcome-page-grid-3-unique-12 img.background-blur {
-    width: 80%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: 39px;
-    z-index: 1;
+
+  .section-content-unique-12 {
+    padding: 20px;
   }
-  
-  .welcome-page-grid-3-unique-12 img.foreground-image {
-    width: 90%;
-    max-width: 900px; /* Ensure it works for larger screens */
-    height: auto;
-    position: relative;
-    z-index: 2;
-    margin-top: 20px;
-    transform: rotate(-12deg); /* Add slant effect */
+}
+
+@media (max-width: 480px) {
+  .title-unique-12 {
+    font-size: 24px;
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .welcome-page-grid-3-unique-12 img.foreground-image {
-      width: 90%;
-      max-width: 400px; /* Adjust width for mobile view */
-    }
+
+  .paragraph-unique-12 {
+    font-size: 14px;
   }
-  
+
+  .section-content-unique-12 {
+    padding: 10px;
+  }
+}

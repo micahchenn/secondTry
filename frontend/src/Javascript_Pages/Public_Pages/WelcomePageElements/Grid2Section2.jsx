@@ -34,8 +34,7 @@ const Grid2Section2 = React.forwardRef((props, ref) => {
 
   return (
     <section id="section2" ref={ref} className="section">
-      <div className="section-content-unique2">
-        <h2>Your Portfolio at a Glance</h2>
+      <div className="section-content">
         <div className="portfolio-graphic-container" ref={graphicRef}>
           <img src={PortfolioGraphic} alt="Portfolio Graphic" className="portfolio-graphic" />
         </div>

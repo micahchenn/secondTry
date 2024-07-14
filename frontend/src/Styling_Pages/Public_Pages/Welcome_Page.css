@@ -45,16 +45,29 @@
   margin-left: -200px; /* Ensure no margin on the left */
 }
 
+@font-face {
+  font-family: 'Reckless Neue Bold';
+  src: url('../../../public/fonts/RecklessNeue-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Reckless Neue Book';
+  src: url('../../../public/fonts/reckless-neue/RecklessNeue-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Styles for .title-text-unique-12 */
 .title-text-unique-12 {
   font-size: 3rem; /* Adjusted size */
   font-weight: 700;
-  font-family: 'inter', sans-serif;
-  margin-bottom: 19px;
+  font-family: 'Reckless Neue Bold', sans-serif; /* Use the new font */
+  margin-bottom: 29px;
   animation: fadeIn 2s ease-in-out;
-
+  
 }
-
-
 
 .title-line2 {
 
@@ -66,8 +79,8 @@
 .subtitle-text-unique-12 {
   font-size: 1.25rem; /* Adjusted size */
   font-weight: 500;
-  font-family: 'Roboto', sans-serif; /* Changed font family */
-  color: #dbdbdb; /* Light gray color */
+  font-family: 'Inter', sans-serif; /* Changed font family */
+  color: #ececec; /* Light gray color */
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid;
@@ -101,6 +114,8 @@
   text-align: center; /* Horizontally center the text */
   position: relative;
   z-index: 2;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+  transition: opacity 0.3s ease;
 }
 
 .auth-button-unique-12:hover {

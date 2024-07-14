@@ -1,0 +1,128 @@
+.footer-unique-jamisen {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Prevent overflow */
+  }
+  
+  .footer-top-line-unique-jamisen,
+  .footer-separator-line-unique-jamisen {
+    width: 100vw; /* Full viewport width */
+    height: 1px;
+    background: linear-gradient(to right, #000, #464646b9, #000);
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+  }
+  
+  .footer-top-line-unique-jamisen {
+    top: 0;
+  }
+  
+  .footer-separator-line-unique-jamisen {
+    bottom: 90px; /* Position it just above the © 2024 Company part */
+  }
+  
+  .footer-content-unique-jamisen {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .footer-section-unique-jamisen {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .footer-title-unique-jamisen {
+    font-size: 14px !important;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .footer-list-unique-jamisen {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-list-unique-jamisen li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-list-unique-jamisen a {
+    color: #ffffffb2 !important;
+    text-decoration: none;
+    font-size: 13px !important; /* Default font size */
+    font-weight: 400 !important;
+    font-family: 'Inter', sans-serif; /* Set font to Inter, ensure it's loaded in your project */
+  }
+  
+  .footer-list-unique-jamisen a:hover {
+    text-decoration: none;
+    color: white !important;
+  }
+  
+  .social-icons-unique-jamisen {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin-top: 10px; /* Space between title and icons */
+  }
+  
+  .social-icons-unique-jamisen a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  .social-icons-unique-jamisen img {
+    width: 18px; /* Adjust size as needed */
+    height: 18px;
+    margin-right: 20px; /* Space between icons */
+  }
+  
+  .footer-bottom-unique-jamisen {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .footer-bottom-unique-jamisen p {
+    color: #ffffffb2 !important;
+    text-decoration: none;
+    font-size: 12px !important; /* Default font size */
+    font-weight: 400 !important;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .footer-links-unique-jamisen a {
+    color: #ffffffb2 !important;
+    text-decoration: none;
+    font-size: 12px !important; /* Default font size */
+    font-weight: 400 !important;
+    margin: 0 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .footer-links-unique-jamisen a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Editable font sizes and colors */
+  .footer-title-unique-jamisen,
+  .footer-list-unique-jamisen a,
+  .footer-bottom-unique-jamisen p,
+  .footer-links-unique-jamisen a {
+    font-size: var(--footer-font-size, 16px); /* Default font size */
+    color: var(--footer-font-color, #fff); /* Default font color */
+  }
+  

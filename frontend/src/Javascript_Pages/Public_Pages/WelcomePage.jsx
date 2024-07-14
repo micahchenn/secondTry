@@ -2,8 +2,9 @@ import React from 'react';
 import '../../Styling_Pages/Public_Pages/Welcome_Page.css';
 import circleBlur1 from '../../Styling_Pages/Public_Pictures/test.png';
 import WelcomePageGridThree from '../Public_Pages/WelcomePageElements/WelcomePageGridThree.jsx';
-import GridTwo from '../Public_Pages/WelcomePageElements/GridTwo.jsx'; // Import the new GridTwo component
-
+import GridTwo from '../Public_Pages/WelcomePageElements/GridTwo.jsx'; 
+import WelcomePageFooter from '../Public_Pages/WelcomePageElements/WelcomePageFooter.jsx'; // Import the new WelcomePageFooter component
+import QNASection from './WelcomePageElements/QNASection.jsx';
 const Welcome_Page = () => {
   return (
     <div className="welcome-page-unique-12">
@@ -23,9 +24,10 @@ const Welcome_Page = () => {
         </div>
       </div>
 
-      <GridTwo /> {/* Add the new GridTwo component here */}
-
+      <GridTwo /> 
       <WelcomePageGridThree />
+      <QNASection />
+      <WelcomePageFooter /> {/* Add the new WelcomePageFooter component here */}
     </div>
   );
 };

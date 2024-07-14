@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { useNavigate } from 'react-router-dom';
 import '../WelcomePageElements/CSS/Grid2Section1.css';
 import Robinhood from '../../../Styling_Pages/Public_Pictures/Robinhood.png';
 import Wealthfront from '../../../Styling_Pages/Public_Pictures/Wealthfront.png';
@@ -29,7 +28,6 @@ const logos = [
 
 const Grid2Section1 = React.forwardRef((props, ref) => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const titleInterval = setInterval(() => {
@@ -38,10 +36,6 @@ const Grid2Section1 = React.forwardRef((props, ref) => {
 
     return () => clearInterval(titleInterval);
   }, []);
-
-  const handleGetStartedClick = () => {
-    navigate('/signup');
-  };
 
   return (
     <section id="section1" ref={ref} className="section">
@@ -62,13 +56,8 @@ const Grid2Section1 = React.forwardRef((props, ref) => {
             </h2>
             <h2 className="title-text">accounts in one place.</h2>
             <p className="paragraph-unique3">Your investments should be diversified - where you track them shouldn't.</p>
-            <div className="button-container-section1-unique3">
-              <button
-                className="auth-button-section1-unique3"
-                onClick={handleGetStartedClick}
-              >
-                Get Started
-              </button>
+            <div className="button-container-unique-12">
+              <button className="auth-button-unique-12">Get Started</button>
             </div>
           </div>
           <div className="plaid-graphic-container">
@@ -92,3 +81,5 @@ const Grid2Section1 = React.forwardRef((props, ref) => {
 });
 
 export default Grid2Section1;
+
+

@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 const Grid2Section3 = React.forwardRef((props, ref) => (
   <section id="section3" ref={ref} className="section">
     <div className="section-content">
