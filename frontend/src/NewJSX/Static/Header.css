@@ -1,0 +1,117 @@
+.header {
+    backdrop-filter: blur(10px);
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 0 40px; /* More padding to the edges */
+    height: 60px; /* Increased height */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 15px; /* Increased spacing between logo and text */
+    width: 30px; /* Smaller logo size */
+}
+
+.harbinger-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+    color: white;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px; /* Smaller text */
+    margin: 0 10px; /* Spacing between nav items */
+}
+
+.navbar-nav .nav-link:hover {
+    transform: scale(1.1); /* Enlarge on hover */
+}
+
+.navbar-nav .header-signup {
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; /* Remove horizontal padding */
+    width: 90px; /* Fixed width */
+    color: white;
+    margin-left: 10px; /* Spacing between nav items */
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.navbar-nav .header-signup:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-nav .header-signup:active {
+    transform: scale(0.95);
+}
+
+.navbar-nav .hover-login {
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; /* Remove horizontal padding */
+    width: 90px; /* Fixed width */
+    color: white;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.navbar-nav .hover-login:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: .05px solid #FFF;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .header {
+    padding: 6px 20px;
+  }
+
+  .navbar-brand {
+    gap: 5px;
+  }
+
+  .navbar-nav {
+    gap: 10px;
+  }
+
+  .profile-icon {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 6px 20px;
+    justify-content: center;
+  }
+
+  .logo {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .navbar-brand {
+    gap: 5px;
+  }
+
+  .navbar-nav, .profile-button {
+    display: none;
+  }
+}

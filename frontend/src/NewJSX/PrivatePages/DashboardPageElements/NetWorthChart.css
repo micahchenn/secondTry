@@ -1,0 +1,31 @@
+.net-worth-chart-header {
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.net-worth-chart-header h2 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.net-worth-summary {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  gap: 10px; /* Add space between net worth value and percentage change */
+  margin-bottom: 10px;
+}
+
+.net-worth-chart-value {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.net-worth-chart-change {
+  color: #1E90FF; /* Cool color */
+  font-size: 1.5em;
+}
+
+.net-worth-timeframe-buttons {
+  margin-top: 15px;
+}

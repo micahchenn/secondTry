@@ -1,0 +1,77 @@
+.link-account-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.link-account-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.link-account-icon {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.link-account-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.link-account-description {
+    margin-bottom: 20px;
+}
+
+.link-account-description-text {
+    font-size: 1em;
+}
+
+.link-account-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.link-account-button:hover {
+    background: #0056b3;
+}
+
+.link-account-error {
+    color: red;
+    margin-top: 10px;
+}
+
+.link-account-success {
+    color: green;
+    margin-top: 10px;
+}
+
+.link-account-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.link-account-faq, .link-account-manage {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link-account-faq:hover, .link-account-manage:hover {
+    color: #007bff;
+}

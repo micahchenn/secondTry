@@ -1,0 +1,24 @@
+.subtype-breakdown-card {
+    margin-top: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  
+  .subtype-breakdown-card:hover {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .subtype-breakdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .subtype-breakdown-title {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  

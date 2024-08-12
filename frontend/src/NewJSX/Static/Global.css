@@ -1,0 +1,23 @@
+/* global.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(115deg, #627a94, #9c8787);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  :root {
+    --sidebar-width: 230px;
+    --user-gradient-green-background: linear-gradient(to right, #9c9c75, #135058);
+    --glass-bg-color: rgba(255, 255, 255, 0.2);
+    --glass-border-color: rgba(255, 255, 255, 0.3);
+    --glass-shadow-color: rgba(0, 0, 0, 0.1);
+    --text-primary-color: rgba(255, 255, 255, 0.9);
+    --text-secondary-color: rgba(255, 255, 255, 0.7);
+    --text-hover-color: rgba(255, 255, 255, 1);
+  }
+  
+
+  

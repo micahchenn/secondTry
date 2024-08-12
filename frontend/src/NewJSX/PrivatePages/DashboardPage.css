@@ -1,0 +1,35 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.accounts-section {
+  max-height: 200px; /* Set a default max height */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accounts-section.expanded {
+  max-height: none; /* Expand to full height */
+}
+
+.accounts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expand-button {
+  font-size: 1.5em;
+  margin-top: -5px;
+  padding: 0;
+  color: #000;
+}

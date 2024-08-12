@@ -1,0 +1,118 @@
+/* src/styles/components/SignupPage.css */
+
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    /*background: linear-gradient(135deg, #636fa4, #d1ac9f);*/
+    background: radial-gradient(circle at -8.9% 51.2%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 15.9%, rgb(255, 163, 77) 15.9%, rgb(255, 163, 77) 24.4%, rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
+  }
+  
+
+  
+  .signup-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.05); /* More transparent */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem; /* Slightly smaller padding */
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .signup-container h1 {
+    font-family: 'CInter SemiBold', sans-serif;
+    color: #ffffff;
+    margin-bottom: 0.75rem; /* Slightly smaller margin */
+    text-align: center;
+  }
+  
+  .signup-container p {
+    font-family: 'CInter Regular', sans-serif;
+    color: #ffffff;
+    margin-top: 0.75rem; /* Slightly smaller margin */
+    text-align: center;
+  }
+  
+  .signup-container label {
+    font-family: 'CInter Medium', sans-serif;
+    color: #ffffff;
+    display: block;
+    text-align: left;
+    margin-bottom: 0.25rem; /* Slightly smaller margin */
+  }
+  
+  .signup-container .form-group {
+    margin-bottom: 0.75rem; /* Slightly smaller margin */
+    position: relative;
+  }
+  
+  .signup-container .form-control {
+    font-family: 'CInter Light', sans-serif;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+    font-size: 0.8rem; /* Smaller text */
+    padding: 0.5rem 1rem 0.5rem 2.5rem; /* Add padding for icons */
+    margin-bottom: 0.5rem;
+  }
+  
+  .signup-container .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem; /* Smaller placeholder text */
+  }
+  
+  .signup-container .input-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .signup-container .toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+  
+  .signup-container .btn {
+    font-family: 'CInter SemiBold', sans-serif;
+    background-color: #ffffff59;
+    border: none;
+    border-radius: 0.5rem;
+    color: #ffffff;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+  }
+  
+  .signup-container .btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .signup-container a {
+    color: var(--user-link-color);
+    text-decoration: none;
+  }
+  
+  .signup-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .signup-error-message {
+    color: red;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  

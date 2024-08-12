@@ -1,0 +1,38 @@
+.sidebar {
+    width: 230px;
+    height: 100vh;
+    position: fixed;
+    top: 60px; /* Adjust this to account for the header height */
+    left: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    z-index: 1000;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-link .icon {
+    margin-right: 10px;
+  }
+  
+  .nav-item.active .nav-link {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,77 @@
+/* UserHeader.css */
+.user-header {
+    position: relative;
+  }
+  
+  .profile-item {
+    position: relative;
+  }
+  
+  .profile-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 250px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-dropdown .profile-info {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .profile-dropdown .profile-info .profile-icon {
+    margin-right: 10px;
+  }
+  
+  .profile-dropdown .profile-info .profile-details h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .profile-dropdown .profile-info .complete-profile-link {
+    font-size: 12px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .profile-dropdown .profile-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+  }
+  
+  .profile-dropdown .profile-links li {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .profile-dropdown .profile-links li a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .profile-dropdown .profile-links li span {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .profile-dropdown .profile-links li a:hover {
+    text-decoration: underline;
+  }
+  
+  .profile-dropdown .profile-links li:last-child {
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  

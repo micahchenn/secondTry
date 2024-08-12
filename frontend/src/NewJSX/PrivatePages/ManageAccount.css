@@ -1,0 +1,35 @@
+.manage-accounts {
+    padding: 20px;
+  }
+  
+  .update-status {
+    margin-bottom: 20px;
+  }
+  
+  .update-status.success {
+    color: green;
+  }
+  
+  .update-status.failed {
+    color: red;
+  }
+  
+  .institution-item {
+    margin-bottom: 10px;
+  }
+  
+  .confirm-remove {
+    margin-top: 10px;
+  }
+  
+  .confirm-remove-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  

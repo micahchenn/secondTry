@@ -1,0 +1,60 @@
+.portfolio-account-card {
+    margin-bottom: 20px;
+  }
+  
+  .account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .expand-button {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .account-list {
+    max-height: 200px; /* Set the height you prefer */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .account-list.expanded {
+    max-height: 1000px; /* Set a large enough value to show all items */
+  }
+  
+  .account-item {
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .account-item.selected {
+    background: rgba(0, 0, 0, 0.25); /* Darker glass effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .account-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .account-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .account-mask {
+    color: black; /* More visible account number */
+    font-size: 1em; /* Increased font size for account number */
+  }
+  
+  .account-balance {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  

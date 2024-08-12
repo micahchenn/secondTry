@@ -5,8 +5,8 @@
  */
 
 import '../Styling_Pages/App.css';
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import ProtectedRoute from '../Components/ProtectedRoute'; // Make sure to adjust the path to where your Protected_Route component is located
 import Login from './Public_Pages/LoginPage'; // Make sure to adjust the path to where your Login component is located
 import Signup from './Public_Pages/SignupPage';
@@ -29,7 +29,7 @@ import UserPremiumPage from './Private_Pages/UserPremiumPage';
 
 function HeaderWrapper() {
   const location = useLocation();
-  const isWelcomePage = location.pathname === '/welcome' || location.pathname === '/login' || location.pathname === '/signup';
+  const isWelcomePage = location.pathname === '/welcome' || location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/mywelcome';
 
   return (
     <>
@@ -37,9 +37,10 @@ function HeaderWrapper() {
       {!isWelcomePage && <Sidebar />} {/* Display Sidebar when not on welcome page */}
       <Routes>
         <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/mywelcome" element={<WelcomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/grid" element={<TestGrid />} />
+        <Route path="/grid" element={<ExternalRedirect />} /> {/* Redirect to external site */}
         <Route path="/test-langchain" element={
           <ProtectedRoute>
             <TestLangchain />
@@ -96,6 +97,14 @@ function HeaderWrapper() {
       </Routes>
     </>
   );
+}
+
+function ExternalRedirect() {
+  useEffect(() => {
+    window.location.href = 'https://harbinger.framer.website/';
+  }, []);
+  
+  return null;
 }
 
 function App() {

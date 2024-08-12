@@ -1,0 +1,42 @@
+.portfolio-chart-header {
+    text-align: left;
+    margin-bottom: 0px;
+  }
+  
+  .portfolio-summary {
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+  }
+  
+  .portfolio-chart-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .portfolio-chart-change {
+    font-size: 1.2em;
+    color: #e5e3ff; /* A cool color */
+    margin-left: 10px; /* Space between value and change */
+  }
+  
+  .portfolio-timeframe-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .portfolio-timeframe-buttons .btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    max-width: 70px; /* Adjusted to make the buttons smaller */
+  }
+  
+  .portfolio-timeframe-buttons .btn.selected {
+    background: rgba(255, 255, 255, 0.25); /* Cool glass effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  

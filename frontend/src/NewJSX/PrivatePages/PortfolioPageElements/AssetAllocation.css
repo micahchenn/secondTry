@@ -1,0 +1,50 @@
+.asset-allocation-card {
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .progress-bar-container {
+    margin-bottom: 20px;
+  }
+  
+  .overall-progress-bar {
+    height: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .progress-segment {
+    height: 100%;
+  }
+  
+  .account-breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .account-breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .account-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .account-name {
+    flex-grow: 1;
+  }
+  
+  .account-percentage, .account-amount {
+    font-size: 0.9em;
+  }
+  

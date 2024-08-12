@@ -1,6 +1,6 @@
 import React from 'react';
 import AccountCard from './AccountCard';
-import ManageAccounts from './ManageAccountsx';
+import ManageAccounts from './ManageAccounts';
 import '../CSS/AllAccountCardsPage.css';
 
 const AllAccountCardsPage = ({ accounts }) => {

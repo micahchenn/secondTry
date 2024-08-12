@@ -8,7 +8,8 @@ import {
   faBullseye,
   faBook,
   faCaretDown,
-  faCaretRight
+  faCaretRight,
+  faUserSecret // Add appropriate icon for Insider Trading
 } from '@fortawesome/free-solid-svg-icons';
 import '../../Styling_Pages/Static_Elements/Sidebar.css';
 
@@ -16,6 +17,7 @@ const Sidebar = () => {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
   const [isMarketOverviewOpen, setIsMarketOverviewOpen] = useState(false);
   const [isWatchlistOpen, setIsWatchlistOpen] = useState(false);
+  const [isInsiderTradingOpen, setIsInsiderTradingOpen] = useState(false); // State for Insider Trading section
   const location = useLocation();
 
   const handleMouseEnter = () => setIsSidebarExpanded(true);
@@ -96,6 +98,42 @@ const Sidebar = () => {
               <li className="indent-more">
                 <NavLink exact to="/watchlist/crypto" className={isActive('/watchlist/crypto') ? 'active' : ''}>
                   <span className="sidebar-text">Crypto</span>
+                </NavLink>
+              </li>
+            </ul>
+          )}
+        </li>
+
+        {isSidebarExpanded && <li className="sidebar-label">TRACK INSIDER TRADING</li>}
+        <li className="indent">
+          <div
+            className={`dropdown ${isDropdownActive(['/insider-trade-overview', '/senate-tracking', '/house-tracking', '/popular-insider-trades']) ? 'active' : ''}`}
+            onClick={() => setIsInsiderTradingOpen(!isInsiderTradingOpen)}
+          >
+            <FontAwesomeIcon icon={faUserSecret} className={`sidebar-icon ${isDropdownActive(['/insider-trade-overview', '/senate-tracking', '/house-tracking', '/popular-insider-trades']) ? 'active-icon' : ''}`} />
+            {isSidebarExpanded && <span className="sidebar-text">Insider Trading</span>}
+            {isSidebarExpanded && <FontAwesomeIcon icon={isInsiderTradingOpen ? faCaretDown : faCaretRight} className="dropdown-icon" />}
+          </div>
+          {isSidebarExpanded && isInsiderTradingOpen && (
+            <ul className="sub-menu">
+              <li className="indent-more">
+                <NavLink exact to="/insider-trade-overview" className={isActive('/insider-trade-overview') ? 'active' : ''}>
+                  <span className="sidebar-text">Overview</span>
+                </NavLink>
+              </li>
+              <li className="indent-more">
+                <NavLink exact to="/senate-tracking" className={isActive('/senate-tracking') ? 'active' : ''}>
+                  <span className="sidebar-text">Senate Tracking</span>
+                </NavLink>
+              </li>
+              <li className="indent-more">
+                <NavLink exact to="/house-tracking" className={isActive('/house-tracking') ? 'active' : ''}>
+                  <span className="sidebar-text">House Tracking</span>
+                </NavLink>
+              </li>
+              <li className="indent-more">
+                <NavLink exact to="/popular-insider-trades" className={isActive('/popular-insider-trades') ? 'active' : ''}>
+                  <span className="sidebar-text">Insider Tracking</span>
                 </NavLink>
               </li>
             </ul>

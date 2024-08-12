@@ -1,0 +1,49 @@
+.accounts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .account-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05); /* Slight background color */
+    cursor: pointer;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Transition for background and blur effect */
+  }
+  
+  .account-item:hover {
+    backdrop-filter: blur(10px); /* Apply glass effect on hover */
+    background: rgba(255, 255, 255, 0.15); /* Darker background on hover */
+  }
+  
+  .account-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .account-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .account-mask {
+    color: black; /* More visible account number */
+    font-size: 1em; /* Increased font size for account number */
+  }
+  
+  .balance {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  

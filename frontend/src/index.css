@@ -1,3 +1,71 @@
+/* src/styles/global.css */
+
+@font-face {
+  font-family: 'CInter Black';
+  src: url('../public/fonts/Inter/static/Inter-Black.ttf') format('truetype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'CInter Regular';
+  src: url('../public/fonts/Inter/static/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'CInter SemiBold';
+  src: url('../public/fonts/Inter/static/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'CInter Thin';
+  src: url('../public/fonts/Inter/static/Inter-Thin.ttf') format('truetype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'CInter Light';
+  src: url('../public/fonts/Inter/static/Inter-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'CInter ExtraLight';
+  src: url('../public/fonts/Inter/static/Inter-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'CInter Medium';
+  src: url('../public/fonts/Inter/static/Inter-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+body {
+  font-family: 'CInter Regular' 'Inter', sans-serif;
+}
+
+:root {
+  --user-grey-background-color-global: #303135;
+  --user-grey-black: #000000;
+  --user-button-color: #99999A;
+  --user-text-color: #ffffff;
+  --user-link-color: #99999A;
+
+
+  --user-gradient-green-background: linear-gradient(to right, #9c9c75, #135058)
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+
+
+
+/*
+
 body {
   margin: 0;
   padding: 0;
@@ -23,4 +91,11 @@ code {
   --background-color-global-black: #0A0B0D;
   --user-margin-left-global8: 200px;
   --user-margin-right-global8: 500px;
+
+
+
+
+  --user-grey-background-color-global: #303135;
+  --user-grey-black: #000000;
 }
+*/

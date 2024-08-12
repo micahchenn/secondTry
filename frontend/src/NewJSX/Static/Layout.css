@@ -1,0 +1,23 @@
+
+    .layout {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-placeholder {
+    width: 230px; /* Adjust to the actual width of your sidebar */
+    flex-shrink: 0;
+  }
+  
+  .header-placeholder {
+    height: 00px; /* Adjust to the actual height of your header */
+    flex-shrink: 0;
+  }
+  
+  .main-content {
+    margin-left: 230px; /* Width of the sidebar */
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  
