@@ -1,0 +1,39 @@
+/* PortfolioAnalytics.css */
+.portfolio-analytics {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .portfolio-analytics h3 {
+    margin-bottom: 15px;
+  }
+  
+  .analytics-section {
+    margin-bottom: 10px;
+  }
+  
+  .analytics-header {
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .analytics-header:hover {
+    background-color: #0056b3;
+  }
+  
+  .analytics-content {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  

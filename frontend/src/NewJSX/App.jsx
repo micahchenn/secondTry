@@ -6,10 +6,10 @@
 
 // App.jsx
 import '../Styling_Pages/App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import LoginPage from './PublicPages/LoginPage';
 import SignupPage from './PublicPages/SignupPage';
 import DashboardPage from './PrivatePages/DashboardPage'; // Import the DashboardPage
@@ -17,13 +17,20 @@ import LinkAccount from './PrivatePages/LinkAccount';
 import ProtectedRoute from '../Components/ProtectedRoute'; // Import the ProtectedRoute component
 import HeaderWrapper from './Static/HeaderWrapper'; // Import HeaderWrapper
 import PortfolioPage from './PrivatePages/PortfolioPage';
-
 import ManageAccount from './PrivatePages/ManageAccount';
 import 'normalize.css';
 import './Static/Global.css'; // Import the global CSS file
-
-
 import UpdateDaily from './Admin/UpdateDaily';
+
+function RedirectToHarbinger() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.location.href = 'https://harbinger.framer.website';
+  }, [navigate]);
+
+  return null;
+}
 
 function App() {
   return (
@@ -39,7 +46,7 @@ function App() {
           <Route path="/Update" element={<ProtectedRoute><UpdateDaily /></ProtectedRoute>} />
           <Route path="/accounts" element={<ProtectedRoute><ManageAccount /></ProtectedRoute>} />
           
-          <Route path="/" element={<LoginPage />} /> {/* Default route */}
+          <Route path="/" element={<RedirectToHarbinger />} /> {/* Default route */}
         </Routes>
       </div>
     </Router>
